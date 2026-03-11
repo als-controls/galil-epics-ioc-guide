@@ -11,8 +11,16 @@ Start here: [docs/index.md](docs/index.md)
 ## Building Locally
 
 ```bash
+python3 -m venv venv
+source venv/bin/activate
 pip install mkdocs mkdocs-material
 mkdocs serve
 ```
 
 Then open http://127.0.0.1:8000.
+
+To build static HTML into the `site/` directory:
+
+```bash
+mkdocs build
+```
