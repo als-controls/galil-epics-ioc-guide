@@ -1,0 +1,23 @@
+# MkDocs build output
+site/
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# Cloned source repo (reference only, not part of the manual)
+Galil/
+
+# Galil hardware PDFs (reference only, not distributable)
+*.pdf
+
+# IDE
+.idea/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db

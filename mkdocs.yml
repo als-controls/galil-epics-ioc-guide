@@ -1,0 +1,41 @@
+site_name: Galil EPICS IOC User's Guide
+site_description: User's guide for Mark Clift's Galil EPICS IOC (motorapp/Galil)
+site_author: ""
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+  features:
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - content.tabs.link
+
+markdown_extensions:
+  - tables
+  - admonitions
+  - attr_list
+  - def_list
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+nav:
+  - Home: index.md
+  - Architecture: architecture.md
+  - IOC Configuration: ioc-configuration.md
+  - Controller PVs: controller-pvs.md
+  - Motor Axis PVs: motor-axis-pvs.md
+  - Coordinate System PVs: coordinate-system-pvs.md
+  - Analog I/O PVs: analog-io-pvs.md
+  - Digital I/O PVs: digital-io-pvs.md
+  - Profile/Trajectory PVs: profile-trajectory-pvs.md
+  - Amplifier Status PVs: amplifier-status-pvs.md
+  - User-Defined Records & Arrays: user-defined-records.md
+  - Data Record & Polling: data-record-polling.md
+  - "Appendix: Galil Command Reference": galil-command-reference.md
