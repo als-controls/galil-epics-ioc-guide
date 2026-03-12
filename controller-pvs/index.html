@@ -870,6 +870,7 @@
 <th>PV Suffix</th>
 <th>Record Type</th>
 <th>asyn drvInfo</th>
+<th>Galil Cmd</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -878,78 +879,90 @@
 <td><code>DRIVER_MON</code></td>
 <td>stringin</td>
 <td><code>CONTROLLER_DRIVER</code></td>
-<td>Driver version string</td>
+<td>--</td>
+<td>Driver version string (set internally by driver)</td>
 </tr>
 <tr>
 <td><code>MODEL_MON</code></td>
 <td>stringin</td>
 <td><code>CONTROLLER_MODEL</code></td>
-<td>Controller model (e.g. "DMC4143"). Galil <code>ID</code> command</td>
+<td>RV</td>
+<td>Controller model (e.g. "DMC4143"). Queried at connection via binary RV command</td>
 </tr>
 <tr>
 <td><code>ADDRESS_MON</code></td>
 <td>stringin</td>
 <td><code>CONTROLLER_ADDRESS</code></td>
-<td>Controller address (IP or serial port)</td>
+<td>--</td>
+<td>Controller address (from <code>GalilCreateController</code> parameter)</td>
 </tr>
 <tr>
 <td><code>ETHADDR_MON</code></td>
 <td>stringin</td>
 <td><code>CONTROLLER_ETHADDR</code></td>
-<td>Ethernet MAC address</td>
+<td>TH</td>
+<td>Ethernet MAC address. Parsed from TH (Tell Ethernet Handle) response</td>
 </tr>
 <tr>
 <td><code>SERIALNUM_MON</code></td>
 <td>stringin</td>
 <td><code>CONTROLLER_SERIALNUM</code></td>
-<td>Controller serial number</td>
+<td>MG _BN</td>
+<td>Controller serial number. Queried via MG _BN (Message, internal variable)</td>
 </tr>
 <tr>
 <td><code>COMMERR_STATUS</code></td>
 <td>bi</td>
 <td><code>CONTROLLER_COMMERR</code></td>
-<td>Communication error. 0 = OK, 1 = Error (MAJOR alarm)</td>
+<td>--</td>
+<td>Communication error. 0 = OK, 1 = Error (MAJOR alarm). Driver-internal status</td>
 </tr>
 <tr>
 <td><code>START_STATUS</code></td>
 <td>bi</td>
 <td><code>CONTROLLER_START</code></td>
-<td>Startup status. 0 = Error (MAJOR alarm), 1 = OK</td>
+<td>--</td>
+<td>Startup status. 0 = Error (MAJOR alarm), 1 = OK. Driver-internal status</td>
 </tr>
 <tr>
 <td><code>SSICAPABLE_STATUS</code></td>
 <td>bi</td>
 <td><code>CONTROLLER_SSICAPABLE</code></td>
-<td>SSI encoder capable (based on firmware/hardware)</td>
+<td>SIA, SIE</td>
+<td>SSI encoder capable (determined from model string and SIA=?/SIE=? queries)</td>
 </tr>
 <tr>
 <td><code>BISSCAPABLE_STATUS</code></td>
 <td>bi</td>
 <td><code>CONTROLLER_BISSCAPABLE</code></td>
-<td>BiSS encoder capable</td>
+<td>SSA, SSE</td>
+<td>BiSS encoder capable (determined from model string and SSA=?/SSE=? queries)</td>
 </tr>
 <tr>
 <td><code>PVTCAPABLE_STATUS</code></td>
 <td>bi</td>
 <td><code>CONTROLLER_PVTCAPABLE</code></td>
-<td>PVT trajectory capable</td>
+<td>--</td>
+<td>PVT trajectory capable (determined from model string: 30xx/40xx/50xx series)</td>
 </tr>
 <tr>
 <td><code>ECATCAPABLE_STATUS</code></td>
 <td>bi</td>
 <td><code>CONTROLLER_ECATCAPABLE</code></td>
-<td>EtherCat capable</td>
+<td>--</td>
+<td>EtherCat capable (determined from model string: 50xx series)</td>
 </tr>
 </tbody>
 </table>
 <h3 id="switch-configuration">Switch Configuration<a class="headerlink" href="#switch-configuration" title="Permanent link">&para;</a></h3>
-<p>These PVs configure how the controller interprets limit and home switches. They map to the Galil <code>CN</code> (Configure) command.</p>
+<p>These PVs configure how the controller interprets limit and home switches. They all map to the Galil <code>CN</code> (Configure) command.</p>
 <table>
 <thead>
 <tr>
 <th>PV Suffix</th>
 <th>Record Type</th>
 <th>asyn drvInfo</th>
+<th>Galil Cmd</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -958,48 +971,55 @@
 <td><code>LIMITTYPE_CMD</code></td>
 <td>bo</td>
 <td><code>CONTROLLER_LIMITTYPE</code></td>
+<td>CN</td>
 <td>Set limit switch type: NO (normally open) or NC (normally closed)</td>
 </tr>
 <tr>
 <td><code>LIMITTYPE_STATUS</code></td>
 <td>bi</td>
 <td><code>CONTROLLER_LIMITTYPE</code></td>
+<td>MG _CN0</td>
 <td>Readback of limit switch type</td>
 </tr>
 <tr>
 <td><code>HOMETYPE_CMD</code></td>
 <td>bo</td>
 <td><code>CONTROLLER_HOMETYPE</code></td>
+<td>CN</td>
 <td>Set home switch type: NO or NC</td>
 </tr>
 <tr>
 <td><code>HOMETYPE_STATUS</code></td>
 <td>bi</td>
 <td><code>CONTROLLER_HOMETYPE</code></td>
+<td>CN</td>
 <td>Readback of home switch type</td>
 </tr>
 <tr>
 <td><code>HOMEEDGE_CMD</code></td>
 <td>bo</td>
 <td><code>CONTROLLER_HOMEEDGE</code></td>
+<td>CN</td>
 <td>Home edge: Reverse or Forward</td>
 </tr>
 <tr>
 <td><code>HOMEEDGE_STATUS</code></td>
 <td>bi</td>
 <td><code>CONTROLLER_HOMEEDGE</code></td>
+<td>CN</td>
 <td>Readback of home edge</td>
 </tr>
 </tbody>
 </table>
 <h3 id="ethercat">EtherCat<a class="headerlink" href="#ethercat" title="Permanent link">&para;</a></h3>
-<p>These PVs control and monitor the EtherCat network interface, available on controllers with EtherCat hardware.</p>
+<p>These PVs control and monitor the EtherCat network interface, available on controllers with EtherCat hardware (50xx series).</p>
 <table>
 <thead>
 <tr>
 <th>PV Suffix</th>
 <th>Record Type</th>
 <th>asyn drvInfo</th>
+<th>Galil Cmd</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -1008,30 +1028,34 @@
 <td><code>ECATNETWORK_CMD</code></td>
 <td>bo</td>
 <td><code>CONTROLLER_ECAT_NETWORK</code></td>
-<td>Enable or disable the EtherCat network</td>
+<td>EU</td>
+<td>Enable (<code>EU1</code>) or disable (<code>EU0</code>) the EtherCat network</td>
 </tr>
 <tr>
 <td><code>ECATNETWORK_STATUS</code></td>
 <td>bi</td>
 <td><code>CONTROLLER_ECAT_NETWORK</code></td>
+<td>MG _EU0</td>
 <td>EtherCat network status</td>
 </tr>
 <tr>
 <td><code>ECATFLT_STATUS</code></td>
 <td>ai</td>
 <td><code>CONTROLLER_ECAT_FAULT</code></td>
+<td>--</td>
 <td>EtherCat fault code (polled at 1 second)</td>
 </tr>
 </tbody>
 </table>
 <h3 id="deferred-moves">Deferred Moves<a class="headerlink" href="#deferred-moves" title="Permanent link">&para;</a></h3>
-<p>Deferred moves allow multiple axes to start simultaneously. When deferred mode is active, the Galil <code>BG</code> (Begin) command is held until the mode is set back to Go.</p>
+<p>Deferred moves allow multiple axes to start simultaneously. When deferred mode is active, move commands are buffered. The Galil <code>BG</code> (Begin) command is issued when the mode is set back to Go.</p>
 <table>
 <thead>
 <tr>
 <th>PV Suffix</th>
 <th>Record Type</th>
 <th>asyn drvInfo</th>
+<th>Galil Cmd</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -1040,24 +1064,28 @@
 <td><code>DEFER_CMD</code></td>
 <td>bo</td>
 <td><code>MOTOR_DEFER_MOVES</code></td>
-<td>Set deferred mode: Go (execute immediately) or Defer (buffer moves). Issues the <code>BG</code> command when set to Go</td>
+<td>BG</td>
+<td>Set deferred mode: Go (execute immediately) or Defer (buffer moves). Issues BG (Begin) with axes or coordinate system when set to Go</td>
 </tr>
 <tr>
 <td><code>DEFER_STATUS</code></td>
 <td>bi</td>
 <td><code>MOTOR_DEFER_MOVES</code></td>
-<td>Deferred moves status</td>
+<td>--</td>
+<td>Deferred moves status (driver-internal)</td>
 </tr>
 <tr>
 <td><code>DEFER_MODE_CMD</code></td>
 <td>bo</td>
 <td><code>CONTROLLER_DEFERRED_MODE</code></td>
-<td>Deferred mode: "Sync start only" or "Sync start/stop". When set to "Sync start/stop", the <code>ST</code> (Stop) command is also deferred</td>
+<td>--</td>
+<td>Deferred mode: "Sync start only" or "Sync start/stop". When set to "Sync start/stop", the ST (Stop) command is also deferred. Driver-internal setting</td>
 </tr>
 <tr>
 <td><code>DEFER_MODE_STATUS</code></td>
 <td>bi</td>
 <td><code>CONTROLLER_DEFERRED_MODE</code></td>
+<td>--</td>
 <td>Deferred mode readback</td>
 </tr>
 </tbody>
@@ -1069,6 +1097,7 @@
 <th>PV Suffix</th>
 <th>Record Type</th>
 <th>asyn drvInfo</th>
+<th>Galil Cmd</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -1077,12 +1106,14 @@
 <td><code>COORDSYS_CMD</code></td>
 <td>bo</td>
 <td><code>COORDINATE_SYSTEM</code></td>
-<td>Select active coordinate system: S or T. Galil <code>CS</code> (Clear Sequence) command</td>
+<td>CA</td>
+<td>Select active coordinate system: S or T. Issues CA (Coordinate Axes define)</td>
 </tr>
 <tr>
 <td><code>COORDSYS_STATUS</code></td>
 <td>bi</td>
 <td><code>COORDINATE_SYSTEM</code></td>
+<td>MG _CA</td>
 <td>Active coordinate system readback</td>
 </tr>
 </tbody>
@@ -1095,6 +1126,7 @@
 <th>PV Suffix</th>
 <th>Record Type</th>
 <th>asyn drvInfo</th>
+<th>Galil Cmd</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -1103,79 +1135,92 @@
 <td><code>OC1START_CMD</code></td>
 <td>ao</td>
 <td><code>OUTPUT_COMPARE_START</code> (addr 0)</td>
+<td>OC</td>
 <td>Output compare 1 start position</td>
 </tr>
 <tr>
 <td><code>OC1START_MON</code></td>
 <td>ai</td>
 <td><code>OUTPUT_COMPARE_START</code> (addr 0)</td>
+<td>OC</td>
 <td>Readback</td>
 </tr>
 <tr>
 <td><code>OC1INCR_CMD</code></td>
 <td>ao</td>
 <td><code>OUTPUT_COMPARE_INCR</code> (addr 0)</td>
+<td>OC</td>
 <td>Output compare 1 increment</td>
 </tr>
 <tr>
 <td><code>OC1INCR_MON</code></td>
 <td>ai</td>
 <td><code>OUTPUT_COMPARE_INCR</code> (addr 0)</td>
+<td>OC</td>
 <td>Readback</td>
 </tr>
 <tr>
 <td><code>OC1AXIS_CMD</code></td>
 <td>mbbo</td>
 <td><code>OUTPUT_COMPARE_AXIS</code> (addr 0)</td>
+<td>OC</td>
 <td>Output compare 1 axis: OFF, A, B, C, D</td>
 </tr>
 <tr>
 <td><code>OC1AXIS_STATUS</code></td>
 <td>mbbi</td>
 <td><code>OUTPUT_COMPARE_AXIS</code> (addr 0)</td>
+<td>OC</td>
 <td>Readback</td>
 </tr>
 <tr>
 <td><code>OC2START_CMD</code></td>
 <td>ao</td>
 <td><code>OUTPUT_COMPARE_START</code> (addr 1)</td>
+<td>OC</td>
 <td>Output compare 2 start position</td>
 </tr>
 <tr>
 <td><code>OC2START_MON</code></td>
 <td>ai</td>
 <td><code>OUTPUT_COMPARE_START</code> (addr 1)</td>
+<td>OC</td>
 <td>Readback</td>
 </tr>
 <tr>
 <td><code>OC2INCR_CMD</code></td>
 <td>ao</td>
 <td><code>OUTPUT_COMPARE_INCR</code> (addr 1)</td>
+<td>OC</td>
 <td>Output compare 2 increment</td>
 </tr>
 <tr>
 <td><code>OC2INCR_MON</code></td>
 <td>ai</td>
 <td><code>OUTPUT_COMPARE_INCR</code> (addr 1)</td>
+<td>OC</td>
 <td>Readback</td>
 </tr>
 <tr>
 <td><code>OC2AXIS_CMD</code></td>
 <td>mbbo</td>
 <td><code>OUTPUT_COMPARE_AXIS</code> (addr 1)</td>
+<td>OC</td>
 <td>Output compare 2 axis: OFF, E, F, G, H</td>
 </tr>
 <tr>
 <td><code>OC2AXIS_STATUS</code></td>
 <td>mbbi</td>
 <td><code>OUTPUT_COMPARE_AXIS</code> (addr 1)</td>
+<td>OC</td>
 <td>Readback</td>
 </tr>
 <tr>
 <td><code>OCMESSAGE_MON</code></td>
 <td>waveform</td>
 <td><code>OUTPUT_COMPARE_MESSAGE</code></td>
-<td>Output compare status message</td>
+<td>--</td>
+<td>Output compare status message (driver-internal)</td>
 </tr>
 </tbody>
 </table>
@@ -1186,6 +1231,7 @@
 <th>PV Suffix</th>
 <th>Record Type</th>
 <th>asyn drvInfo</th>
+<th>Galil Cmd</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -1194,12 +1240,14 @@
 <td><code>UPLOAD_CMD</code></td>
 <td>bo</td>
 <td><code>CONTROLLER_UARRAY_UPLOAD</code></td>
-<td>Trigger upload of user arrays from controller. Galil <code>QU</code> (Upload Array) command</td>
+<td>QU</td>
+<td>Trigger upload of user arrays from controller. Issues QU (Upload Array) for each array</td>
 </tr>
 <tr>
 <td><code>UPLOAD_STATUS</code></td>
 <td>bi</td>
 <td><code>CONTROLLER_UARRAY_UPLOAD</code></td>
+<td>--</td>
 <td>Upload status: Idle or Uploading</td>
 </tr>
 </tbody>
@@ -1211,6 +1259,7 @@
 <th>PV Suffix</th>
 <th>Record Type</th>
 <th>asyn drvInfo</th>
+<th>Galil Cmd</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -1219,7 +1268,8 @@
 <td><code>ERROR_MON</code></td>
 <td>waveform</td>
 <td><code>CONTROLLER_ERROR</code></td>
-<td>Controller error message (256-character waveform)</td>
+<td>--</td>
+<td>Controller error message (256-character waveform). Driver-internal status buffer</td>
 </tr>
 </tbody>
 </table>
@@ -1231,6 +1281,7 @@
 <th>PV Suffix</th>
 <th>Record Type</th>
 <th>asyn drvInfo</th>
+<th>Galil Cmd</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -1239,18 +1290,21 @@
 <td><code>SEND_STR_CMD</code></td>
 <td>stringout</td>
 <td><code>USER_OCTET</code></td>
+<td>(any)</td>
 <td>Send any Galil command string to the controller</td>
 </tr>
 <tr>
 <td><code>SEND_STR_MON</code></td>
 <td>waveform</td>
 <td><code>USER_OCTET</code></td>
+<td>(any)</td>
 <td>Response string from the last command (256-character waveform)</td>
 </tr>
 <tr>
 <td><code>SEND_STRVAL_MON</code></td>
 <td>ai</td>
 <td><code>USER_OCTET_VAL</code></td>
+<td>(any)</td>
 <td>Numeric value parsed from the last command response</td>
 </tr>
 </tbody>
@@ -1262,6 +1316,7 @@
 <th>PV Suffix</th>
 <th>Record Type</th>
 <th>asyn drvInfo</th>
+<th>Galil Cmd</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -1270,7 +1325,8 @@
 <td><code>CLEARAMPFAULTS_CMD</code></td>
 <td>bo</td>
 <td><code>CONTROLLER_CLEARAMPFAULTS</code></td>
-<td>Clear amplifier faults. Galil <code>AZ</code> (Clear Latched Amplifier Errors) command</td>
+<td>AZ</td>
+<td>Clear amplifier faults. Issues AZ1 (Clear Latched Amplifier Errors, all amps). 40xx/41xx series only</td>
 </tr>
 </tbody>
 </table>
@@ -1288,7 +1344,7 @@
 <code>ERROR_MON</code></p>
 <p><strong>Command Console:</strong>
 <code>SEND_STR_CMD</code>, <code>SEND_STR_MON</code>, <code>SEND_STRVAL_MON</code></p>
-<p>These PVs have the same record types, asyn drvInfo strings, and behavior as their DMC counterparts described above.</p>
+<p>These PVs have the same record types, asyn drvInfo strings, Galil commands, and behavior as their DMC counterparts described above.</p>
 <h3 id="features-not-available-on-rio">Features Not Available on RIO<a class="headerlink" href="#features-not-available-on-rio" title="Permanent link">&para;</a></h3>
 <p>The following DMC features are not present in the RIO template:</p>
 <ul>

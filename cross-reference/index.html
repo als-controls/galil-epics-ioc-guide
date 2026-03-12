@@ -730,7 +730,7 @@
 </tr>
 <tr>
 <td><code>BISSCAPABLE_STATUS</code></td>
-<td>—</td>
+<td><a href="../galil-command-reference/#absolute-encoders">SSA, SSE</a></td>
 <td><a href="../controller-pvs/">Controller PVs</a></td>
 </tr>
 <tr>
@@ -750,12 +750,12 @@
 </tr>
 <tr>
 <td><code>COORDSYS_CMD</code></td>
-<td><a href="../galil-command-reference/#coordinate-system-trajectory">CS</a></td>
+<td><a href="../galil-command-reference/#coordinate-system-trajectory">CA</a></td>
 <td><a href="../controller-pvs/">Controller PVs</a></td>
 </tr>
 <tr>
 <td><code>COORDSYS_STATUS</code></td>
-<td><a href="../galil-command-reference/#coordinate-system-trajectory">CS</a></td>
+<td><a href="../galil-command-reference/#coordinate-system-trajectory">CA</a></td>
 <td><a href="../controller-pvs/">Controller PVs</a></td>
 </tr>
 <tr>
@@ -795,12 +795,12 @@
 </tr>
 <tr>
 <td><code>ECATNETWORK_CMD</code></td>
-<td>—</td>
+<td>EU</td>
 <td><a href="../controller-pvs/">Controller PVs</a></td>
 </tr>
 <tr>
 <td><code>ECATNETWORK_STATUS</code></td>
-<td>—</td>
+<td>EU</td>
 <td><a href="../controller-pvs/">Controller PVs</a></td>
 </tr>
 <tr>
@@ -810,7 +810,7 @@
 </tr>
 <tr>
 <td><code>ETHADDR_MON</code></td>
-<td>—</td>
+<td>TH</td>
 <td><a href="../controller-pvs/">Controller PVs</a></td>
 </tr>
 <tr>
@@ -865,7 +865,7 @@
 </tr>
 <tr>
 <td><code>MODEL_MON</code></td>
-<td><a href="../galil-command-reference/#communication-system">ID</a></td>
+<td><a href="../galil-command-reference/#communication-system">RV</a></td>
 <td><a href="../controller-pvs/">Controller PVs</a></td>
 </tr>
 <tr>
@@ -970,12 +970,12 @@
 </tr>
 <tr>
 <td><code>SERIALNUM_MON</code></td>
-<td>—</td>
+<td>MG _BN</td>
 <td><a href="../controller-pvs/">Controller PVs</a></td>
 </tr>
 <tr>
 <td><code>SSICAPABLE_STATUS</code></td>
-<td>—</td>
+<td><a href="../galil-command-reference/#absolute-encoders">SIA, SIE</a></td>
 <td><a href="../controller-pvs/">Controller PVs</a></td>
 </tr>
 <tr>
@@ -1793,7 +1793,7 @@
 <td><a href="../controller-pvs/">Controller PVs</a></td>
 </tr>
 <tr>
-<td><a href="../galil-command-reference/#coordinate-system-trajectory">CS</a></td>
+<td><a href="../galil-command-reference/#coordinate-system-trajectory">CA</a></td>
 <td><code>COORDSYS_CMD</code>, <code>COORDSYS_STATUS</code></td>
 <td><a href="../controller-pvs/">Controller PVs</a></td>
 </tr>
@@ -1801,6 +1801,11 @@
 <td><a href="../galil-command-reference/#pid-servo-tuning">ER</a></td>
 <td><code>_ERRLIMIT_SP</code>, <code>_ERRLIMIT_MON</code></td>
 <td><a href="../motor-axis-pvs/">Motor Axis PVs</a></td>
+</tr>
+<tr>
+<td>EU</td>
+<td><code>ECATNETWORK_CMD</code>, <code>ECATNETWORK_STATUS</code></td>
+<td><a href="../controller-pvs/">Controller PVs</a></td>
 </tr>
 <tr>
 <td><a href="../galil-command-reference/#motion-commands">FE</a></td>
@@ -1816,11 +1821,6 @@
 <td><a href="../galil-command-reference/#motion-commands">HM</a></td>
 <td><code>_HOMF_CMD</code>, <code>_HOMR_CMD</code> (via generated home code)</td>
 <td><a href="../motor-axis-pvs/">Motor Axis PVs</a></td>
-</tr>
-<tr>
-<td><a href="../galil-command-reference/#communication-system">ID</a></td>
-<td><code>MODEL_MON</code></td>
-<td><a href="../controller-pvs/">Controller PVs</a></td>
 </tr>
 <tr>
 <td><a href="../galil-command-reference/#io-commands">@IN</a></td>
@@ -1878,6 +1878,11 @@
 <td><a href="../controller-pvs/">Controller PVs</a>, <a href="../user-defined-records/">User-Defined Records</a></td>
 </tr>
 <tr>
+<td><a href="../galil-command-reference/#communication-system">RV</a></td>
+<td><code>MODEL_MON</code></td>
+<td><a href="../controller-pvs/">Controller PVs</a></td>
+</tr>
+<tr>
 <td><a href="../galil-command-reference/#io-commands">SB</a></td>
 <td><code>_AUTOBRAKE_CMD</code>, <code>_BRAKE_STATUS</code>, <code>_CMD</code> (Digital Out)</td>
 <td><a href="../motor-axis-pvs/">Motor Axis PVs</a>, <a href="../digital-io-pvs/">Digital I/O PVs</a></td>
@@ -1911,6 +1916,11 @@
 <td><a href="../galil-command-reference/#status-query">TA</a></td>
 <td><code>_HALLERROR_STATUS</code>, <code>_OVERCURRENT_STATUS</code>, <code>_UNDERVOLTAGE_STATUS</code>, <code>_OVERVOLTAGE_STATUS</code>, <code>_OVERTEMPERATURE_STATUS</code>, <code>_ELO_STATUS</code></td>
 <td><a href="../motor-axis-pvs/">Motor Axis PVs</a>, <a href="../amplifier-status-pvs/">Amplifier Status PVs</a></td>
+</tr>
+<tr>
+<td>TH</td>
+<td><code>ETHADDR_MON</code></td>
+<td><a href="../controller-pvs/">Controller PVs</a></td>
 </tr>
 <tr>
 <td><a href="../galil-command-reference/#motor-configuration">YA</a></td>
