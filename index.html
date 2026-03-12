@@ -411,6 +411,33 @@
   
   
     <li class="md-nav__item">
+      <a href="networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="controller-pvs/" class="md-nav__link">
         
   
@@ -725,8 +752,9 @@
 <hr />
 <h2 id="where-to-start">Where to Start<a class="headerlink" href="#where-to-start" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Setting up an IOC?</strong> Start with <a href="ioc-configuration/">IOC Configuration</a> for startup commands and database loading, then <a href="controller-pvs/">Controller PVs</a> for controller-level settings.</li>
-<li><strong>Configuring motors?</strong> Go straight to <a href="motor-axis-pvs/">Motor Axis PVs</a> — it covers the standard motor record mapping plus all Galil-specific extras (motor type, encoder setup, PID, homing, limits).</li>
+<li><strong>Setting up an IOC?</strong> Start with <a href="ioc-configuration/">IOC Configuration</a> for build requirements, startup commands, substitution file examples, and database loading.</li>
+<li><strong>Networking issues?</strong> See <a href="networking/">Networking</a> for network topology recommendations, controller IP configuration, and troubleshooting connection dropouts.</li>
+<li><strong>Configuring motors?</strong> Go straight to <a href="motor-axis-pvs/">Motor Axis PVs</a> -- it covers the standard motor record mapping plus all Galil-specific extras (motor type, encoder setup, PID, homing, limits).</li>
 <li><strong>Want the big picture first?</strong> Read <a href="architecture/">Architecture</a> for the communication flow, class structure, and how data records work.</li>
 <li><strong>Looking up a specific PV or Galil command?</strong> The <a href="cross-reference/">Cross Reference</a> maps PVs to commands and commands to PVs. The <a href="galil-command-reference/">Galil Command Reference</a> appendix has detailed descriptions of every 2-letter code.</li>
 <li><strong>Debugging polling or update rates?</strong> See <a href="data-record-polling/">Data Record &amp; Polling</a> for async UDP vs synchronous TCP and what comes from data records versus direct commands.</li>
@@ -747,7 +775,11 @@
 </tr>
 <tr>
 <td><a href="ioc-configuration/">IOC Configuration</a></td>
-<td>Startup script commands, <code>GalilCreateController</code> arguments, axis configuration, and <code>autosave</code> integration.</td>
+<td>Build requirements, startup commands, substitution file examples, autosave integration, and database loading.</td>
+</tr>
+<tr>
+<td><a href="networking/">Networking</a></td>
+<td>Network topology recommendations, controller IP configuration, broadcast blocking, and troubleshooting.</td>
 </tr>
 <tr>
 <td><a href="controller-pvs/">Controller PVs</a></td>

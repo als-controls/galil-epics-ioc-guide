@@ -11,10 +11,10 @@
       
       
       
-        <link rel="prev" href="../profile-trajectory-pvs/">
+        <link rel="prev" href="../ioc-configuration/">
       
       
-        <link rel="next" href="../user-defined-records/">
+        <link rel="next" href="../controller-pvs/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Amplifier Status PVs - Galil EPICS IOC User's Guide</title>
+        <title>Networking - Galil EPICS IOC User's Guide</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#amplifier-status-pvs" class="md-skip">
+        <a href="#networking" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Amplifier Status PVs
+              Networking
             
           </span>
         </div>
@@ -302,10 +302,37 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../networking/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -321,6 +348,209 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#network-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Topology
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Topology">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#separate-private-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Separate Private Network
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configured-private-network-vlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configured Private Network (VLAN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open Network
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#half-duplex-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Half-Duplex Considerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controller-network-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controller Network Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Controller Network Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#master-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Master Reset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disable-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disable DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assign-a-static-ip-address" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assign a Static IP Address
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#block-broadcast-traffic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Block Broadcast Traffic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#block-low-ports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Block Low Ports
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cannot-connect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cannot Connect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controller-lockup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controller Lockup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connection-dropouts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection Dropouts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -491,37 +721,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Amplifier Status PVs
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../amplifier-status-pvs/" class="md-nav__link">
         
   
   
@@ -537,37 +740,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#quad-amplifier-status" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quad Amplifier Status
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -697,60 +869,98 @@
 
 
 
-<h1 id="amplifier-status-pvs">Amplifier Status PVs<a class="headerlink" href="#amplifier-status-pvs" title="Permanent link">&para;</a></h1>
-<p>For Galil controllers with internal amplifiers (AMP/SDM options), the IOC monitors amplifier health. Status is derived from the Galil <code>TA</code> (Tell Amplifier error status) command bits, parsed from the data record.</p>
-<h2 id="quad-amplifier-status">Quad Amplifier Status<a class="headerlink" href="#quad-amplifier-status" title="Permanent link">&para;</a></h2>
-<p>Template: <code>galil_quadAmpStatus.template</code></p>
-<p>PV pattern: <code>$(P)$(AMP)_</code> where <code>AMP</code> is the amplifier bank name. ADDR maps to the amplifier bank.</p>
-<table>
-<thead>
-<tr>
-<th>PV Suffix</th>
-<th>Record Type</th>
-<th>asyn drvInfo</th>
-<th>Galil Cmd</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>_OVERCURRENT_STATUS</code></td>
-<td>bi</td>
-<td>AMP_OVERCURRENT_STATUS</td>
-<td>TA bit, data record</td>
-<td>Overcurrent fault (MAJOR alarm)</td>
-</tr>
-<tr>
-<td><code>_UNDERVOLTAGE_STATUS</code></td>
-<td>bi</td>
-<td>AMP_UNDERVOLTAGE_STATUS</td>
-<td>TA bit, data record</td>
-<td>Undervoltage fault (MAJOR alarm)</td>
-</tr>
-<tr>
-<td><code>_OVERVOLTAGE_STATUS</code></td>
-<td>bi</td>
-<td>AMP_OVERVOLTAGE_STATUS</td>
-<td>TA bit, data record</td>
-<td>Overvoltage fault (MAJOR alarm)</td>
-</tr>
-<tr>
-<td><code>_OVERTEMPERATURE_STATUS</code></td>
-<td>bi</td>
-<td>AMP_OVERTEMPERATURE_STATUS</td>
-<td>TA bit, data record</td>
-<td>Overtemperature fault (MAJOR alarm)</td>
-</tr>
-<tr>
-<td><code>_ELO_STATUS</code></td>
-<td>bi</td>
-<td>AMP_ELO_STATUS</td>
-<td>TA bit, data record</td>
-<td>Electronic lockout active (MAJOR alarm)</td>
-</tr>
-</tbody>
-</table>
-<p>All status PVs use I/O Intr scanning and transition to MAJOR alarm severity on fault. To clear latched faults, use the controller-level <code>CLEARAMPFAULTS_CMD</code> PV, which issues the Galil <code>AZ</code> (Clear Latched Amplifier Errors) command.</p>
+<h1 id="networking">Networking<a class="headerlink" href="#networking" title="Permanent link">&para;</a></h1>
+<p>This section covers network topology recommendations and controller network configuration for Galil EPICS IOC deployments.</p>
+<h2 id="network-topology">Network Topology<a class="headerlink" href="#network-topology" title="Permanent link">&para;</a></h2>
+<p>The network between the IOC and the Galil controllers should be a private network. Galil controllers are embedded devices with limited network stacks, and excessive broadcast traffic or contention on shared networks can cause communication dropouts or controller lockups.</p>
+<p>Three topologies are described below, in order of preference.</p>
+<h3 id="separate-private-network">Separate Private Network<a class="headerlink" href="#separate-private-network" title="Permanent link">&para;</a></h3>
+<p>This is the recommended topology, especially for older controllers that only support half-duplex communication (DMC-21x3, MC8000).</p>
+<p>The IOC host has two network interface cards (NICs):</p>
+<ul>
+<li><strong>NIC 1</strong> connects to the facility or beamline network for EPICS Channel Access traffic.</li>
+<li><strong>NIC 2</strong> connects to a dedicated layer-2/3 switch on a private subnet (e.g. <code>192.168.94.0/24</code>). All Galil controllers connect to this switch.</li>
+</ul>
+<p>This provides complete isolation between Galil traffic and other network activity. The dedicated switch also provides half-duplex support if needed by older controllers.</p>
+<h3 id="configured-private-network-vlan">Configured Private Network (VLAN)<a class="headerlink" href="#configured-private-network-vlan" title="Permanent link">&para;</a></h3>
+<p>If a second switch is not practical, configure a group of ports on the beamline switch as a separate private VLAN. The IOC's second NIC and all Galil controllers connect to ports assigned to this VLAN.</p>
+<p>This provides logical isolation without additional hardware, but requires switch management access.</p>
+<h3 id="open-network">Open Network<a class="headerlink" href="#open-network" title="Permanent link">&para;</a></h3>
+<p>When a private network is not possible, controllers can be placed directly on the shared network. This is the least reliable option and should be combined with the broadcast blocking and port blocking procedures described below to reduce dropout risk.</p>
+<h3 id="half-duplex-considerations">Half-Duplex Considerations<a class="headerlink" href="#half-duplex-considerations" title="Permanent link">&para;</a></h3>
+<p>Older Galil controllers (DMC-21x3, MC8000) only support half-duplex Ethernet. Some modern managed switches no longer support half-duplex negotiation. If you are using these controllers, the separate private network topology with a switch that supports half-duplex is required.</p>
+<hr />
+<h2 id="controller-network-configuration">Controller Network Configuration<a class="headerlink" href="#controller-network-configuration" title="Permanent link">&para;</a></h2>
+<p>These procedures use the Galil Design Kit (GDK) software. Ensure no host firewall is active during configuration.</p>
+<h3 id="master-reset">Master Reset<a class="headerlink" href="#master-reset" title="Permanent link">&para;</a></h3>
+<p>Before initial configuration, perform a master reset using one of the following methods:</p>
+<ol>
+<li>Connect to the controller using GDK, open a terminal window, and issue the master reset command: <code>^R^S</code></li>
+<li>Use the hardware master reset jumper on the controller board.</li>
+</ol>
+<h3 id="disable-dhcp">Disable DHCP<a class="headerlink" href="#disable-dhcp" title="Permanent link">&para;</a></h3>
+<p>Newer Galil controllers ship with DHCP enabled, and a master reset also re-enables DHCP. For IOC use, controllers should have static IP addresses.</p>
+<ol>
+<li>Connect to the controller using GDK.</li>
+<li>Issue <code>DH0</code> to disable DHCP.</li>
+<li>Issue <code>BN</code> to burn the setting to EEPROM (only if the connection is still active after step 2).</li>
+</ol>
+<h3 id="assign-a-static-ip-address">Assign a Static IP Address<a class="headerlink" href="#assign-a-static-ip-address" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Ensure the configuration host has an IP address on the same subnet as the target address for the controller.</li>
+<li>In GDK, press Ctrl-G to open the manager, then click "Available Addresses."</li>
+<li>Search for controllers with no IP address.</li>
+<li>Assign the desired static IP address.</li>
+</ol>
+<p>The IP address is burned to controller EEPROM automatically.</p>
+<h3 id="block-broadcast-traffic">Block Broadcast Traffic<a class="headerlink" href="#block-broadcast-traffic" title="Permanent link">&para;</a></h3>
+<p>If connection dropouts occur, especially on open or busy networks, configure the controller to block broadcast and ARP traffic:</p>
+<ol>
+<li>Connect to the controller using GDK and open a terminal window.</li>
+<li>Issue <code>TH</code> and record the controller's MAC address.</li>
+<li>Issue <code>IB1</code> to block all broadcast traffic.</li>
+<li>Issue <code>BN</code> to burn the setting.</li>
+<li>On the IOC host, add a static ARP entry: <code>arp -s &lt;ip_address&gt; &lt;mac_address&gt;</code></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>After blocking broadcasts, only hosts with the static ARP entry can connect to the controller. Add the static ARP entry to the IOC host's startup script so it persists across reboots.</p>
+</div>
+<p>To re-enable broadcasts: connect from a host that has the static ARP entry, issue <code>IB0</code>, then <code>BN</code>. Alternatively, use the master reset jumper.</p>
+<h3 id="block-low-ports">Block Low Ports<a class="headerlink" href="#block-low-ports" title="Permanent link">&para;</a></h3>
+<p>If connection dropouts persist, blocking most ports below 1000 may help:</p>
+<ol>
+<li>Connect to the controller using GDK.</li>
+<li>Issue <code>IK1</code> to block most ports below 1000.</li>
+<li>Issue <code>BN</code> to burn the setting.</li>
+</ol>
+<p>To re-enable: issue <code>IK0</code>, then <code>BN</code>.</p>
+<hr />
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="cannot-connect">Cannot Connect<a class="headerlink" href="#cannot-connect" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Verify that the host running GDK has an IP address on the same subnet as the controller.</li>
+<li>Verify that no firewall is between the host and controller.</li>
+<li>If the controller was previously configured to block broadcasts, add a static ARP entry using the procedure above.</li>
+<li>As a last resort, use the master reset jumper on the controller.</li>
+</ol>
+<h3 id="controller-lockup">Controller Lockup<a class="headerlink" href="#controller-lockup" title="Permanent link">&para;</a></h3>
+<p>Symptoms: the controller disappears from the network and the error LED often illuminates. The controller must be power cycled to recover.</p>
+<p>To reduce occurrences:</p>
+<ol>
+<li>Use a separate or configured private network.</li>
+<li>Block broadcast traffic using the procedure above.</li>
+<li>Update the controller firmware to the latest available version.</li>
+</ol>
+<h3 id="connection-dropouts">Connection Dropouts<a class="headerlink" href="#connection-dropouts" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Use a separate or configured private network.</li>
+<li>Block broadcast traffic.</li>
+<li>Initialize motor commutation at controller power-on only -- do not re-initialize commutation at EPICS driver start.</li>
+<li>Update the controller firmware.</li>
+</ol>
+<hr />
+<p><em>The network topology and controller configuration guidance in this section is adapted from the "Galil EPICS Driver Networking Guide for 64-bit Operating Systems" (Rev 1.2, June 2020) by Mark Clift, Australian Synchrotron. Refer to the <a href="https://github.com/motorapp/Galil/tree/master/documentation">original documentation</a> for the full document including network diagrams.</em></p>
 
 
 
