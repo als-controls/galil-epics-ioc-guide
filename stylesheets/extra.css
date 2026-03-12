@@ -1,47 +1,31 @@
 /*
  * Table column width fixes.
  *
- * Pages have varying column counts (2, 3, 5, or 6 columns), so we
- * cannot target specific column positions.  Instead:
- *
- *   - All non-last columns get width:1% as a hint to the browser
- *     to minimize their width.  This is not a hard constraint; the
- *     browser's auto-layout still expands columns as content requires.
- *
- *   - The first column (PV suffix, command code, field name) gets
- *     white-space:nowrap so names never break across lines.
- *
- *   - Code elements (backtick-formatted text) never wrap.
- *
- *   - The last column (always Description or the main text) gets
- *     all remaining space and wraps normally.
+ * Pages have 2, 3, 5, or 6 column tables.  table-layout:fixed
+ * enforces declared widths.  Non-last columns shrink to fit;
+ * the last column (Description) gets all remaining space.
+ * Long unbreakable strings (drvInfo names, PV suffixes) are
+ * allowed to break with overflow-wrap so they don't force
+ * columns wide.
  */
 
-/* Fill the content area */
+/* Fixed layout enforces our width declarations */
 .md-typeset table:not([class]) {
   width: 100%;
+  table-layout: fixed;
 }
 
-/* Code elements should not break across lines */
-.md-typeset table:not([class]) code {
+/* All columns except the last: shrink to minimum */
+.md-typeset table:not([class]) th:not(:last-child),
+.md-typeset table:not([class]) td:not(:last-child) {
+  width: 1px;
   white-space: nowrap;
 }
 
-/* First column: PV names, command codes, field names - keep on one line */
-.md-typeset table:not([class]) td:first-child,
-.md-typeset table:not([class]) th:first-child {
-  white-space: nowrap;
-}
-
-/* All columns except the last: prefer minimal width */
-.md-typeset table:not([class]) td:not(:last-child),
-.md-typeset table:not([class]) th:not(:last-child) {
-  width: 1%;
-}
-
-/* Last column: take remaining space, wrap normally */
-.md-typeset table:not([class]) td:last-child,
-.md-typeset table:not([class]) th:last-child {
+/* Last column: take all remaining space, wrap normally */
+.md-typeset table:not([class]) th:last-child,
+.md-typeset table:not([class]) td:last-child {
   width: auto;
   white-space: normal;
+  overflow-wrap: break-word;
 }

@@ -1032,7 +1032,6 @@
 <tr>
 <th>PV Suffix</th>
 <th>Record Type</th>
-<th>Direction</th>
 <th>asyn drvInfo</th>
 <th>Description</th>
 </tr>
@@ -1041,77 +1040,66 @@
 <tr>
 <td><code>DRIVER_MON</code></td>
 <td>stringin</td>
-<td>Read</td>
 <td><code>CONTROLLER_DRIVER</code></td>
 <td>Driver version string</td>
 </tr>
 <tr>
 <td><code>MODEL_MON</code></td>
 <td>stringin</td>
-<td>Read</td>
 <td><code>CONTROLLER_MODEL</code></td>
 <td>Controller model (e.g. "DMC4143"). Galil <code>ID</code> command</td>
 </tr>
 <tr>
 <td><code>ADDRESS_MON</code></td>
 <td>stringin</td>
-<td>Read</td>
 <td><code>CONTROLLER_ADDRESS</code></td>
 <td>Controller address (IP or serial port)</td>
 </tr>
 <tr>
 <td><code>ETHADDR_MON</code></td>
 <td>stringin</td>
-<td>Read</td>
 <td><code>CONTROLLER_ETHADDR</code></td>
 <td>Ethernet MAC address</td>
 </tr>
 <tr>
 <td><code>SERIALNUM_MON</code></td>
 <td>stringin</td>
-<td>Read</td>
 <td><code>CONTROLLER_SERIALNUM</code></td>
 <td>Controller serial number</td>
 </tr>
 <tr>
 <td><code>COMMERR_STATUS</code></td>
 <td>bi</td>
-<td>Read</td>
 <td><code>CONTROLLER_COMMERR</code></td>
 <td>Communication error. 0 = OK, 1 = Error (MAJOR alarm)</td>
 </tr>
 <tr>
 <td><code>START_STATUS</code></td>
 <td>bi</td>
-<td>Read</td>
 <td><code>CONTROLLER_START</code></td>
 <td>Startup status. 0 = Error (MAJOR alarm), 1 = OK</td>
 </tr>
 <tr>
 <td><code>SSICAPABLE_STATUS</code></td>
 <td>bi</td>
-<td>Read</td>
 <td><code>CONTROLLER_SSICAPABLE</code></td>
 <td>SSI encoder capable (based on firmware/hardware)</td>
 </tr>
 <tr>
 <td><code>BISSCAPABLE_STATUS</code></td>
 <td>bi</td>
-<td>Read</td>
 <td><code>CONTROLLER_BISSCAPABLE</code></td>
 <td>BiSS encoder capable</td>
 </tr>
 <tr>
 <td><code>PVTCAPABLE_STATUS</code></td>
 <td>bi</td>
-<td>Read</td>
 <td><code>CONTROLLER_PVTCAPABLE</code></td>
 <td>PVT trajectory capable</td>
 </tr>
 <tr>
 <td><code>ECATCAPABLE_STATUS</code></td>
 <td>bi</td>
-<td>Read</td>
 <td><code>CONTROLLER_ECATCAPABLE</code></td>
 <td>EtherCat capable</td>
 </tr>
@@ -1124,7 +1112,6 @@
 <tr>
 <th>PV Suffix</th>
 <th>Record Type</th>
-<th>Direction</th>
 <th>asyn drvInfo</th>
 <th>Description</th>
 </tr>
@@ -1133,42 +1120,36 @@
 <tr>
 <td><code>LIMITTYPE_CMD</code></td>
 <td>bo</td>
-<td>Write</td>
 <td><code>CONTROLLER_LIMITTYPE</code></td>
 <td>Set limit switch type: NO (normally open) or NC (normally closed)</td>
 </tr>
 <tr>
 <td><code>LIMITTYPE_STATUS</code></td>
 <td>bi</td>
-<td>Read</td>
 <td><code>CONTROLLER_LIMITTYPE</code></td>
 <td>Readback of limit switch type</td>
 </tr>
 <tr>
 <td><code>HOMETYPE_CMD</code></td>
 <td>bo</td>
-<td>Write</td>
 <td><code>CONTROLLER_HOMETYPE</code></td>
 <td>Set home switch type: NO or NC</td>
 </tr>
 <tr>
 <td><code>HOMETYPE_STATUS</code></td>
 <td>bi</td>
-<td>Read</td>
 <td><code>CONTROLLER_HOMETYPE</code></td>
 <td>Readback of home switch type</td>
 </tr>
 <tr>
 <td><code>HOMEEDGE_CMD</code></td>
 <td>bo</td>
-<td>Write</td>
 <td><code>CONTROLLER_HOMEEDGE</code></td>
 <td>Home edge: Reverse or Forward</td>
 </tr>
 <tr>
 <td><code>HOMEEDGE_STATUS</code></td>
 <td>bi</td>
-<td>Read</td>
 <td><code>CONTROLLER_HOMEEDGE</code></td>
 <td>Readback of home edge</td>
 </tr>
@@ -1181,7 +1162,6 @@
 <tr>
 <th>PV Suffix</th>
 <th>Record Type</th>
-<th>Direction</th>
 <th>asyn drvInfo</th>
 <th>Description</th>
 </tr>
@@ -1190,21 +1170,18 @@
 <tr>
 <td><code>ECATNETWORK_CMD</code></td>
 <td>bo</td>
-<td>Write</td>
 <td><code>CONTROLLER_ECAT_NETWORK</code></td>
 <td>Enable or disable the EtherCat network</td>
 </tr>
 <tr>
 <td><code>ECATNETWORK_STATUS</code></td>
 <td>bi</td>
-<td>Read</td>
 <td><code>CONTROLLER_ECAT_NETWORK</code></td>
 <td>EtherCat network status</td>
 </tr>
 <tr>
 <td><code>ECATFLT_STATUS</code></td>
 <td>ai</td>
-<td>Read</td>
 <td><code>CONTROLLER_ECAT_FAULT</code></td>
 <td>EtherCat fault code (polled at 1 second)</td>
 </tr>
@@ -1217,7 +1194,6 @@
 <tr>
 <th>PV Suffix</th>
 <th>Record Type</th>
-<th>Direction</th>
 <th>asyn drvInfo</th>
 <th>Description</th>
 </tr>
@@ -1226,28 +1202,24 @@
 <tr>
 <td><code>DEFER_CMD</code></td>
 <td>bo</td>
-<td>Write</td>
 <td><code>MOTOR_DEFER_MOVES</code></td>
 <td>Set deferred mode: Go (execute immediately) or Defer (buffer moves). Issues the <code>BG</code> command when set to Go</td>
 </tr>
 <tr>
 <td><code>DEFER_STATUS</code></td>
 <td>bi</td>
-<td>Read</td>
 <td><code>MOTOR_DEFER_MOVES</code></td>
 <td>Deferred moves status</td>
 </tr>
 <tr>
 <td><code>DEFER_MODE_CMD</code></td>
 <td>bo</td>
-<td>Write</td>
 <td><code>CONTROLLER_DEFERRED_MODE</code></td>
 <td>Deferred mode: "Sync start only" or "Sync start/stop". When set to "Sync start/stop", the <code>ST</code> (Stop) command is also deferred</td>
 </tr>
 <tr>
 <td><code>DEFER_MODE_STATUS</code></td>
 <td>bi</td>
-<td>Read</td>
 <td><code>CONTROLLER_DEFERRED_MODE</code></td>
 <td>Deferred mode readback</td>
 </tr>
@@ -1259,7 +1231,6 @@
 <tr>
 <th>PV Suffix</th>
 <th>Record Type</th>
-<th>Direction</th>
 <th>asyn drvInfo</th>
 <th>Description</th>
 </tr>
@@ -1268,14 +1239,12 @@
 <tr>
 <td><code>COORDSYS_CMD</code></td>
 <td>bo</td>
-<td>Write</td>
 <td><code>COORDINATE_SYSTEM</code></td>
 <td>Select active coordinate system: S or T. Galil <code>CS</code> (Clear Sequence) command</td>
 </tr>
 <tr>
 <td><code>COORDSYS_STATUS</code></td>
 <td>bi</td>
-<td>Read</td>
 <td><code>COORDINATE_SYSTEM</code></td>
 <td>Active coordinate system readback</td>
 </tr>
@@ -1288,7 +1257,6 @@
 <tr>
 <th>PV Suffix</th>
 <th>Record Type</th>
-<th>Direction</th>
 <th>asyn drvInfo</th>
 <th>Description</th>
 </tr>
@@ -1297,91 +1265,78 @@
 <tr>
 <td><code>OC1START_CMD</code></td>
 <td>ao</td>
-<td>Write</td>
 <td><code>OUTPUT_COMPARE_START</code> (addr 0)</td>
 <td>Output compare 1 start position</td>
 </tr>
 <tr>
 <td><code>OC1START_MON</code></td>
 <td>ai</td>
-<td>Read</td>
 <td><code>OUTPUT_COMPARE_START</code> (addr 0)</td>
 <td>Readback</td>
 </tr>
 <tr>
 <td><code>OC1INCR_CMD</code></td>
 <td>ao</td>
-<td>Write</td>
 <td><code>OUTPUT_COMPARE_INCR</code> (addr 0)</td>
 <td>Output compare 1 increment</td>
 </tr>
 <tr>
 <td><code>OC1INCR_MON</code></td>
 <td>ai</td>
-<td>Read</td>
 <td><code>OUTPUT_COMPARE_INCR</code> (addr 0)</td>
 <td>Readback</td>
 </tr>
 <tr>
 <td><code>OC1AXIS_CMD</code></td>
 <td>mbbo</td>
-<td>Write</td>
 <td><code>OUTPUT_COMPARE_AXIS</code> (addr 0)</td>
 <td>Output compare 1 axis: OFF, A, B, C, D</td>
 </tr>
 <tr>
 <td><code>OC1AXIS_STATUS</code></td>
 <td>mbbi</td>
-<td>Read</td>
 <td><code>OUTPUT_COMPARE_AXIS</code> (addr 0)</td>
 <td>Readback</td>
 </tr>
 <tr>
 <td><code>OC2START_CMD</code></td>
 <td>ao</td>
-<td>Write</td>
 <td><code>OUTPUT_COMPARE_START</code> (addr 1)</td>
 <td>Output compare 2 start position</td>
 </tr>
 <tr>
 <td><code>OC2START_MON</code></td>
 <td>ai</td>
-<td>Read</td>
 <td><code>OUTPUT_COMPARE_START</code> (addr 1)</td>
 <td>Readback</td>
 </tr>
 <tr>
 <td><code>OC2INCR_CMD</code></td>
 <td>ao</td>
-<td>Write</td>
 <td><code>OUTPUT_COMPARE_INCR</code> (addr 1)</td>
 <td>Output compare 2 increment</td>
 </tr>
 <tr>
 <td><code>OC2INCR_MON</code></td>
 <td>ai</td>
-<td>Read</td>
 <td><code>OUTPUT_COMPARE_INCR</code> (addr 1)</td>
 <td>Readback</td>
 </tr>
 <tr>
 <td><code>OC2AXIS_CMD</code></td>
 <td>mbbo</td>
-<td>Write</td>
 <td><code>OUTPUT_COMPARE_AXIS</code> (addr 1)</td>
 <td>Output compare 2 axis: OFF, E, F, G, H</td>
 </tr>
 <tr>
 <td><code>OC2AXIS_STATUS</code></td>
 <td>mbbi</td>
-<td>Read</td>
 <td><code>OUTPUT_COMPARE_AXIS</code> (addr 1)</td>
 <td>Readback</td>
 </tr>
 <tr>
 <td><code>OCMESSAGE_MON</code></td>
 <td>waveform</td>
-<td>Read</td>
 <td><code>OUTPUT_COMPARE_MESSAGE</code></td>
 <td>Output compare status message</td>
 </tr>
@@ -1393,7 +1348,6 @@
 <tr>
 <th>PV Suffix</th>
 <th>Record Type</th>
-<th>Direction</th>
 <th>asyn drvInfo</th>
 <th>Description</th>
 </tr>
@@ -1402,14 +1356,12 @@
 <tr>
 <td><code>UPLOAD_CMD</code></td>
 <td>bo</td>
-<td>Write</td>
 <td><code>CONTROLLER_UARRAY_UPLOAD</code></td>
 <td>Trigger upload of user arrays from controller. Galil <code>QU</code> (Upload Array) command</td>
 </tr>
 <tr>
 <td><code>UPLOAD_STATUS</code></td>
 <td>bi</td>
-<td>Read</td>
 <td><code>CONTROLLER_UARRAY_UPLOAD</code></td>
 <td>Upload status: Idle or Uploading</td>
 </tr>
@@ -1421,7 +1373,6 @@
 <tr>
 <th>PV Suffix</th>
 <th>Record Type</th>
-<th>Direction</th>
 <th>asyn drvInfo</th>
 <th>Description</th>
 </tr>
@@ -1430,7 +1381,6 @@
 <tr>
 <td><code>ERROR_MON</code></td>
 <td>waveform</td>
-<td>Read</td>
 <td><code>CONTROLLER_ERROR</code></td>
 <td>Controller error message (256-character waveform)</td>
 </tr>
@@ -1443,7 +1393,6 @@
 <tr>
 <th>PV Suffix</th>
 <th>Record Type</th>
-<th>Direction</th>
 <th>asyn drvInfo</th>
 <th>Description</th>
 </tr>
@@ -1452,21 +1401,18 @@
 <tr>
 <td><code>SEND_STR_CMD</code></td>
 <td>stringout</td>
-<td>Write</td>
 <td><code>USER_OCTET</code></td>
 <td>Send any Galil command string to the controller</td>
 </tr>
 <tr>
 <td><code>SEND_STR_MON</code></td>
 <td>waveform</td>
-<td>Read</td>
 <td><code>USER_OCTET</code></td>
 <td>Response string from the last command (256-character waveform)</td>
 </tr>
 <tr>
 <td><code>SEND_STRVAL_MON</code></td>
 <td>ai</td>
-<td>Read</td>
 <td><code>USER_OCTET_VAL</code></td>
 <td>Numeric value parsed from the last command response</td>
 </tr>
@@ -1478,7 +1424,6 @@
 <tr>
 <th>PV Suffix</th>
 <th>Record Type</th>
-<th>Direction</th>
 <th>asyn drvInfo</th>
 <th>Description</th>
 </tr>
@@ -1487,7 +1432,6 @@
 <tr>
 <td><code>CLEARAMPFAULTS_CMD</code></td>
 <td>bo</td>
-<td>Write</td>
 <td><code>CONTROLLER_CLEARAMPFAULTS</code></td>
 <td>Clear amplifier faults. Galil <code>AZ</code> (Clear Latched Amplifier Errors) command</td>
 </tr>

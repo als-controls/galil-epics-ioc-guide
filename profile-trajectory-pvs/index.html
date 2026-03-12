@@ -759,7 +759,6 @@
 <tr>
 <th>PV Suffix</th>
 <th>Record Type</th>
-<th>Dir</th>
 <th>asyn drvInfo</th>
 <th>Description</th>
 </tr>
@@ -768,21 +767,18 @@
 <tr>
 <td><code>TrajectoryFile</code></td>
 <td>stringout</td>
-<td>W</td>
 <td>GALIL_PROFILE_FILE</td>
 <td>Trajectory file name (default "TrajectoryScan.trj")</td>
 </tr>
 <tr>
 <td><code>PROFILETYPE_CMD</code></td>
 <td>bo</td>
-<td>W</td>
 <td>GALIL_PROFILE_TYPE</td>
 <td>Profile type: Linear or PVT</td>
 </tr>
 <tr>
 <td><code>PROFILETYPE_STATUS</code></td>
 <td>bi</td>
-<td>R</td>
 <td>GALIL_PROFILE_TYPE</td>
 <td>Profile type readback</td>
 </tr>
@@ -797,7 +793,6 @@
 <tr>
 <th>PV Suffix</th>
 <th>Record Type</th>
-<th>Dir</th>
 <th>asyn drvInfo</th>
 <th>Description</th>
 </tr>
@@ -806,42 +801,36 @@
 <tr>
 <td><code>CalculatedPositions</code></td>
 <td>waveform (DOUBLE)</td>
-<td>R</td>
 <td>GALIL_PROFILE_CALCULATED</td>
 <td>Calculated position array for this axis</td>
 </tr>
 <tr>
 <td><code>MinPosition</code></td>
 <td>ai</td>
-<td>R</td>
 <td>GALIL_PROFILE_MIN_POSITION</td>
 <td>Minimum position in trajectory</td>
 </tr>
 <tr>
 <td><code>MaxPosition</code></td>
 <td>ai</td>
-<td>R</td>
 <td>GALIL_PROFILE_MAX_POSITION</td>
 <td>Maximum position in trajectory</td>
 </tr>
 <tr>
 <td><code>MaxVelocity</code></td>
 <td>ai</td>
-<td>R</td>
 <td>GALIL_PROFILE_MAX_VELOCITY</td>
 <td>Maximum velocity in trajectory</td>
 </tr>
 <tr>
 <td><code>MaxAcceleration</code></td>
 <td>ai</td>
-<td>R</td>
 <td>GALIL_PROFILE_MAX_ACCELERATION</td>
 <td>Maximum acceleration in trajectory</td>
 </tr>
 <tr>
 <td><code>MoveMode</code></td>
 <td>bo</td>
-<td>W</td>
 <td>GALIL_PROFILE_MOVE_MODE</td>
 <td>Move mode: Absolute or Relative</td>
 </tr>

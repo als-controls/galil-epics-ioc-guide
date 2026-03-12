@@ -803,7 +803,6 @@
 <tr>
 <th>PV Suffix</th>
 <th>Record Type</th>
-<th>Dir</th>
 <th>asyn drvInfo</th>
 <th>Description</th>
 </tr>
@@ -812,42 +811,36 @@
 <tr>
 <td><code>_NAME_MON</code></td>
 <td>bi</td>
-<td>R</td>
 <td>-</td>
 <td>Coordinate system name: S or T</td>
 </tr>
 <tr>
 <td><code>_MOTORS_MON</code></td>
 <td>stringin</td>
-<td>R</td>
 <td>COORDINATE_SYSTEM_MOTORS</td>
 <td>List of motors assigned to this coordinate system</td>
 </tr>
 <tr>
 <td><code>_MOVN_STATUS</code></td>
 <td>bi</td>
-<td>R</td>
 <td>COORDINATE_SYSTEM_MOVING</td>
 <td>Moving status: Stopped/Moving</td>
 </tr>
 <tr>
 <td><code>_SEGMENTS_MON</code></td>
 <td>ai</td>
-<td>R</td>
 <td>COORDINATE_SYSTEM_SEGMENTS</td>
 <td>Number of segments processed</td>
 </tr>
 <tr>
 <td><code>_STOP_CMD</code></td>
 <td>bo</td>
-<td>W</td>
 <td>COORDINATE_SYSTEM_MOTORS_STOP</td>
 <td>Stop all motors in coordinate system. Galil ST (Stop)</td>
 </tr>
 <tr>
 <td><code>_GO_CMD</code></td>
 <td>bo</td>
-<td>W</td>
 <td>COORDINATE_SYSTEM_MOTORS_GO</td>
 <td>Begin all motors in coordinate system. Galil BG (Begin)</td>
 </tr>
@@ -861,7 +854,6 @@
 <tr>
 <th>PV Suffix</th>
 <th>Record Type</th>
-<th>Dir</th>
 <th>asyn drvInfo</th>
 <th>Description</th>
 </tr>
@@ -870,21 +862,18 @@
 <tr>
 <td><code>_HOMING_STATUS</code></td>
 <td>bi</td>
-<td>R</td>
 <td>MOTOR_HOMING</td>
 <td>CS axis homing status</td>
 </tr>
 <tr>
 <td><code>_HOMING_MONITOR</code></td>
 <td>calcout</td>
-<td>R</td>
 <td>-</td>
 <td>Combined homing status from HOMR, HOMF, and HOMING_STATUS</td>
 </tr>
 <tr>
 <td><code>_SP_MON</code></td>
 <td>ai</td>
-<td>R</td>
 <td>CSMOTOR_SETPOINT</td>
 <td>CS axis setpoint monitor. The demanded position for this CS axis</td>
 </tr>
@@ -898,7 +887,6 @@
 <tr>
 <th>PV Suffix</th>
 <th>Record Type</th>
-<th>Dir</th>
 <th>asyn drvInfo</th>
 <th>Description</th>
 </tr>
@@ -907,7 +895,6 @@
 <tr>
 <td><code>_FTRANSFORM_SP</code></td>
 <td>waveform (CHAR[256])</td>
-<td>W</td>
 <td>CSMOTOR_FORWARD_TRANSFORM</td>
 <td>Forward kinematic equation string. Maps real axis positions to CS axis position</td>
 </tr>
@@ -921,7 +908,6 @@
 <tr>
 <th>PV Suffix</th>
 <th>Record Type</th>
-<th>Dir</th>
 <th>asyn drvInfo</th>
 <th>Description</th>
 </tr>
@@ -930,56 +916,48 @@
 <tr>
 <td><code>_RTRANSFORMA_SP</code></td>
 <td>waveform (CHAR[256])</td>
-<td>W</td>
 <td>CSMOTOR_REVERSEA_TRANSFORM</td>
 <td>Reverse kinematic for axis A</td>
 </tr>
 <tr>
 <td><code>_RTRANSFORMB_SP</code></td>
 <td>waveform (CHAR[256])</td>
-<td>W</td>
 <td>CSMOTOR_REVERSEB_TRANSFORM</td>
 <td>Reverse kinematic for axis B</td>
 </tr>
 <tr>
 <td><code>_RTRANSFORMC_SP</code></td>
 <td>waveform (CHAR[256])</td>
-<td>W</td>
 <td>CSMOTOR_REVERSEC_TRANSFORM</td>
 <td>Reverse kinematic for axis C</td>
 </tr>
 <tr>
 <td><code>_RTRANSFORMD_SP</code></td>
 <td>waveform (CHAR[256])</td>
-<td>W</td>
 <td>CSMOTOR_REVERSED_TRANSFORM</td>
 <td>Reverse kinematic for axis D</td>
 </tr>
 <tr>
 <td><code>_RTRANSFORME_SP</code></td>
 <td>waveform (CHAR[256])</td>
-<td>W</td>
 <td>CSMOTOR_REVERSEE_TRANSFORM</td>
 <td>Reverse kinematic for axis E</td>
 </tr>
 <tr>
 <td><code>_RTRANSFORMF_SP</code></td>
 <td>waveform (CHAR[256])</td>
-<td>W</td>
 <td>CSMOTOR_REVERSEF_TRANSFORM</td>
 <td>Reverse kinematic for axis F</td>
 </tr>
 <tr>
 <td><code>_RTRANSFORMG_SP</code></td>
 <td>waveform (CHAR[256])</td>
-<td>W</td>
 <td>CSMOTOR_REVERSEG_TRANSFORM</td>
 <td>Reverse kinematic for axis G</td>
 </tr>
 <tr>
 <td><code>_RTRANSFORMH_SP</code></td>
 <td>waveform (CHAR[256])</td>
-<td>W</td>
 <td>CSMOTOR_REVERSEH_TRANSFORM</td>
 <td>Reverse kinematic for axis H</td>
 </tr>

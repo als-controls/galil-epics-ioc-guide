@@ -797,7 +797,6 @@
 <tr>
 <th>PV Suffix</th>
 <th>Record Type</th>
-<th>Dir</th>
 <th>asyn drvInfo</th>
 <th>Description</th>
 </tr>
@@ -806,28 +805,24 @@
 <tr>
 <td><code>_MONITOR</code></td>
 <td>ai</td>
-<td>R</td>
 <td>USER_CMD or USER_VAR + GALILSTR</td>
 <td>Read command response or variable value</td>
 </tr>
 <tr>
 <td><code>_STATUS</code></td>
 <td>bi</td>
-<td>R</td>
 <td>-</td>
 <td>Bit 0 of MONITOR value as binary status</td>
 </tr>
 <tr>
 <td><code>_SP</code></td>
 <td>ao</td>
-<td>W</td>
 <td>USER_CMD or USER_VAR + GALILSTR</td>
 <td>Send command or set variable</td>
 </tr>
 <tr>
 <td><code>_CMD</code></td>
 <td>bo</td>
-<td>W</td>
 <td>-</td>
 <td>Trigger that writes to SP and processes</td>
 </tr>
@@ -910,7 +905,6 @@
 <tr>
 <th>PV Suffix</th>
 <th>Record Type</th>
-<th>Dir</th>
 <th>asyn drvInfo</th>
 <th>Description</th>
 </tr>
@@ -919,14 +913,12 @@
 <tr>
 <td><code>UARRAY$(ADDR)_MON</code></td>
 <td>waveform (DOUBLE)</td>
-<td>R</td>
 <td>CONTROLLER_UARRAY</td>
 <td>Array data from controller</td>
 </tr>
 <tr>
 <td><code>UARRAYNAME$(ADDR)_SP</code></td>
 <td>stringout</td>
-<td>W</td>
 <td>CONTROLLER_UARRAY_NAME</td>
 <td>Name of controller array to upload</td>
 </tr>
