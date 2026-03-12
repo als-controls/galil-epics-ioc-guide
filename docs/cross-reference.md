@@ -17,8 +17,8 @@ All PV suffixes in alphabetical order. Prefix is `$(P)` for controller PVs, `$(P
 | `CalculatedPositions` | — | [Profile/Trajectory PVs](profile-trajectory-pvs.md) |
 | `CLEARAMPFAULTS_CMD` | [AZ](galil-command-reference.md#error-clear) | [Controller PVs](controller-pvs.md) |
 | `COMMERR_STATUS` | — | [Controller PVs](controller-pvs.md) |
-| `COORDSYS_CMD` | [CS](galil-command-reference.md#coordinate-system--trajectory) | [Controller PVs](controller-pvs.md) |
-| `COORDSYS_STATUS` | [CS](galil-command-reference.md#coordinate-system--trajectory) | [Controller PVs](controller-pvs.md) |
+| `COORDSYS_CMD` | [CS](galil-command-reference.md#coordinate-system-trajectory) | [Controller PVs](controller-pvs.md) |
+| `COORDSYS_STATUS` | [CS](galil-command-reference.md#coordinate-system-trajectory) | [Controller PVs](controller-pvs.md) |
 | `DEFER_CMD` | [BG](galil-command-reference.md#motion-commands) | [Controller PVs](controller-pvs.md) |
 | `DEFER_MODE_CMD` | [ST](galil-command-reference.md#motion-commands) | [Controller PVs](controller-pvs.md) |
 | `DEFER_MODE_STATUS` | [ST](galil-command-reference.md#motion-commands) | [Controller PVs](controller-pvs.md) |
@@ -40,7 +40,7 @@ All PV suffixes in alphabetical order. Prefix is `$(P)` for controller PVs, `$(P
 | `MaxPosition` | — | [Profile/Trajectory PVs](profile-trajectory-pvs.md) |
 | `MaxVelocity` | — | [Profile/Trajectory PVs](profile-trajectory-pvs.md) |
 | `MinPosition` | — | [Profile/Trajectory PVs](profile-trajectory-pvs.md) |
-| `MODEL_MON` | [ID](galil-command-reference.md#communication--system) | [Controller PVs](controller-pvs.md) |
+| `MODEL_MON` | [ID](galil-command-reference.md#communication-system) | [Controller PVs](controller-pvs.md) |
 | `MoveMode` | — | [Profile/Trajectory PVs](profile-trajectory-pvs.md) |
 | `OC1AXIS_CMD` | [OC](galil-command-reference.md#io-commands) | [Controller PVs](controller-pvs.md) |
 | `OC1AXIS_STATUS` | [OC](galil-command-reference.md#io-commands) | [Controller PVs](controller-pvs.md) |
@@ -119,18 +119,18 @@ All PV suffixes in alphabetical order. Prefix is `$(P)` for controller PVs, `$(P
 | `_ECATADDR_SP` | — | [Motor Axis PVs](motor-axis-pvs.md) |
 | `_ECATFLT_STATUS` | — | [Motor Axis PVs](motor-axis-pvs.md) |
 | `_ECATFLTRST_CMD` | — | [Motor Axis PVs](motor-axis-pvs.md) |
-| `_ELO_STATUS` | [TA](galil-command-reference.md#status--query) / DR | [Amplifier Status PVs](amplifier-status-pvs.md) |
+| `_ELO_STATUS` | [TA](galil-command-reference.md#status-query) / DR | [Amplifier Status PVs](amplifier-status-pvs.md) |
 | `_ENC_TOLERANCE_MON` | — | [Motor Axis PVs](motor-axis-pvs.md) |
 | `_ENC_TOLERANCE_SP` | — | [Motor Axis PVs](motor-axis-pvs.md) |
-| `_ERRLIMIT_MON` | [ER](galil-command-reference.md#pid--servo-tuning) | [Motor Axis PVs](motor-axis-pvs.md) |
-| `_ERRLIMIT_SP` | [ER](galil-command-reference.md#pid--servo-tuning) | [Motor Axis PVs](motor-axis-pvs.md) |
+| `_ERRLIMIT_MON` | [ER](galil-command-reference.md#pid-servo-tuning) | [Motor Axis PVs](motor-axis-pvs.md) |
+| `_ERRLIMIT_SP` | [ER](galil-command-reference.md#pid-servo-tuning) | [Motor Axis PVs](motor-axis-pvs.md) |
 | `_ERR_MON` | DR | [Motor Axis PVs](motor-axis-pvs.md) |
 | `_ESTALL_STATUS` | DR | [Motor Axis PVs](motor-axis-pvs.md) |
 | `_ESTALLTIME_MON` | — | [Motor Axis PVs](motor-axis-pvs.md) |
 | `_ESTALLTIME_SP` | — | [Motor Axis PVs](motor-axis-pvs.md) |
 | `_FTRANSFORM_SP` | — | [Coordinate System PVs](coordinate-system-pvs.md) |
 | `_GO_CMD` | [BG](galil-command-reference.md#motion-commands) | [Coordinate System PVs](coordinate-system-pvs.md) |
-| `_HALLERROR_STATUS` | [TA](galil-command-reference.md#status--query) / DR | [Motor Axis PVs](motor-axis-pvs.md) |
+| `_HALLERROR_STATUS` | [TA](galil-command-reference.md#status-query) / DR | [Motor Axis PVs](motor-axis-pvs.md) |
 | `_HOMEALLOWED_CMD` | — | [Motor Axis PVs](motor-axis-pvs.md) |
 | `_HOMEALLOWED_STATUS` | — | [Motor Axis PVs](motor-axis-pvs.md) |
 | `_HOMF_CMD` | [HM](galil-command-reference.md#motion-commands)/[FI](galil-command-reference.md#motion-commands)/[FE](galil-command-reference.md#motion-commands) | [Motor Axis PVs](motor-axis-pvs.md) |
@@ -159,15 +159,15 @@ All PV suffixes in alphabetical order. Prefix is `$(P)` for controller PVs, `$(P
 | `_NAME_MON` | — | [Coordinate System PVs](coordinate-system-pvs.md) |
 | `_OFFDELAY_MON` | — | [Motor Axis PVs](motor-axis-pvs.md) |
 | `_OFFDELAY_SP` | — | [Motor Axis PVs](motor-axis-pvs.md) |
-| `_OFFONERR_CMD` | [OE](galil-command-reference.md#pid--servo-tuning) | [Motor Axis PVs](motor-axis-pvs.md) |
-| `_OFFONERR_STATUS` | [OE](galil-command-reference.md#pid--servo-tuning) | [Motor Axis PVs](motor-axis-pvs.md) |
+| `_OFFONERR_CMD` | [OE](galil-command-reference.md#pid-servo-tuning) | [Motor Axis PVs](motor-axis-pvs.md) |
+| `_OFFONERR_STATUS` | [OE](galil-command-reference.md#pid-servo-tuning) | [Motor Axis PVs](motor-axis-pvs.md) |
 | `_ON_CMD` | [SH](galil-command-reference.md#motor-enabledisable)/[MO](galil-command-reference.md#motor-enabledisable) | [Motor Axis PVs](motor-axis-pvs.md) |
 | `_ON_STATUS` | DR | [Motor Axis PVs](motor-axis-pvs.md) |
 | `_ONDELAY_MON` | — | [Motor Axis PVs](motor-axis-pvs.md) |
 | `_ONDELAY_SP` | — | [Motor Axis PVs](motor-axis-pvs.md) |
-| `_OVERCURRENT_STATUS` | [TA](galil-command-reference.md#status--query) / DR | [Amplifier Status PVs](amplifier-status-pvs.md) |
-| `_OVERTEMPERATURE_STATUS` | [TA](galil-command-reference.md#status--query) / DR | [Amplifier Status PVs](amplifier-status-pvs.md) |
-| `_OVERVOLTAGE_STATUS` | [TA](galil-command-reference.md#status--query) / DR | [Amplifier Status PVs](amplifier-status-pvs.md) |
+| `_OVERCURRENT_STATUS` | [TA](galil-command-reference.md#status-query) / DR | [Amplifier Status PVs](amplifier-status-pvs.md) |
+| `_OVERTEMPERATURE_STATUS` | [TA](galil-command-reference.md#status-query) / DR | [Amplifier Status PVs](amplifier-status-pvs.md) |
+| `_OVERVOLTAGE_STATUS` | [TA](galil-command-reference.md#status-query) / DR | [Amplifier Status PVs](amplifier-status-pvs.md) |
 | `_RTRANSFORMA_SP` … `_RTRANSFORMH_SP` | — | [Coordinate System PVs](coordinate-system-pvs.md) |
 | `_SCONN_STATUS` | — | [Motor Axis PVs](motor-axis-pvs.md) |
 | `_SEGMENTS_MON` | — | [Coordinate System PVs](coordinate-system-pvs.md) |
@@ -203,7 +203,7 @@ All PV suffixes in alphabetical order. Prefix is `$(P)` for controller PVs, `$(P
 | `_UINDEX_STATUS` | [FI](galil-command-reference.md#motion-commands) | [Motor Axis PVs](motor-axis-pvs.md) |
 | `_ULAH_CMD` | — | [Motor Axis PVs](motor-axis-pvs.md) |
 | `_ULAH_STATUS` | — | [Motor Axis PVs](motor-axis-pvs.md) |
-| `_UNDERVOLTAGE_STATUS` | [TA](galil-command-reference.md#status--query) / DR | [Amplifier Status PVs](amplifier-status-pvs.md) |
+| `_UNDERVOLTAGE_STATUS` | [TA](galil-command-reference.md#status-query) / DR | [Amplifier Status PVs](amplifier-status-pvs.md) |
 | `_USERDATA_MON` | ZA | [Motor Axis PVs](motor-axis-pvs.md) |
 | `_USERDATADEADB_SP` | — | [Motor Axis PVs](motor-axis-pvs.md) |
 | `_USWITCH_CMD` | — | [Motor Axis PVs](motor-axis-pvs.md) |
@@ -232,12 +232,12 @@ All Galil 2-letter commands in alphabetical order, with the PVs that use them.
 | [CB](galil-command-reference.md#io-commands) | `_AUTOBRAKE_CMD`, `_BRAKE_STATUS`, `_CMD` (Digital Out) | [Motor Axis PVs](motor-axis-pvs.md), [Digital I/O PVs](digital-io-pvs.md) |
 | [CE](galil-command-reference.md#motor-configuration) | `_MENCTYPE_CMD`, `_MENCTYPE_STATUS`, `_AENCTYPE_CMD`, `_AENCTYPE_STATUS` | [Motor Axis PVs](motor-axis-pvs.md) |
 | [CN](galil-command-reference.md#limit-and-home-switches) | `LIMITTYPE_CMD`, `LIMITTYPE_STATUS`, `HOMETYPE_CMD`, `HOMETYPE_STATUS`, `HOMEEDGE_CMD`, `HOMEEDGE_STATUS` | [Controller PVs](controller-pvs.md) |
-| [CS](galil-command-reference.md#coordinate-system--trajectory) | `COORDSYS_CMD`, `COORDSYS_STATUS` | [Controller PVs](controller-pvs.md) |
-| [ER](galil-command-reference.md#pid--servo-tuning) | `_ERRLIMIT_SP`, `_ERRLIMIT_MON` | [Motor Axis PVs](motor-axis-pvs.md) |
+| [CS](galil-command-reference.md#coordinate-system-trajectory) | `COORDSYS_CMD`, `COORDSYS_STATUS` | [Controller PVs](controller-pvs.md) |
+| [ER](galil-command-reference.md#pid-servo-tuning) | `_ERRLIMIT_SP`, `_ERRLIMIT_MON` | [Motor Axis PVs](motor-axis-pvs.md) |
 | [FE](galil-command-reference.md#motion-commands) | `_HOMF_CMD`, `_HOMR_CMD` (via generated home code) | [Motor Axis PVs](motor-axis-pvs.md) |
 | [FI](galil-command-reference.md#motion-commands) | `_UINDEX_CMD`, `_UINDEX_STATUS`, `_HOMF_CMD`, `_HOMR_CMD` | [Motor Axis PVs](motor-axis-pvs.md) |
 | [HM](galil-command-reference.md#motion-commands) | `_HOMF_CMD`, `_HOMR_CMD` (via generated home code) | [Motor Axis PVs](motor-axis-pvs.md) |
-| [ID](galil-command-reference.md#communication--system) | `MODEL_MON` | [Controller PVs](controller-pvs.md) |
+| [ID](galil-command-reference.md#communication-system) | `MODEL_MON` | [Controller PVs](controller-pvs.md) |
 | [@IN](galil-command-reference.md#io-commands) | `_STATUS` (Digital In) | [Digital I/O PVs](digital-io-pvs.md) |
 | [JG](galil-command-reference.md#motion-commands) | `_JAH_CMD`, `_JAH_STATUS` | [Motor Axis PVs](motor-axis-pvs.md) |
 | [KS](galil-command-reference.md#motor-configuration) | `_STEPSMOOTH_SP`, `_STEPSMOOTH_MON` | [Motor Axis PVs](motor-axis-pvs.md) |
@@ -246,7 +246,7 @@ All Galil 2-letter commands in alphabetical order, with the PVs that use them.
 | [MO](galil-command-reference.md#motor-enabledisable) | `_ON_CMD`, `_AUTOONOFF_CMD` | [Motor Axis PVs](motor-axis-pvs.md) |
 | [MT](galil-command-reference.md#motor-configuration) | `_MTRTYPE_CMD`, `_MTRTYPE_STATUS` | [Motor Axis PVs](motor-axis-pvs.md) |
 | [OC](galil-command-reference.md#io-commands) | `OC1AXIS_CMD`, `OC1AXIS_STATUS`, `OC1INCR_CMD`, `OC1INCR_MON`, `OC1START_CMD`, `OC1START_MON`, `OC2AXIS_CMD`, `OC2AXIS_STATUS`, `OC2INCR_CMD`, `OC2INCR_MON`, `OC2START_CMD`, `OC2START_MON`, `OCMESSAGE_MON` | [Controller PVs](controller-pvs.md) |
-| [OE](galil-command-reference.md#pid--servo-tuning) | `_OFFONERR_CMD`, `_OFFONERR_STATUS` | [Motor Axis PVs](motor-axis-pvs.md) |
+| [OE](galil-command-reference.md#pid-servo-tuning) | `_OFFONERR_CMD`, `_OFFONERR_STATUS` | [Motor Axis PVs](motor-axis-pvs.md) |
 | [PA](galil-command-reference.md#motion-commands) | `_JAHV_SP`, `_JAHV_MON` | [Motor Axis PVs](motor-axis-pvs.md) |
 | [QU](galil-command-reference.md#array-commands) | `UPLOAD_CMD`, `UPLOAD_STATUS`, `UARRAY$(ADDR)_MON`, `UARRAYNAME$(ADDR)_SP` | [Controller PVs](controller-pvs.md), [User-Defined Records](user-defined-records.md) |
 | [SB](galil-command-reference.md#io-commands) | `_AUTOBRAKE_CMD`, `_BRAKE_STATUS`, `_CMD` (Digital Out) | [Motor Axis PVs](motor-axis-pvs.md), [Digital I/O PVs](digital-io-pvs.md) |
@@ -255,5 +255,5 @@ All Galil 2-letter commands in alphabetical order, with the PVs that use them.
 | [SS](galil-command-reference.md#absolute-encoders) | `_BISSINPUT_CMD`, `_BISSINPUT_STATUS`, `_BISSDATA1_SP`, `_BISSDATA1_MON`, `_BISSDATA2_SP`, `_BISSDATA2_MON`, `_BISSZP_SP`, `_BISSZP_MON`, `_BISSCD_SP`, `_BISSCD_MON` | [Motor Axis PVs](motor-axis-pvs.md) |
 | [ST](galil-command-reference.md#motion-commands) | `DEFER_MODE_CMD`, `DEFER_MODE_STATUS`, `_STOP_CMD` | [Controller PVs](controller-pvs.md), [Coordinate System PVs](coordinate-system-pvs.md) |
 | [SY](galil-command-reference.md#absolute-encoders) | `_BISSLEVEL_CMD`, `_BISSLEVEL_STATUS` | [Motor Axis PVs](motor-axis-pvs.md) |
-| [TA](galil-command-reference.md#status--query) | `_HALLERROR_STATUS`, `_OVERCURRENT_STATUS`, `_UNDERVOLTAGE_STATUS`, `_OVERVOLTAGE_STATUS`, `_OVERTEMPERATURE_STATUS`, `_ELO_STATUS` | [Motor Axis PVs](motor-axis-pvs.md), [Amplifier Status PVs](amplifier-status-pvs.md) |
+| [TA](galil-command-reference.md#status-query) | `_HALLERROR_STATUS`, `_OVERCURRENT_STATUS`, `_UNDERVOLTAGE_STATUS`, `_OVERVOLTAGE_STATUS`, `_OVERTEMPERATURE_STATUS`, `_ELO_STATUS` | [Motor Axis PVs](motor-axis-pvs.md), [Amplifier Status PVs](amplifier-status-pvs.md) |
 | [YA](galil-command-reference.md#motor-configuration) | `_MICROSTEP_CMD`, `_MICROSTEP_STATUS` | [Motor Axis PVs](motor-axis-pvs.md) |
