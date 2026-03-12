@@ -8,9 +8,9 @@ Template: `galil_digital_in_bit.template`
 
 PV pattern: `$(P)$(R)_STATUS`. Uses `asynUInt32Digital` with bit masks.
 
-| PV Suffix | Record Type | Dir | asyn drvInfo | Galil Cmd | Description |
-|-----------|-------------|-----|--------------|-----------|-------------|
-| `_STATUS` | bi | R | BINARY_IN | @IN, from data record | Digital input bit state |
+| PV Suffix | Record Type | asyn drvInfo | Galil Cmd | Description |
+|-----------|-------------|--------------|-----------|-------------|
+| `_STATUS` | bi | BINARY_IN | @IN, from data record | Digital input bit state |
 
 Template macros:
 
@@ -27,10 +27,10 @@ Template: `galil_digital_out_bit.template`
 
 PV pattern: `$(P)$(R)_`.
 
-| PV Suffix | Record Type | Dir | asyn drvInfo | Galil Cmd | Description |
-|-----------|-------------|-----|--------------|-----------|-------------|
-| `_STATUS` | bi | R | BINARY_OUTRBV | Data record | Digital output bit readback |
-| `_CMD` | bo | W | BINARY_OUT | SB/CB (Set Bit/Clear Bit) | Set digital output bit |
+| PV Suffix | Record Type | asyn drvInfo | Galil Cmd | Description |
+|-----------|-------------|--------------|-----------|-------------|
+| `_STATUS` | bi | BINARY_OUTRBV | Data record | Digital output bit readback |
+| `_CMD` | bo | BINARY_OUT | SB/CB (Set Bit/Clear Bit) | Set digital output bit |
 
 Template macros:
 

@@ -11,12 +11,12 @@ User-defined records allow creating custom PVs that send arbitrary Galil command
 
 PV pattern: `$(P)$(EPICSNAME)_`
 
-| PV Suffix | Record Type | Dir | asyn drvInfo | Description |
-|-----------|-------------|-----|--------------|-------------|
-| `_MONITOR` | ai | R | USER_CMD or USER_VAR + GALILSTR | Read command response or variable value |
-| `_STATUS` | bi | R | - | Bit 0 of MONITOR value as binary status |
-| `_SP` | ao | W | USER_CMD or USER_VAR + GALILSTR | Send command or set variable |
-| `_CMD` | bo | W | - | Trigger that writes to SP and processes |
+| PV Suffix | Record Type | asyn drvInfo | Description |
+|-----------|-------------|--------------|-------------|
+| `_MONITOR` | ai | USER_CMD or USER_VAR + GALILSTR | Read command response or variable value |
+| `_STATUS` | bi | - | Bit 0 of MONITOR value as binary status |
+| `_SP` | ao | USER_CMD or USER_VAR + GALILSTR | Send command or set variable |
+| `_CMD` | bo | - | Trigger that writes to SP and processes |
 
 ### Template Macros
 
@@ -61,9 +61,9 @@ User arrays allow uploading arrays from the controller for monitoring. The drive
 
 PV pattern: `$(P)UARRAY$(ADDR)_` where `ADDR` is the array index.
 
-| PV Suffix | Record Type | Dir | asyn drvInfo | Description |
-|-----------|-------------|-----|--------------|-------------|
-| `UARRAY$(ADDR)_MON` | waveform (DOUBLE) | R | CONTROLLER_UARRAY | Array data from controller |
-| `UARRAYNAME$(ADDR)_SP` | stringout | W | CONTROLLER_UARRAY_NAME | Name of controller array to upload |
+| PV Suffix | Record Type | asyn drvInfo | Description |
+|-----------|-------------|--------------|-------------|
+| `UARRAY$(ADDR)_MON` | waveform (DOUBLE) | CONTROLLER_UARRAY | Array data from controller |
+| `UARRAYNAME$(ADDR)_SP` | stringout | CONTROLLER_UARRAY_NAME | Name of controller array to upload |
 
 Use the controller-level `UPLOAD_CMD` PV to trigger the upload after setting the array name.

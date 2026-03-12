@@ -8,10 +8,10 @@ Template: `galil_analog_in.template`
 
 PV pattern: `$(P)$(R)_` where `R` is the analog input name. ADDR is 0-7.
 
-| PV Suffix | Record Type | Dir | asyn drvInfo | Galil Cmd | Description |
-|-----------|-------------|-----|--------------|-----------|-------------|
-| `_MON` | ai | R | ANALOG_IN | @AN (Analog Input), from data record | Analog input value in Volts |
-| `Deadb_SP` | ao | W | ANALOG_IN_DEADB | - | Deadband for update (default 0.002V) |
+| PV Suffix | Record Type | asyn drvInfo | Galil Cmd | Description |
+|-----------|-------------|--------------|-----------|-------------|
+| `_MON` | ai | ANALOG_IN | @AN (Analog Input), from data record | Analog input value in Volts |
+| `Deadb_SP` | ao | ANALOG_IN_DEADB | - | Deadband for update (default 0.002V) |
 
 ## Analog Outputs
 
@@ -19,8 +19,8 @@ Template: `galil_analog_out.template`
 
 PV pattern: `$(P)$(R)_`. ADDR is 0-7.
 
-| PV Suffix | Record Type | Dir | asyn drvInfo | Galil Cmd | Description |
-|-----------|-------------|-----|--------------|-----------|-------------|
-| `_SP` | ao | W | ANALOG_OUT | AO (Analog Output) | Set analog output in Volts |
-| `_MON` | ai | R | ANALOG_OUTRBV | Data record | Analog output readback |
-| `Deadb_SP` | ao | W | ANALOG_OUTRBV_DEADB | - | Deadband for readback update (default 0.002V) |
+| PV Suffix | Record Type | asyn drvInfo | Galil Cmd | Description |
+|-----------|-------------|--------------|-----------|-------------|
+| `_SP` | ao | ANALOG_OUT | AO (Analog Output) | Set analog output in Volts |
+| `_MON` | ai | ANALOG_OUTRBV | Data record | Analog output readback |
+| `Deadb_SP` | ao | ANALOG_OUTRBV_DEADB | - | Deadband for readback update (default 0.002V) |
