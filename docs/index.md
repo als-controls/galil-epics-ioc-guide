@@ -13,7 +13,7 @@ This guide covers the **V4.x driver line**.
 - **Setting up an IOC?** Start with [IOC Configuration](ioc-configuration.md) for startup commands and database loading, then [Controller PVs](controller-pvs.md) for controller-level settings.
 - **Configuring motors?** Go straight to [Motor Axis PVs](motor-axis-pvs.md) — it covers the standard motor record mapping plus all Galil-specific extras (motor type, encoder setup, PID, homing, limits).
 - **Want the big picture first?** Read [Architecture](architecture.md) for the communication flow, class structure, and how data records work.
-- **Looking up a specific Galil command?** The [Galil Command Reference](galil-command-reference.md) appendix lists every 2-letter code the IOC uses.
+- **Looking up a specific PV or Galil command?** The [Cross Reference](cross-reference.md) maps PVs to commands and commands to PVs. The [Galil Command Reference](galil-command-reference.md) appendix has detailed descriptions of every 2-letter code.
 - **Debugging polling or update rates?** See [Data Record & Polling](data-record-polling.md) for async UDP vs synchronous TCP and what comes from data records versus direct commands.
 
 ---
@@ -33,6 +33,7 @@ This guide covers the **V4.x driver line**.
 | [Amplifier Status PVs](amplifier-status-pvs.md) | Amplifier and drive status PVs: EtherCat drive status words, amplifier enable/fault, and brake control. |
 | [User-Defined Records & Arrays](user-defined-records.md) | User-defined commands, custom records, and array support for arbitrary Galil command execution. |
 | [Data Record & Polling](data-record-polling.md) | Data record structure, polling rates, async UDP versus synchronous TCP, and diagnostic counters. |
+| [Cross Reference](cross-reference.md) | Alphabetical two-way lookup: PV suffix → Galil command, and Galil command → PV suffixes. |
 | [Galil Command Reference](galil-command-reference.md) | Quick reference of the Galil 2-letter commands used by the driver, organized by function. |
 
 ---

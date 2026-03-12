@@ -38,4 +38,5 @@ nav:
   - Amplifier Status PVs: amplifier-status-pvs.md
   - User-Defined Records & Arrays: user-defined-records.md
   - Data Record & Polling: data-record-polling.md
+  - Cross Reference: cross-reference.md
   - "Appendix: Galil Command Reference": galil-command-reference.md
