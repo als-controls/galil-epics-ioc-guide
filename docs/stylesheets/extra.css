@@ -1,31 +1,41 @@
 /*
  * Table column width fixes.
- *
- * Pages have 2, 3, 5, or 6 column tables.  table-layout:fixed
- * enforces declared widths.  Non-last columns shrink to fit;
- * the last column (Description) gets all remaining space.
- * Long unbreakable strings (drvInfo names, PV suffixes) are
- * allowed to break with overflow-wrap so they don't force
- * columns wide.
+ * table-layout:fixed enforces declared widths.
+ * Non-last columns shrink to fit content.
+ * Last column (Description) gets all remaining space.
  */
 
-/* Fixed layout enforces our width declarations */
 .md-typeset table:not([class]) {
   width: 100%;
   table-layout: fixed;
 }
 
-/* All columns except the last: shrink to minimum */
+/* Non-last columns: shrink to content */
 .md-typeset table:not([class]) th:not(:last-child),
 .md-typeset table:not([class]) td:not(:last-child) {
   width: 1px;
   white-space: nowrap;
+  padding-right: 0.4em;
 }
 
-/* Last column: take all remaining space, wrap normally */
+/* Last column (Description): take all remaining space */
 .md-typeset table:not([class]) th:last-child,
 .md-typeset table:not([class]) td:last-child {
   width: auto;
   white-space: normal;
   overflow-wrap: break-word;
+}
+
+/*
+ * Hide the right-side table of contents (on-this-page nav)
+ * so the content area can use the full width.
+ */
+.md-sidebar--secondary {
+  display: none;
+}
+
+/* Let the content area expand into the space freed by hiding the right TOC */
+.md-content {
+  max-width: 100%;
+  margin-right: 0;
 }
