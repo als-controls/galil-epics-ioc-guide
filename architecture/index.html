@@ -942,12 +942,12 @@ EPICS Records (PVs)
 <li>Maps onto Galil coordinate systems S and T (up to 4 axes per coordinate system).</li>
 <li>Handles forward and reverse kinematic transforms.</li>
 <li>Coordinates multi-axis moves so that axes start and stop together.</li>
-<li>Uses the Galil <code>CA</code>, <code>CD</code>, <code>CR</code> (vector mode) commands for coordinated motion.</li>
+<li>Uses the Galil <a href="../galil-command-reference/#ca"><code>CA</code></a>, <code>CD</code>, <code>CR</code> (vector mode) commands for coordinated motion.</li>
 </ul>
 <h3 id="galilpoller">GalilPoller<a class="headerlink" href="#galilpoller" title="Permanent link">&para;</a></h3>
 <p>Dedicated polling thread that keeps PV values synchronized with hardware state.</p>
 <ul>
-<li>In async UDP mode, the controller pushes data records at the configured rate using the Galil <code>DR</code> command. The poller receives and parses these binary packets.</li>
+<li>In async UDP mode, the controller pushes data records at the configured rate using the Galil <a href="../galil-command-reference/#dr"><code>DR</code></a> command. The poller receives and parses these binary packets.</li>
 <li>In synchronous TCP mode, the poller requests data records on a timer.</li>
 <li>Parses binary data record fields into individual axis positions, velocities, status bits, analog values, and digital I/O states.</li>
 <li>Updates the asyn parameter list, which triggers <code>I/O Intr</code> callbacks to process EPICS records.</li>
@@ -973,7 +973,7 @@ EPICS Records (PVs)
 <tr>
 <td>Async UDP</td>
 <td>Ethernet</td>
-<td>Controller pushes data records at a rate configured by the <code>DR</code> command</td>
+<td>Controller pushes data records at a rate configured by the <a href="../galil-command-reference/#dr"><code>DR</code></a> command</td>
 <td>Preferred mode for ethernet-connected controllers. Lowest latency.</td>
 </tr>
 <tr>

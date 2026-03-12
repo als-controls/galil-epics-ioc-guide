@@ -709,7 +709,7 @@
 
 
 <h1 id="digital-io-pvs">Digital I/O PVs<a class="headerlink" href="#digital-io-pvs" title="Permanent link">&para;</a></h1>
-<p>The DMC-41x3 has optoisolated digital I/O. Controllers with 1-4 axes provide 8 inputs (bank 0) and 8 outputs. Controllers with 5-8 axes provide an additional 8 inputs (bank 1) and 8 outputs. The IOC uses the Galil <code>@IN</code> (Read digital input) command for reads and <code>SB</code>/<code>CB</code> (Set Bit/Clear Bit) for writes. Values come from the data record.</p>
+<p>The DMC-41x3 has optoisolated digital I/O. Controllers with 1-4 axes provide 8 inputs (bank 0) and 8 outputs. Controllers with 5-8 axes provide an additional 8 inputs (bank 1) and 8 outputs. The IOC uses the Galil <a href="../galil-command-reference/#in"><code>@IN</code></a> (Read digital input) command for reads and <a href="../galil-command-reference/#sb"><code>SB</code></a>/<a href="../galil-command-reference/#cb"><code>CB</code></a> (Set Bit/Clear Bit) for writes. Values come from the data record.</p>
 <h2 id="digital-inputs">Digital Inputs<a class="headerlink" href="#digital-inputs" title="Permanent link">&para;</a></h2>
 <p>Template: <code>galil_digital_in_bit.template</code></p>
 <p>PV pattern: <code>$(P)$(R)_STATUS</code>. Uses <code>asynUInt32Digital</code> with bit masks.</p>
@@ -728,7 +728,7 @@
 <td><code>_STATUS</code></td>
 <td>bi</td>
 <td>BINARY_IN</td>
-<td>@IN, from data record</td>
+<td><a href="../galil-command-reference/#in">@IN</a>, from data record</td>
 <td>Digital input bit state</td>
 </tr>
 </tbody>
@@ -785,7 +785,7 @@
 <td><code>_CMD</code></td>
 <td>bo</td>
 <td>BINARY_OUT</td>
-<td>SB/CB (Set Bit/Clear Bit)</td>
+<td><a href="../galil-command-reference/#sb">SB</a>/<a href="../galil-command-reference/#cb">CB</a> (Set Bit/Clear Bit)</td>
 <td>Set digital output bit</td>
 </tr>
 </tbody>

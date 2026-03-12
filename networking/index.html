@@ -903,7 +903,7 @@
 <ol>
 <li>Connect to the controller using GDK.</li>
 <li>Issue <code>DH0</code> to disable DHCP.</li>
-<li>Issue <code>BN</code> to burn the setting to EEPROM (only if the connection is still active after step 2).</li>
+<li>Issue <a href="../galil-command-reference/#bn"><code>BN</code></a> to burn the setting to EEPROM (only if the connection is still active after step 2).</li>
 </ol>
 <h3 id="assign-a-static-ip-address">Assign a Static IP Address<a class="headerlink" href="#assign-a-static-ip-address" title="Permanent link">&para;</a></h3>
 <ol>
@@ -917,24 +917,24 @@
 <p>If connection dropouts occur, especially on open or busy networks, configure the controller to block broadcast and ARP traffic:</p>
 <ol>
 <li>Connect to the controller using GDK and open a terminal window.</li>
-<li>Issue <code>TH</code> and record the controller's MAC address.</li>
+<li>Issue <a href="../galil-command-reference/#th"><code>TH</code></a> and record the controller's MAC address.</li>
 <li>Issue <code>IB1</code> to block all broadcast traffic.</li>
-<li>Issue <code>BN</code> to burn the setting.</li>
+<li>Issue <a href="../galil-command-reference/#bn"><code>BN</code></a> to burn the setting.</li>
 <li>On the IOC host, add a static ARP entry: <code>arp -s &lt;ip_address&gt; &lt;mac_address&gt;</code></li>
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>After blocking broadcasts, only hosts with the static ARP entry can connect to the controller. Add the static ARP entry to the IOC host's startup script so it persists across reboots.</p>
 </div>
-<p>To re-enable broadcasts: connect from a host that has the static ARP entry, issue <code>IB0</code>, then <code>BN</code>. Alternatively, use the master reset jumper.</p>
+<p>To re-enable broadcasts: connect from a host that has the static ARP entry, issue <code>IB0</code>, then <a href="../galil-command-reference/#bn"><code>BN</code></a>. Alternatively, use the master reset jumper.</p>
 <h3 id="block-low-ports">Block Low Ports<a class="headerlink" href="#block-low-ports" title="Permanent link">&para;</a></h3>
 <p>If connection dropouts persist, blocking most ports below 1000 may help:</p>
 <ol>
 <li>Connect to the controller using GDK.</li>
 <li>Issue <code>IK1</code> to block most ports below 1000.</li>
-<li>Issue <code>BN</code> to burn the setting.</li>
+<li>Issue <a href="../galil-command-reference/#bn"><code>BN</code></a> to burn the setting.</li>
 </ol>
-<p>To re-enable: issue <code>IK0</code>, then <code>BN</code>.</p>
+<p>To re-enable: issue <code>IK0</code>, then <a href="../galil-command-reference/#bn"><code>BN</code></a>.</p>
 <hr />
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <h3 id="cannot-connect">Cannot Connect<a class="headerlink" href="#cannot-connect" title="Permanent link">&para;</a></h3>

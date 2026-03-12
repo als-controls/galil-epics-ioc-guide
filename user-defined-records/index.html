@@ -844,14 +844,14 @@
 <p>Reading analog input 1 as a custom record:</p>
 <div class="highlight"><pre><span></span><code>DRVCMD=CMD, GALILSTR=&quot;MG @AN[1]&quot;
 </code></pre></div>
-<p>This queries analog input 1 via the MG (Message) command.</p>
+<p>This queries analog input 1 via the <a href="../galil-command-reference/#mg">MG</a> (Message) command.</p>
 <p>Reading and writing a controller variable:</p>
 <div class="highlight"><pre><span></span><code>DRVCMD=VAR, GALILSTR=&quot;myvar&quot;
 </code></pre></div>
 <p>This reads and writes the variable <code>myvar</code> on the controller.</p>
 <h2 id="user-arrays">User Arrays<a class="headerlink" href="#user-arrays" title="Permanent link">&para;</a></h2>
 <p>Template: <code>galil_user_array.template</code></p>
-<p>User arrays allow uploading arrays from the controller for monitoring. The driver uses the Galil <code>QU</code> (Upload Array) command.</p>
+<p>User arrays allow uploading arrays from the controller for monitoring. The driver uses the Galil <a href="../galil-command-reference/#qu"><code>QU</code></a> (Upload Array) command.</p>
 <p>PV pattern: <code>$(P)UARRAY$(ADDR)_</code> where <code>ADDR</code> is the array index.</p>
 <table>
 <thead>

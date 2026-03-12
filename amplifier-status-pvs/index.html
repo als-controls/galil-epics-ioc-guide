@@ -698,7 +698,7 @@
 
 
 <h1 id="amplifier-status-pvs">Amplifier Status PVs<a class="headerlink" href="#amplifier-status-pvs" title="Permanent link">&para;</a></h1>
-<p>For Galil controllers with internal amplifiers (AMP/SDM options), the IOC monitors amplifier health. Status is derived from the Galil <code>TA</code> (Tell Amplifier error status) command bits, parsed from the data record.</p>
+<p>For Galil controllers with internal amplifiers (AMP/SDM options), the IOC monitors amplifier health. Status is derived from the Galil <a href="../galil-command-reference/#ta"><code>TA</code></a> (Tell Amplifier error status) command bits, parsed from the data record.</p>
 <h2 id="quad-amplifier-status">Quad Amplifier Status<a class="headerlink" href="#quad-amplifier-status" title="Permanent link">&para;</a></h2>
 <p>Template: <code>galil_quadAmpStatus.template</code></p>
 <p>PV pattern: <code>$(P)$(AMP)_</code> where <code>AMP</code> is the amplifier bank name. ADDR maps to the amplifier bank.</p>
@@ -717,40 +717,40 @@
 <td><code>_OVERCURRENT_STATUS</code></td>
 <td>bi</td>
 <td>AMP_OVERCURRENT_STATUS</td>
-<td>TA bit, data record</td>
+<td><a href="../galil-command-reference/#ta">TA</a> bit, data record</td>
 <td>Overcurrent fault (MAJOR alarm)</td>
 </tr>
 <tr>
 <td><code>_UNDERVOLTAGE_STATUS</code></td>
 <td>bi</td>
 <td>AMP_UNDERVOLTAGE_STATUS</td>
-<td>TA bit, data record</td>
+<td><a href="../galil-command-reference/#ta">TA</a> bit, data record</td>
 <td>Undervoltage fault (MAJOR alarm)</td>
 </tr>
 <tr>
 <td><code>_OVERVOLTAGE_STATUS</code></td>
 <td>bi</td>
 <td>AMP_OVERVOLTAGE_STATUS</td>
-<td>TA bit, data record</td>
+<td><a href="../galil-command-reference/#ta">TA</a> bit, data record</td>
 <td>Overvoltage fault (MAJOR alarm)</td>
 </tr>
 <tr>
 <td><code>_OVERTEMPERATURE_STATUS</code></td>
 <td>bi</td>
 <td>AMP_OVERTEMPERATURE_STATUS</td>
-<td>TA bit, data record</td>
+<td><a href="../galil-command-reference/#ta">TA</a> bit, data record</td>
 <td>Overtemperature fault (MAJOR alarm)</td>
 </tr>
 <tr>
 <td><code>_ELO_STATUS</code></td>
 <td>bi</td>
 <td>AMP_ELO_STATUS</td>
-<td>TA bit, data record</td>
+<td><a href="../galil-command-reference/#ta">TA</a> bit, data record</td>
 <td>Electronic lockout active (MAJOR alarm)</td>
 </tr>
 </tbody>
 </table>
-<p>All status PVs use I/O Intr scanning and transition to MAJOR alarm severity on fault. To clear latched faults, use the controller-level <code>CLEARAMPFAULTS_CMD</code> PV, which issues the Galil <code>AZ</code> (Clear Latched Amplifier Errors) command.</p>
+<p>All status PVs use I/O Intr scanning and transition to MAJOR alarm severity on fault. To clear latched faults, use the controller-level <code>CLEARAMPFAULTS_CMD</code> PV, which issues the Galil <a href="../galil-command-reference/#az"><code>AZ</code></a> (Clear Latched Amplifier Errors) command.</p>
 
 
 

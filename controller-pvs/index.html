@@ -886,7 +886,7 @@
 <td><code>MODEL_MON</code></td>
 <td>stringin</td>
 <td><code>CONTROLLER_MODEL</code></td>
-<td>RV</td>
+<td><a href="../galil-command-reference/#rv">RV</a></td>
 <td>Controller model (e.g. "DMC4143"). Queried at connection via binary RV command</td>
 </tr>
 <tr>
@@ -900,14 +900,14 @@
 <td><code>ETHADDR_MON</code></td>
 <td>stringin</td>
 <td><code>CONTROLLER_ETHADDR</code></td>
-<td>TH</td>
+<td><a href="../galil-command-reference/#th">TH</a></td>
 <td>Ethernet MAC address. Parsed from TH (Tell Ethernet Handle) response</td>
 </tr>
 <tr>
 <td><code>SERIALNUM_MON</code></td>
 <td>stringin</td>
 <td><code>CONTROLLER_SERIALNUM</code></td>
-<td>MG _BN</td>
+<td><a href="../galil-command-reference/#mg">MG</a> _BN</td>
 <td>Controller serial number. Queried via MG _BN (Message, internal variable)</td>
 </tr>
 <tr>
@@ -928,14 +928,14 @@
 <td><code>SSICAPABLE_STATUS</code></td>
 <td>bi</td>
 <td><code>CONTROLLER_SSICAPABLE</code></td>
-<td>SIA, SIE</td>
+<td><a href="../galil-command-reference/#si">SI</a>A, <a href="../galil-command-reference/#si">SI</a>E</td>
 <td>SSI encoder capable (determined from model string and SIA=?/SIE=? queries)</td>
 </tr>
 <tr>
 <td><code>BISSCAPABLE_STATUS</code></td>
 <td>bi</td>
 <td><code>CONTROLLER_BISSCAPABLE</code></td>
-<td>SSA, SSE</td>
+<td><a href="../galil-command-reference/#ss">SS</a>A, <a href="../galil-command-reference/#ss">SS</a>E</td>
 <td>BiSS encoder capable (determined from model string and SSA=?/SSE=? queries)</td>
 </tr>
 <tr>
@@ -955,7 +955,7 @@
 </tbody>
 </table>
 <h3 id="switch-configuration">Switch Configuration<a class="headerlink" href="#switch-configuration" title="Permanent link">&para;</a></h3>
-<p>These PVs configure how the controller interprets limit and home switches. They all map to the Galil <code>CN</code> (Configure) command.</p>
+<p>These PVs configure how the controller interprets limit and home switches. They all map to the Galil <a href="../galil-command-reference/#cn"><code>CN</code></a> (Configure) command.</p>
 <table>
 <thead>
 <tr>
@@ -971,42 +971,42 @@
 <td><code>LIMITTYPE_CMD</code></td>
 <td>bo</td>
 <td><code>CONTROLLER_LIMITTYPE</code></td>
-<td>CN</td>
+<td><a href="../galil-command-reference/#cn">CN</a></td>
 <td>Set limit switch type: NO (normally open) or NC (normally closed)</td>
 </tr>
 <tr>
 <td><code>LIMITTYPE_STATUS</code></td>
 <td>bi</td>
 <td><code>CONTROLLER_LIMITTYPE</code></td>
-<td>MG _CN0</td>
+<td><a href="../galil-command-reference/#mg">MG</a> _CN0</td>
 <td>Readback of limit switch type</td>
 </tr>
 <tr>
 <td><code>HOMETYPE_CMD</code></td>
 <td>bo</td>
 <td><code>CONTROLLER_HOMETYPE</code></td>
-<td>CN</td>
+<td><a href="../galil-command-reference/#cn">CN</a></td>
 <td>Set home switch type: NO or NC</td>
 </tr>
 <tr>
 <td><code>HOMETYPE_STATUS</code></td>
 <td>bi</td>
 <td><code>CONTROLLER_HOMETYPE</code></td>
-<td>CN</td>
+<td><a href="../galil-command-reference/#cn">CN</a></td>
 <td>Readback of home switch type</td>
 </tr>
 <tr>
 <td><code>HOMEEDGE_CMD</code></td>
 <td>bo</td>
 <td><code>CONTROLLER_HOMEEDGE</code></td>
-<td>CN</td>
+<td><a href="../galil-command-reference/#cn">CN</a></td>
 <td>Home edge: Reverse or Forward</td>
 </tr>
 <tr>
 <td><code>HOMEEDGE_STATUS</code></td>
 <td>bi</td>
 <td><code>CONTROLLER_HOMEEDGE</code></td>
-<td>CN</td>
+<td><a href="../galil-command-reference/#cn">CN</a></td>
 <td>Readback of home edge</td>
 </tr>
 </tbody>
@@ -1028,14 +1028,14 @@
 <td><code>ECATNETWORK_CMD</code></td>
 <td>bo</td>
 <td><code>CONTROLLER_ECAT_NETWORK</code></td>
-<td>EU</td>
+<td><a href="../galil-command-reference/#eu">EU</a></td>
 <td>Enable (<code>EU1</code>) or disable (<code>EU0</code>) the EtherCat network</td>
 </tr>
 <tr>
 <td><code>ECATNETWORK_STATUS</code></td>
 <td>bi</td>
 <td><code>CONTROLLER_ECAT_NETWORK</code></td>
-<td>MG _EU0</td>
+<td><a href="../galil-command-reference/#mg">MG</a> _EU0</td>
 <td>EtherCat network status</td>
 </tr>
 <tr>
@@ -1048,7 +1048,7 @@
 </tbody>
 </table>
 <h3 id="deferred-moves">Deferred Moves<a class="headerlink" href="#deferred-moves" title="Permanent link">&para;</a></h3>
-<p>Deferred moves allow multiple axes to start simultaneously. When deferred mode is active, move commands are buffered. The Galil <code>BG</code> (Begin) command is issued when the mode is set back to Go.</p>
+<p>Deferred moves allow multiple axes to start simultaneously. When deferred mode is active, move commands are buffered. The Galil <a href="../galil-command-reference/#bg"><code>BG</code></a> (Begin) command is issued when the mode is set back to Go.</p>
 <table>
 <thead>
 <tr>
@@ -1064,7 +1064,7 @@
 <td><code>DEFER_CMD</code></td>
 <td>bo</td>
 <td><code>MOTOR_DEFER_MOVES</code></td>
-<td>BG</td>
+<td><a href="../galil-command-reference/#bg">BG</a></td>
 <td>Set deferred mode: Go (execute immediately) or Defer (buffer moves). Issues BG (Begin) with axes or coordinate system when set to Go</td>
 </tr>
 <tr>
@@ -1079,7 +1079,7 @@
 <td>bo</td>
 <td><code>CONTROLLER_DEFERRED_MODE</code></td>
 <td>--</td>
-<td>Deferred mode: "Sync start only" or "Sync start/stop". When set to "Sync start/stop", the ST (Stop) command is also deferred. Driver-internal setting</td>
+<td>Deferred mode: "Sync start only" or "Sync start/stop". When set to "Sync start/stop", the <a href="../galil-command-reference/#st">ST</a> (Stop) command is also deferred. Driver-internal setting</td>
 </tr>
 <tr>
 <td><code>DEFER_MODE_STATUS</code></td>
@@ -1106,20 +1106,20 @@
 <td><code>COORDSYS_CMD</code></td>
 <td>bo</td>
 <td><code>COORDINATE_SYSTEM</code></td>
-<td>CA</td>
+<td><a href="../galil-command-reference/#ca">CA</a></td>
 <td>Select active coordinate system: S or T. Issues CA (Coordinate Axes define)</td>
 </tr>
 <tr>
 <td><code>COORDSYS_STATUS</code></td>
 <td>bi</td>
 <td><code>COORDINATE_SYSTEM</code></td>
-<td>MG _CA</td>
+<td><a href="../galil-command-reference/#mg">MG</a> _CA</td>
 <td>Active coordinate system readback</td>
 </tr>
 </tbody>
 </table>
 <h3 id="output-compare">Output Compare<a class="headerlink" href="#output-compare" title="Permanent link">&para;</a></h3>
-<p>Output compare generates a pulse on a digital output when the encoder crosses specified positions. It uses the Galil <code>OC</code> (Output Compare) command. Two output compare channels are available: OC1 covers axes A through D, and OC2 covers axes E through H.</p>
+<p>Output compare generates a pulse on a digital output when the encoder crosses specified positions. It uses the Galil <a href="../galil-command-reference/#oc"><code>OC</code></a> (Output Compare) command. Two output compare channels are available: OC1 covers axes A through D, and OC2 covers axes E through H.</p>
 <table>
 <thead>
 <tr>
@@ -1135,84 +1135,84 @@
 <td><code>OC1START_CMD</code></td>
 <td>ao</td>
 <td><code>OUTPUT_COMPARE_START</code> (addr 0)</td>
-<td>OC</td>
+<td><a href="../galil-command-reference/#oc">OC</a></td>
 <td>Output compare 1 start position</td>
 </tr>
 <tr>
 <td><code>OC1START_MON</code></td>
 <td>ai</td>
 <td><code>OUTPUT_COMPARE_START</code> (addr 0)</td>
-<td>OC</td>
+<td><a href="../galil-command-reference/#oc">OC</a></td>
 <td>Readback</td>
 </tr>
 <tr>
 <td><code>OC1INCR_CMD</code></td>
 <td>ao</td>
 <td><code>OUTPUT_COMPARE_INCR</code> (addr 0)</td>
-<td>OC</td>
+<td><a href="../galil-command-reference/#oc">OC</a></td>
 <td>Output compare 1 increment</td>
 </tr>
 <tr>
 <td><code>OC1INCR_MON</code></td>
 <td>ai</td>
 <td><code>OUTPUT_COMPARE_INCR</code> (addr 0)</td>
-<td>OC</td>
+<td><a href="../galil-command-reference/#oc">OC</a></td>
 <td>Readback</td>
 </tr>
 <tr>
 <td><code>OC1AXIS_CMD</code></td>
 <td>mbbo</td>
 <td><code>OUTPUT_COMPARE_AXIS</code> (addr 0)</td>
-<td>OC</td>
+<td><a href="../galil-command-reference/#oc">OC</a></td>
 <td>Output compare 1 axis: OFF, A, B, C, D</td>
 </tr>
 <tr>
 <td><code>OC1AXIS_STATUS</code></td>
 <td>mbbi</td>
 <td><code>OUTPUT_COMPARE_AXIS</code> (addr 0)</td>
-<td>OC</td>
+<td><a href="../galil-command-reference/#oc">OC</a></td>
 <td>Readback</td>
 </tr>
 <tr>
 <td><code>OC2START_CMD</code></td>
 <td>ao</td>
 <td><code>OUTPUT_COMPARE_START</code> (addr 1)</td>
-<td>OC</td>
+<td><a href="../galil-command-reference/#oc">OC</a></td>
 <td>Output compare 2 start position</td>
 </tr>
 <tr>
 <td><code>OC2START_MON</code></td>
 <td>ai</td>
 <td><code>OUTPUT_COMPARE_START</code> (addr 1)</td>
-<td>OC</td>
+<td><a href="../galil-command-reference/#oc">OC</a></td>
 <td>Readback</td>
 </tr>
 <tr>
 <td><code>OC2INCR_CMD</code></td>
 <td>ao</td>
 <td><code>OUTPUT_COMPARE_INCR</code> (addr 1)</td>
-<td>OC</td>
+<td><a href="../galil-command-reference/#oc">OC</a></td>
 <td>Output compare 2 increment</td>
 </tr>
 <tr>
 <td><code>OC2INCR_MON</code></td>
 <td>ai</td>
 <td><code>OUTPUT_COMPARE_INCR</code> (addr 1)</td>
-<td>OC</td>
+<td><a href="../galil-command-reference/#oc">OC</a></td>
 <td>Readback</td>
 </tr>
 <tr>
 <td><code>OC2AXIS_CMD</code></td>
 <td>mbbo</td>
 <td><code>OUTPUT_COMPARE_AXIS</code> (addr 1)</td>
-<td>OC</td>
+<td><a href="../galil-command-reference/#oc">OC</a></td>
 <td>Output compare 2 axis: OFF, E, F, G, H</td>
 </tr>
 <tr>
 <td><code>OC2AXIS_STATUS</code></td>
 <td>mbbi</td>
 <td><code>OUTPUT_COMPARE_AXIS</code> (addr 1)</td>
-<td>OC</td>
+<td><a href="../galil-command-reference/#oc">OC</a></td>
 <td>Readback</td>
 </tr>
 <tr>
@@ -1240,7 +1240,7 @@
 <td><code>UPLOAD_CMD</code></td>
 <td>bo</td>
 <td><code>CONTROLLER_UARRAY_UPLOAD</code></td>
-<td>QU</td>
+<td><a href="../galil-command-reference/#qu">QU</a></td>
 <td>Trigger upload of user arrays from controller. Issues QU (Upload Array) for each array</td>
 </tr>
 <tr>
@@ -1325,7 +1325,7 @@
 <td><code>CLEARAMPFAULTS_CMD</code></td>
 <td>bo</td>
 <td><code>CONTROLLER_CLEARAMPFAULTS</code></td>
-<td>AZ</td>
+<td><a href="../galil-command-reference/#az">AZ</a></td>
 <td>Clear amplifier faults. Issues AZ1 (Clear Latched Amplifier Errors, all amps). 40xx/41xx series only</td>
 </tr>
 </tbody>

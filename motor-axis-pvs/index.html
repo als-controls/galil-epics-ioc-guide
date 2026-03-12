@@ -921,48 +921,48 @@
 <tbody>
 <tr>
 <td><code>.VAL</code> (move)</td>
-<td>PA / PR</td>
+<td><a href="../galil-command-reference/#pa">PA</a> / <a href="../galil-command-reference/#pr">PR</a></td>
 <td>Commanded position. Driver selects PA (Position Absolute) or PR (Position Relative) based on move type.</td>
 </tr>
 <tr>
 <td><code>.JOGF</code> / <code>.JOGR</code></td>
-<td>JG</td>
+<td><a href="../galil-command-reference/#jg">JG</a></td>
 <td>Jog velocity. Issues JG with positive or negative velocity.</td>
 </tr>
 <tr>
 <td><code>.HOMF</code> / <code>.HOMR</code></td>
-<td>HM, FI, FE</td>
+<td><a href="../galil-command-reference/#hm">HM</a>, <a href="../galil-command-reference/#fi">FI</a>, <a href="../galil-command-reference/#fe">FE</a></td>
 <td>Home sequence. Uses generated DMC code combining Home (HM), Find Index (FI), and Find Edge (FE).</td>
 </tr>
 <tr>
 <td><code>.STOP</code></td>
-<td>ST</td>
+<td><a href="../galil-command-reference/#st">ST</a></td>
 <td>Stops axis motion.</td>
 </tr>
 <tr>
 <td><code>.VELO</code></td>
-<td>SP</td>
+<td><a href="../galil-command-reference/#sp">SP</a></td>
 <td>Commanded velocity.</td>
 </tr>
 <tr>
 <td><code>.ACCL</code></td>
-<td>AC, DC</td>
+<td><a href="../galil-command-reference/#ac">AC</a>, <a href="../galil-command-reference/#dc">DC</a></td>
 <td>Acceleration and deceleration time. The driver calculates counts/s^2 from VELO and ACCL.</td>
 </tr>
 <tr>
 <td><code>.BDST</code></td>
-<td>PR</td>
+<td><a href="../galil-command-reference/#pr">PR</a></td>
 <td>Backlash distance. Performed as a separate relative move.</td>
 </tr>
 <tr>
 <td><code>.SET</code></td>
-<td>DP, DE</td>
+<td><a href="../galil-command-reference/#dp">DP</a>, <a href="../galil-command-reference/#de">DE</a></td>
 <td>Set position mode. Defines the encoder register (DP) and step count register (DE).</td>
 </tr>
 <tr>
 <td><code>.UEIP</code></td>
 <td>--</td>
-<td>Use Encoder If Present. When 1, position readback comes from the main encoder (TP). When 0, from the step counter (TD).</td>
+<td>Use Encoder If Present. When 1, position readback comes from the main encoder (<a href="../galil-command-reference/#tp">TP</a>). When 0, from the step counter (<a href="../galil-command-reference/#td">TD</a>).</td>
 </tr>
 <tr>
 <td><code>.MRES</code></td>
@@ -976,7 +976,7 @@
 </tr>
 <tr>
 <td><code>.RBV</code></td>
-<td>TP / TD</td>
+<td><a href="../galil-command-reference/#tp">TP</a> / <a href="../galil-command-reference/#td">TD</a></td>
 <td>Position readback. Source depends on UEIP and motor type. Read from the data record, not by issuing a direct command.</td>
 </tr>
 <tr>
@@ -1010,35 +1010,35 @@
 <td><code>_MTRTYPE_CMD</code></td>
 <td>mbbo</td>
 <td>MOTOR_TYPE</td>
-<td>MT</td>
+<td><a href="../galil-command-reference/#mt">MT</a></td>
 <td>Motor type selection: Servo, Rev Servo, HA Stepper, LA Stepper, Rev HA Stepper, Rev LA Stepper, PWM servo, PWM rev servo, EtherCat Position, EtherCat Torque, EtherCat Rev Torque, Servo 2PB, Rev Servo 2PB</td>
 </tr>
 <tr>
 <td><code>_MTRTYPE_STATUS</code></td>
 <td>mbbi</td>
 <td>MOTOR_TYPE</td>
-<td>MT</td>
+<td><a href="../galil-command-reference/#mt">MT</a></td>
 <td>Motor type readback</td>
 </tr>
 <tr>
 <td><code>_BRTYPE_CMD</code></td>
 <td>mbbo</td>
 <td>BRUSH_TYPE</td>
-<td>BR</td>
+<td><a href="../galil-command-reference/#br">BR</a></td>
 <td>Brush type: External Drive (-1), Brushless (0), Brush (1)</td>
 </tr>
 <tr>
 <td><code>_BRTYPE_STATUS</code></td>
 <td>mbbi</td>
 <td>BRUSH_TYPE</td>
-<td>BR</td>
+<td><a href="../galil-command-reference/#br">BR</a></td>
 <td>Brush type readback</td>
 </tr>
 <tr>
 <td><code>_ON_CMD</code></td>
 <td>mbbo</td>
 <td>MOTOR_CLOSED_LOOP</td>
-<td>SH / MO</td>
+<td><a href="../galil-command-reference/#sh">SH</a> / <a href="../galil-command-reference/#mo">MO</a></td>
 <td>Motor on/off. On issues SH (Servo Here) to enable the servo loop; Off issues MO (Motor Off) to disable it.</td>
 </tr>
 <tr>
@@ -1073,28 +1073,28 @@
 <td><code>_MENCTYPE_CMD</code></td>
 <td>mbbo</td>
 <td>MOTOR_MAIN_ENCODER</td>
-<td>CE</td>
+<td><a href="../galil-command-reference/#ce">CE</a></td>
 <td>Main encoder type: Normal Quadrature, Pulse and Dir, Reverse Quadrature, Rev Pulse and Dir</td>
 </tr>
 <tr>
 <td><code>_MENCTYPE_STATUS</code></td>
 <td>mbbi</td>
 <td>MOTOR_MAIN_ENCODER</td>
-<td>CE</td>
+<td><a href="../galil-command-reference/#ce">CE</a></td>
 <td>Main encoder readback</td>
 </tr>
 <tr>
 <td><code>_AENCTYPE_CMD</code></td>
 <td>mbbo</td>
 <td>MOTOR_AUX_ENCODER</td>
-<td>CE</td>
+<td><a href="../galil-command-reference/#ce">CE</a></td>
 <td>Aux encoder type. Values 0, 4, 8, 12 select the upper bits of the CE command.</td>
 </tr>
 <tr>
 <td><code>_AENCTYPE_STATUS</code></td>
 <td>mbbi</td>
 <td>MOTOR_AUX_ENCODER</td>
-<td>CE</td>
+<td><a href="../galil-command-reference/#ce">CE</a></td>
 <td>Aux encoder readback</td>
 </tr>
 <tr>
@@ -1114,7 +1114,7 @@
 </tbody>
 </table>
 <h3 id="ssi-absolute-encoder">SSI Absolute Encoder<a class="headerlink" href="#ssi-absolute-encoder" title="Permanent link">&para;</a></h3>
-<p>All SSI PVs map to the Galil SI command.</p>
+<p>All SSI PVs map to the Galil <a href="../galil-command-reference/#si">SI</a> command.</p>
 <table>
 <thead>
 <tr>
@@ -1137,84 +1137,84 @@
 <td><code>_SSIINPUT_CMD</code></td>
 <td>mbbo</td>
 <td>MOTOR_SSIINPUT</td>
-<td>SI</td>
+<td><a href="../galil-command-reference/#si">SI</a></td>
 <td>SSI input mode: Off, Replace main, Replace aux</td>
 </tr>
 <tr>
 <td><code>_SSIINPUT_STATUS</code></td>
 <td>mbbi</td>
 <td>MOTOR_SSIINPUT</td>
-<td>SI</td>
+<td><a href="../galil-command-reference/#si">SI</a></td>
 <td>SSI input readback</td>
 </tr>
 <tr>
 <td><code>_SSITOTBITS_SP</code></td>
 <td>ao</td>
 <td>MOTOR_SSITOTBITS</td>
-<td>SI</td>
+<td><a href="../galil-command-reference/#si">SI</a></td>
 <td>SSI total bits (default 25)</td>
 </tr>
 <tr>
 <td><code>_SSITOTBITS_MON</code></td>
 <td>ai</td>
 <td>MOTOR_SSITOTBITS</td>
-<td>SI</td>
+<td><a href="../galil-command-reference/#si">SI</a></td>
 <td>Readback</td>
 </tr>
 <tr>
 <td><code>_SSISINGLETBITS_SP</code></td>
 <td>ao</td>
 <td>MOTOR_SSISINGLETBITS</td>
-<td>SI</td>
+<td><a href="../galil-command-reference/#si">SI</a></td>
 <td>SSI single-turn bits (default 13)</td>
 </tr>
 <tr>
 <td><code>_SSISINGLETBITS_MON</code></td>
 <td>ai</td>
 <td>MOTOR_SSISINGLETBITS</td>
-<td>SI</td>
+<td><a href="../galil-command-reference/#si">SI</a></td>
 <td>Readback</td>
 </tr>
 <tr>
 <td><code>_SSIERRBITS_SP</code></td>
 <td>ao</td>
 <td>MOTOR_SSIERRBITS</td>
-<td>SI</td>
+<td><a href="../galil-command-reference/#si">SI</a></td>
 <td>SSI error bits (default 0)</td>
 </tr>
 <tr>
 <td><code>_SSIERRBITS_MON</code></td>
 <td>ai</td>
 <td>MOTOR_SSIERRBITS</td>
-<td>SI</td>
+<td><a href="../galil-command-reference/#si">SI</a></td>
 <td>Readback</td>
 </tr>
 <tr>
 <td><code>_SSITIME_SP</code></td>
 <td>ao</td>
 <td>MOTOR_SSITIME</td>
-<td>SI</td>
+<td><a href="../galil-command-reference/#si">SI</a></td>
 <td>SSI clock rate timecode (default 13)</td>
 </tr>
 <tr>
 <td><code>_SSITIME_MON</code></td>
 <td>ai</td>
 <td>MOTOR_SSITIME</td>
-<td>SI</td>
+<td><a href="../galil-command-reference/#si">SI</a></td>
 <td>Readback</td>
 </tr>
 <tr>
 <td><code>_SSIDATA_CMD</code></td>
 <td>bo</td>
 <td>MOTOR_SSIDATA</td>
-<td>SI</td>
+<td><a href="../galil-command-reference/#si">SI</a></td>
 <td>SSI data format: Binary or Gray</td>
 </tr>
 <tr>
 <td><code>_SSIDATA_STATUS</code></td>
 <td>bi</td>
 <td>MOTOR_SSIDATA</td>
-<td>SI</td>
+<td><a href="../galil-command-reference/#si">SI</a></td>
 <td>Readback</td>
 </tr>
 <tr>
@@ -1234,7 +1234,7 @@
 </tbody>
 </table>
 <h3 id="biss-absolute-encoder">BiSS Absolute Encoder<a class="headerlink" href="#biss-absolute-encoder" title="Permanent link">&para;</a></h3>
-<p>BiSS configuration PVs map to the Galil SS command; the active level PVs use SY.</p>
+<p>BiSS configuration PVs map to the Galil <a href="../galil-command-reference/#ss">SS</a> command; the active level PVs use <a href="../galil-command-reference/#sy">SY</a>.</p>
 <table>
 <thead>
 <tr>
@@ -1250,84 +1250,84 @@
 <td><code>_BISSINPUT_CMD</code></td>
 <td>mbbo</td>
 <td>MOTOR_BISSINPUT</td>
-<td>SS</td>
+<td><a href="../galil-command-reference/#ss">SS</a></td>
 <td>BiSS input mode: Off, Replace main, Replace aux</td>
 </tr>
 <tr>
 <td><code>_BISSINPUT_STATUS</code></td>
 <td>mbbi</td>
 <td>MOTOR_BISSINPUT</td>
-<td>SS</td>
+<td><a href="../galil-command-reference/#ss">SS</a></td>
 <td>BiSS input readback</td>
 </tr>
 <tr>
 <td><code>_BISSDATA1_SP</code></td>
 <td>longout</td>
 <td>MOTOR_BISSDATA1</td>
-<td>SS</td>
+<td><a href="../galil-command-reference/#ss">SS</a></td>
 <td>BiSS data bits 1 (-38 to 38, default 27)</td>
 </tr>
 <tr>
 <td><code>_BISSDATA1_MON</code></td>
 <td>longin</td>
 <td>MOTOR_BISSDATA1</td>
-<td>SS</td>
+<td><a href="../galil-command-reference/#ss">SS</a></td>
 <td>Readback</td>
 </tr>
 <tr>
 <td><code>_BISSDATA2_SP</code></td>
 <td>longout</td>
 <td>MOTOR_BISSDATA2</td>
-<td>SS</td>
+<td><a href="../galil-command-reference/#ss">SS</a></td>
 <td>BiSS data bits 2 (0 to 38, default 27)</td>
 </tr>
 <tr>
 <td><code>_BISSDATA2_MON</code></td>
 <td>longin</td>
 <td>MOTOR_BISSDATA2</td>
-<td>SS</td>
+<td><a href="../galil-command-reference/#ss">SS</a></td>
 <td>Readback</td>
 </tr>
 <tr>
 <td><code>_BISSZP_SP</code></td>
 <td>longout</td>
 <td>MOTOR_BISSZP</td>
-<td>SS</td>
+<td><a href="../galil-command-reference/#ss">SS</a></td>
 <td>BiSS zero pad bits (0 to 7)</td>
 </tr>
 <tr>
 <td><code>_BISSZP_MON</code></td>
 <td>longin</td>
 <td>MOTOR_BISSZP</td>
-<td>SS</td>
+<td><a href="../galil-command-reference/#ss">SS</a></td>
 <td>Readback</td>
 </tr>
 <tr>
 <td><code>_BISSCD_SP</code></td>
 <td>longout</td>
 <td>MOTOR_BISSCD</td>
-<td>SS</td>
+<td><a href="../galil-command-reference/#ss">SS</a></td>
 <td>BiSS clock divider (4 to 26, default 14)</td>
 </tr>
 <tr>
 <td><code>_BISSCD_MON</code></td>
 <td>longin</td>
 <td>MOTOR_BISSCD</td>
-<td>SS</td>
+<td><a href="../galil-command-reference/#ss">SS</a></td>
 <td>Readback</td>
 </tr>
 <tr>
 <td><code>_BISSLEVEL_CMD</code></td>
 <td>mbbo</td>
 <td>MOTOR_BISSLEVEL</td>
-<td>SY</td>
+<td><a href="../galil-command-reference/#sy">SY</a></td>
 <td>BiSS active level: Low/Low, Low/High, High/Low, High/High</td>
 </tr>
 <tr>
 <td><code>_BISSLEVEL_STATUS</code></td>
 <td>mbbi</td>
 <td>MOTOR_BISSLEVEL</td>
-<td>SY</td>
+<td><a href="../galil-command-reference/#sy">SY</a></td>
 <td>Readback</td>
 </tr>
 <tr>
@@ -1432,14 +1432,14 @@
 <td><code>_UINDEX_CMD</code></td>
 <td>bo</td>
 <td>MOTOR_USEINDEX</td>
-<td>FI</td>
+<td><a href="../galil-command-reference/#fi">FI</a></td>
 <td>Use index pulse during home: No / Yes</td>
 </tr>
 <tr>
 <td><code>_UINDEX_STATUS</code></td>
 <td>bi</td>
 <td>MOTOR_USEINDEX</td>
-<td>FI</td>
+<td><a href="../galil-command-reference/#fi">FI</a></td>
 <td>Readback</td>
 </tr>
 <tr>
@@ -1460,28 +1460,28 @@
 <td><code>_JAH_CMD</code></td>
 <td>bo</td>
 <td>MOTOR_JOG_AHOME</td>
-<td>JG</td>
+<td><a href="../galil-command-reference/#jg">JG</a></td>
 <td>Jog after home: No / Yes</td>
 </tr>
 <tr>
 <td><code>_JAH_STATUS</code></td>
 <td>bi</td>
 <td>MOTOR_JOG_AHOME</td>
-<td>JG</td>
+<td><a href="../galil-command-reference/#jg">JG</a></td>
 <td>Readback</td>
 </tr>
 <tr>
 <td><code>_JAHV_SP</code></td>
 <td>ao</td>
 <td>MOTOR_JOG_AHOME_VALUE</td>
-<td>PA</td>
+<td><a href="../galil-command-reference/#pa">PA</a></td>
 <td>Jog-after-home target position in EGU</td>
 </tr>
 <tr>
 <td><code>_JAHV_MON</code></td>
 <td>ai</td>
 <td>MOTOR_JOG_AHOME_VALUE</td>
-<td>PA</td>
+<td><a href="../galil-command-reference/#pa">PA</a></td>
 <td>Readback</td>
 </tr>
 <tr>
@@ -1551,14 +1551,14 @@
 <td><code>_STEPSMOOTH_SP</code></td>
 <td>ao</td>
 <td>MOTOR_STEPSMOOTH</td>
-<td>KS</td>
+<td><a href="../galil-command-reference/#ks">KS</a></td>
 <td>Smoothing factor for stepper axes (0.25 to 128, default 1.313)</td>
 </tr>
 <tr>
 <td><code>_STEPSMOOTH_MON</code></td>
 <td>ai</td>
 <td>MOTOR_STEPSMOOTH</td>
-<td>KS</td>
+<td><a href="../galil-command-reference/#ks">KS</a></td>
 <td>Readback</td>
 </tr>
 </tbody>
@@ -1579,14 +1579,14 @@
 <td><code>_ERRLIMIT_SP</code></td>
 <td>ao</td>
 <td>MOTOR_ERRLIM</td>
-<td>ER</td>
+<td><a href="../galil-command-reference/#er">ER</a></td>
 <td>Position error limit in counts (default 16384)</td>
 </tr>
 <tr>
 <td><code>_ERRLIMIT_MON</code></td>
 <td>ai</td>
 <td>MOTOR_ERRLIM</td>
-<td>ER</td>
+<td><a href="../galil-command-reference/#er">ER</a></td>
 <td>Readback</td>
 </tr>
 <tr>
@@ -1600,14 +1600,14 @@
 <td><code>_OFFONERR_CMD</code></td>
 <td>mbbo</td>
 <td>MOTOR_OOE</td>
-<td>OE</td>
+<td><a href="../galil-command-reference/#oe">OE</a></td>
 <td>Off-on-error mode: Off, Position error, Limits, Both</td>
 </tr>
 <tr>
 <td><code>_OFFONERR_STATUS</code></td>
 <td>mbbi</td>
 <td>MOTOR_OOE</td>
-<td>OE</td>
+<td><a href="../galil-command-reference/#oe">OE</a></td>
 <td>Readback</td>
 </tr>
 </tbody>
@@ -1641,7 +1641,7 @@
 </tbody>
 </table>
 <h3 id="motor-power-auto-onoff">Motor Power Auto On/Off<a class="headerlink" href="#motor-power-auto-onoff" title="Permanent link">&para;</a></h3>
-<p>When enabled, the driver automatically issues SH before a move and MO after the move completes, with configurable delays.</p>
+<p>When enabled, the driver automatically issues <a href="../galil-command-reference/#sh">SH</a> before a move and <a href="../galil-command-reference/#mo">MO</a> after the move completes, with configurable delays.</p>
 <table>
 <thead>
 <tr>
@@ -1657,7 +1657,7 @@
 <td><code>_AUTOONOFF_CMD</code></td>
 <td>bo</td>
 <td>MOTOR_AUTO_ONOFF</td>
-<td>SH / MO</td>
+<td><a href="../galil-command-reference/#sh">SH</a> / <a href="../galil-command-reference/#mo">MO</a></td>
 <td>Enable auto on/off</td>
 </tr>
 <tr>
@@ -1672,7 +1672,7 @@
 <td>ao</td>
 <td>MOTOR_AUTO_ONDELAY</td>
 <td>--</td>
-<td>Delay after SH before starting the move (0.001 to 3 s, default 0.2)</td>
+<td>Delay after <a href="../galil-command-reference/#sh">SH</a> before starting the move (0.001 to 3 s, default 0.2)</td>
 </tr>
 <tr>
 <td><code>_ONDELAY_MON</code></td>
@@ -1686,7 +1686,7 @@
 <td>ao</td>
 <td>MOTOR_AUTO_OFFDELAY</td>
 <td>--</td>
-<td>Delay after move completes before issuing MO (0.001 to 3 s, default 0.2)</td>
+<td>Delay after move completes before issuing <a href="../galil-command-reference/#mo">MO</a> (0.001 to 3 s, default 0.2)</td>
 </tr>
 <tr>
 <td><code>_OFFDELAY_MON</code></td>
@@ -1713,14 +1713,14 @@
 <td><code>_BRAKE_STATUS</code></td>
 <td>bi</td>
 <td>MOTOR_BRAKE</td>
-<td>SB / CB</td>
+<td><a href="../galil-command-reference/#sb">SB</a> / <a href="../galil-command-reference/#cb">CB</a></td>
 <td>Brake on/off status. SB (Set Bit) engages; CB (Clear Bit) releases.</td>
 </tr>
 <tr>
 <td><code>_AUTOBRAKE_CMD</code></td>
 <td>bo</td>
 <td>MOTOR_AUTO_BRAKE</td>
-<td>SB / CB</td>
+<td><a href="../galil-command-reference/#sb">SB</a> / <a href="../galil-command-reference/#cb">CB</a></td>
 <td>Enable automatic brake engagement between moves</td>
 </tr>
 <tr>
@@ -1811,14 +1811,14 @@
 <td><code>_LIMITDISABLE_CMD</code></td>
 <td>mbbo</td>
 <td>MOTOR_LIMIT_DISABLE</td>
-<td>LD</td>
+<td><a href="../galil-command-reference/#ld">LD</a></td>
 <td>Disable limits: Off, Fwd Disabled, Rev Disabled, Both Disabled</td>
 </tr>
 <tr>
 <td><code>_LIMITDISABLE_STATUS</code></td>
 <td>mbbi</td>
 <td>MOTOR_LIMIT_DISABLE</td>
-<td>LD</td>
+<td><a href="../galil-command-reference/#ld">LD</a></td>
 <td>Readback</td>
 </tr>
 <tr>
@@ -1853,42 +1853,42 @@
 <td><code>_AMPGAIN_CMD</code></td>
 <td>mbbo</td>
 <td>MOTOR_AMP_GAIN</td>
-<td>AG</td>
+<td><a href="../galil-command-reference/#ag">AG</a></td>
 <td>Amplifier gain. Enumeration values depend on the amplifier model.</td>
 </tr>
 <tr>
 <td><code>_AMPGAIN_STATUS</code></td>
 <td>mbbi</td>
 <td>MOTOR_AMP_GAIN</td>
-<td>AG</td>
+<td><a href="../galil-command-reference/#ag">AG</a></td>
 <td>Readback</td>
 </tr>
 <tr>
 <td><code>_AMPCLGAIN_CMD</code></td>
 <td>mbbo</td>
 <td>MOTOR_AMP_CURRENTLOOP_GAIN</td>
-<td>AU</td>
+<td><a href="../galil-command-reference/#au">AU</a></td>
 <td>Current loop gain. Enumeration values depend on the amplifier model.</td>
 </tr>
 <tr>
 <td><code>_AMPCLGAIN_STATUS</code></td>
 <td>mbbi</td>
 <td>MOTOR_AMP_CURRENTLOOP_GAIN</td>
-<td>AU</td>
+<td><a href="../galil-command-reference/#au">AU</a></td>
 <td>Readback</td>
 </tr>
 <tr>
 <td><code>_AMPLC_SP</code></td>
 <td>ao</td>
 <td>MOTOR_AMP_LOWCURRENT</td>
-<td>LC</td>
+<td><a href="../galil-command-reference/#lc">LC</a></td>
 <td>Low current stepper mode setting (-32767 to 32767)</td>
 </tr>
 <tr>
 <td><code>_AMPLC_MON</code></td>
 <td>ai</td>
 <td>MOTOR_AMP_LOWCURRENT</td>
-<td>LC</td>
+<td><a href="../galil-command-reference/#lc">LC</a></td>
 <td>Readback</td>
 </tr>
 </tbody>
@@ -1909,14 +1909,14 @@
 <td><code>_MICROSTEP_CMD</code></td>
 <td>mbbo</td>
 <td>MOTOR_MICROSTEP</td>
-<td>YA</td>
+<td><a href="../galil-command-reference/#ya">YA</a></td>
 <td>Microsteps per step: 1, 2, 4, 16, 64, 256. Available values depend on the amplifier model.</td>
 </tr>
 <tr>
 <td><code>_MICROSTEP_STATUS</code></td>
 <td>mbbi</td>
 <td>MOTOR_MICROSTEP</td>
-<td>YA</td>
+<td><a href="../galil-command-reference/#ya">YA</a></td>
 <td>Readback</td>
 </tr>
 </tbody>
@@ -1979,7 +1979,7 @@
 <td><code>_HALLERROR_STATUS</code></td>
 <td>bi</td>
 <td>MOTOR_HALLERROR_STATUS</td>
-<td>Data record, TA</td>
+<td>Data record, <a href="../galil-command-reference/#ta">TA</a></td>
 <td>Hall sensor error (MAJOR alarm)</td>
 </tr>
 <tr>

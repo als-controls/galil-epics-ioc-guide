@@ -709,7 +709,7 @@
 
 
 <h1 id="analog-io-pvs">Analog I/O PVs<a class="headerlink" href="#analog-io-pvs" title="Permanent link">&para;</a></h1>
-<p>The DMC-41x3 has 8 analog input ports (12-bit standard, 16-bit optional) and analog outputs on each axis. The IOC uses the Galil <code>@AN</code> (Analog Input Query) command for reads and <code>AO</code> (Analog Output) for writes. Input values are read from the data record.</p>
+<p>The DMC-41x3 has 8 analog input ports (12-bit standard, 16-bit optional) and analog outputs on each axis. The IOC uses the Galil <a href="../galil-command-reference/#an"><code>@AN</code></a> (Analog Input Query) command for reads and <a href="../galil-command-reference/#ao"><code>AO</code></a> (Analog Output) for writes. Input values are read from the data record.</p>
 <h2 id="analog-inputs">Analog Inputs<a class="headerlink" href="#analog-inputs" title="Permanent link">&para;</a></h2>
 <p>Template: <code>galil_analog_in.template</code></p>
 <p>PV pattern: <code>$(P)$(R)_</code> where <code>R</code> is the analog input name. ADDR is 0-7.</p>
@@ -728,7 +728,7 @@
 <td><code>_MON</code></td>
 <td>ai</td>
 <td>ANALOG_IN</td>
-<td>@AN (Analog Input), from data record</td>
+<td><a href="../galil-command-reference/#an">@AN</a> (Analog Input), from data record</td>
 <td>Analog input value in Volts</td>
 </tr>
 <tr>
@@ -758,7 +758,7 @@
 <td><code>_SP</code></td>
 <td>ao</td>
 <td>ANALOG_OUT</td>
-<td>AO (Analog Output)</td>
+<td><a href="../galil-command-reference/#ao">AO</a> (Analog Output)</td>
 <td>Set analog output in Volts</td>
 </tr>
 <tr>
