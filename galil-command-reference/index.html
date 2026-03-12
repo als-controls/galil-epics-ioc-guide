@@ -1,0 +1,1606 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="User's guide for Mark Clift's Galil EPICS IOC (motorapp/Galil)">
+      
+      
+      
+      
+        <link rel="prev" href="../cross-reference/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Appendix: Galil Command Reference - Galil EPICS IOC User's Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#appendix-galil-command-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Galil EPICS IOC User&#39;s Guide" class="md-header__button md-logo" aria-label="Galil EPICS IOC User's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Galil EPICS IOC User's Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Appendix: Galil Command Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Galil EPICS IOC User&#39;s Guide" class="md-nav__button md-logo" aria-label="Galil EPICS IOC User's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Galil EPICS IOC User's Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ioc-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IOC Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../controller-pvs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controller PVs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../motor-axis-pvs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Motor Axis PVs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../coordinate-system-pvs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coordinate System PVs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analog-io-pvs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analog I/O PVs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../digital-io-pvs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Digital I/O PVs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../profile-trajectory-pvs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Profile/Trajectory PVs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../amplifier-status-pvs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amplifier Status PVs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-defined-records/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User-Defined Records & Arrays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-record-polling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Record & Polling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cross-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cross Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix: Galil Command Reference
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix: Galil Command Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#motion-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motion Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motor-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motor Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pid-servo-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PID / Servo Tuning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#position-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Position / Encoder
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limit-and-home-switches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limit and Home Switches
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motor-enabledisable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motor Enable/Disable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#io-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I/O Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#absolute-encoders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Absolute Encoders
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Communication / System
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status-query" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status / Query
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coordinate-system-trajectory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coordinate System / Trajectory
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#array-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Array Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-clear" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Clear
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#motion-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motion Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motor-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motor Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pid-servo-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PID / Servo Tuning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#position-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Position / Encoder
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limit-and-home-switches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limit and Home Switches
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motor-enabledisable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motor Enable/Disable
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#io-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I/O Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#absolute-encoders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Absolute Encoders
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Communication / System
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status-query" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status / Query
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coordinate-system-trajectory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coordinate System / Trajectory
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#array-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Array Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-clear" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Clear
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="appendix-galil-command-reference">Appendix: Galil Command Reference<a class="headerlink" href="#appendix-galil-command-reference" title="Permanent link">&para;</a></h1>
+<p>Quick reference of Galil 2-letter commands used by the IOC. Full documentation is available in the Galil Command Reference manual from Galil Motion Control.</p>
+<p>Units throughout are <strong>counts</strong> (position), <strong>counts/sec</strong> (velocity), <strong>counts/sec²</strong> (acceleration), unless otherwise noted. Axis letters A–H are appended to commands (e.g., <code>SPA=10000</code> sets axis A speed).</p>
+<h2 id="motion-commands">Motion Commands<a class="headerlink" href="#motion-commands" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Full Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BG</td>
+<td>Begin</td>
+<td>Start motion on one or more axes. <code>BGX</code> begins axis X; <code>BGS</code> begins coordinated motion on system S. The IOC issues BG after setting up position/speed.</td>
+</tr>
+<tr>
+<td>ST</td>
+<td>Stop</td>
+<td>Decelerate to a stop. <code>STX</code> stops axis X; <code>STS</code> stops coordinate system S. Uses the DC deceleration rate.</td>
+</tr>
+<tr>
+<td>PA</td>
+<td>Position Absolute</td>
+<td>Command an absolute move. <code>PAA=25000</code> moves axis A to position 25000. The motor record writes PA for absolute moves.</td>
+</tr>
+<tr>
+<td>PR</td>
+<td>Position Relative</td>
+<td>Command a relative move. <code>PRA=1000</code> moves axis A 1000 counts from current position. Used by the motor record for relative moves.</td>
+</tr>
+<tr>
+<td>JG</td>
+<td>Jog</td>
+<td>Command continuous motion at a velocity. <code>JGA=5000</code> jogs axis A at 5000 counts/sec. Used by the IOC for velocity-mode (JOG) moves.</td>
+</tr>
+<tr>
+<td>SP</td>
+<td>Speed</td>
+<td>Set slew speed for PA/PR moves. <code>SPA=25000</code> sets axis A to 25000 counts/sec. Does not apply to JG moves (JG includes its own speed).</td>
+</tr>
+<tr>
+<td>AC</td>
+<td>Acceleration</td>
+<td>Set acceleration for independent moves. <code>ACA=256000</code> sets 256000 counts/sec². Applies to PA, PR, and JG moves.</td>
+</tr>
+<tr>
+<td>DC</td>
+<td>Deceleration</td>
+<td>Set deceleration for independent moves. Same units as AC. Also used as the stop rate for ST and limit-switch deceleration if SD is not set.</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>Independent Time Constant</td>
+<td>S-curve smoothing filter, range 0.0–1.0. <code>ITA=1.0</code> means no smoothing (instant accel); lower values smooth the velocity profile. Default 1.0.</td>
+</tr>
+<tr>
+<td>HM</td>
+<td>Home</td>
+<td>Begin homing sequence using the home switch and/or index pulse. Behavior depends on CN switch polarity. The IOC implements several homing strategies via generated DMC code.</td>
+</tr>
+<tr>
+<td>FI</td>
+<td>Find Index</td>
+<td>Jog until the encoder index pulse is detected, then stop and define position. Used as part of some homing routines.</td>
+</tr>
+<tr>
+<td>FE</td>
+<td>Find Edge</td>
+<td>Jog until a home switch transition is detected, then stop. Used as part of some homing routines to locate the switch edge precisely.</td>
+</tr>
+<tr>
+<td>BG S / BG T</td>
+<td>Begin Coordinate</td>
+<td>Start coordinated motion on system S or T. Issued after loading linear interpolation or PVT segments.</td>
+</tr>
+<tr>
+<td>ST S / ST T</td>
+<td>Stop Coordinate</td>
+<td>Stop coordinated motion on the specified system.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="motor-configuration">Motor Configuration<a class="headerlink" href="#motor-configuration" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Full Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MT</td>
+<td>Motor Type</td>
+<td>Set motor type per axis. Key values: <code>1.0</code>=servo, <code>−1.0</code>=reversed servo, <code>2.0</code>=stepper (active low), <code>−2.0</code>=stepper (active high), <code>2.5</code>=stepper with encoder, <code>−2.5</code>=reversed. Also values for servo II, brushless.</td>
+</tr>
+<tr>
+<td>CE</td>
+<td>Configure Encoder</td>
+<td>Set encoder type. <code>0</code>=normal quadrature, <code>2</code>=pulse and direction, <code>4</code>=reversed quadrature, <code>6</code>=reversed pulse/dir. The IOC sets this based on the <code>_CE_Mon</code> PV.</td>
+</tr>
+<tr>
+<td>BR</td>
+<td>Brush Axis</td>
+<td>Brushless motor configuration. <code>0</code>=brush motor (default), <code>1</code>=sinusoidal commutation (hall), <code>2</code>=external commutation.</td>
+</tr>
+<tr>
+<td>AG</td>
+<td>Amplifier Gain</td>
+<td>Set amplifier gain. <code>0</code>=±5V range (default), <code>1</code>=0–5V, <code>2</code>=0–10V, <code>3</code>=±10V, <code>5</code>=±12V. Determines the DAC output scaling.</td>
+</tr>
+<tr>
+<td>AU</td>
+<td>Amplifier Current Loop</td>
+<td>Configure current loop. First argument is axis, then up to 3 current loop parameters. Used for Galil integrated amplifiers.</td>
+</tr>
+<tr>
+<td>KS</td>
+<td>Step Motor Smoothing</td>
+<td>Smoothing factor for stepper motors, range 0.25–64. <code>KSA=2</code> sets axis A smoothing to 2. Reduces vibration but limits top speed. Default 2.</td>
+</tr>
+<tr>
+<td>YA</td>
+<td>Step Drive Resolution</td>
+<td>Set microstep resolution for stepper axes. <code>YAA=256</code> sets 256 microsteps per full step on axis A. Valid powers of 2, max depends on controller model.</td>
+</tr>
+<tr>
+<td>LC</td>
+<td>Low Current Stepper Mode</td>
+<td>Enable reduced current when stepper is holding. <code>LCA=1</code> enables on axis A. Reduces heat but lowers holding torque.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pid-servo-tuning">PID / Servo Tuning<a class="headerlink" href="#pid-servo-tuning" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Full Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KP</td>
+<td>Proportional Constant</td>
+<td>Proportional gain. <code>KPA=6</code> sets axis A proportional gain to 6. Active only for servo motor types.</td>
+</tr>
+<tr>
+<td>KI</td>
+<td>Integrator</td>
+<td>Integral gain. Accumulates position error over time. Use with IL to prevent windup.</td>
+</tr>
+<tr>
+<td>KD</td>
+<td>Derivative Constant</td>
+<td>Derivative gain. Provides damping based on rate of error change.</td>
+</tr>
+<tr>
+<td>ER</td>
+<td>Error Limit</td>
+<td>Position error threshold in counts. If <code>|TP − RP| &gt; ER</code>, the axis faults. <code>ERA=5000</code> sets a 5000-count error limit. Set to 0 to disable.</td>
+</tr>
+<tr>
+<td>OE</td>
+<td>Off-on-Error</td>
+<td>Behavior when error limit is exceeded. <code>0</code>=motor stays on, <code>1</code>=motor off on error. The IOC exposes this as a PV per axis.</td>
+</tr>
+<tr>
+<td>TL</td>
+<td>Torque Limit</td>
+<td>Continuous torque limit, range 0–9.998V of DAC output. <code>TLA=5.0</code> limits axis A to 5V output. Protects the motor/load from excessive force.</td>
+</tr>
+<tr>
+<td>TK</td>
+<td>Peak Torque Limit</td>
+<td>Peak torque limit in same units as TL. Can exceed TL briefly during acceleration. Set to 0 to disable.</td>
+</tr>
+<tr>
+<td>IL</td>
+<td>Integrator Limit</td>
+<td>Clamp for the integrator sum, range 0–9.998V. Prevents integral windup. Set to a value less than TL.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="position-encoder">Position / Encoder<a class="headerlink" href="#position-encoder" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Full Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TP</td>
+<td>Tell Position</td>
+<td>Read the main encoder position. Returns counts. The IOC reads this from the data record, not via a direct TP command.</td>
+</tr>
+<tr>
+<td>TD</td>
+<td>Tell Dual Encoder</td>
+<td>Read the auxiliary (dual) encoder position. Used when a second encoder is mounted for verification or when main/aux encoders differ.</td>
+</tr>
+<tr>
+<td>DP</td>
+<td>Define Position</td>
+<td>Set the main encoder register to a value. <code>DPA=0</code> zeros axis A. Used during homing to define the home position.</td>
+</tr>
+<tr>
+<td>DE</td>
+<td>Dual Encoder Position</td>
+<td>Set the auxiliary encoder register. <code>DEA=0</code> zeros the aux encoder on axis A.</td>
+</tr>
+<tr>
+<td>RP</td>
+<td>Reference Position</td>
+<td>Read the commanded (reference) position. This is where the controller thinks the motor should be, versus TP which is where it actually is. The difference is the position error.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="limit-and-home-switches">Limit and Home Switches<a class="headerlink" href="#limit-and-home-switches" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Full Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CN</td>
+<td>Configure</td>
+<td>Set switch polarity. <code>CN m,n,p</code> where m=limit polarity (−1 active low, 1 active high), n=home polarity, p=latch polarity. The IOC sets this from controller PVs.</td>
+</tr>
+<tr>
+<td>FL</td>
+<td>Forward Software Limit</td>
+<td>Set forward software position limit. <code>FLA=100000</code> prevents axis A from commanding past 100000. Set to 2147483647 to disable.</td>
+</tr>
+<tr>
+<td>BL</td>
+<td>Reverse Software Limit</td>
+<td>Set reverse software position limit. <code>BLA=−100000</code> prevents past −100000. Set to −2147483648 to disable.</td>
+</tr>
+<tr>
+<td>LD</td>
+<td>Limit Disable</td>
+<td>Disable hardware limit switches per axis. Bit mask: bit 0=fwd limit, bit 1=rev limit. <code>LDA=3</code> disables both limits on axis A.</td>
+</tr>
+<tr>
+<td>SD</td>
+<td>Limit Switch Deceleration</td>
+<td>Deceleration rate when a hardware limit is hit, in counts/sec². If not set, uses the DC value.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="motor-enabledisable">Motor Enable/Disable<a class="headerlink" href="#motor-enabledisable" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Full Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SH</td>
+<td>Servo Here</td>
+<td>Enable the motor amplifier and close the servo loop (or energize stepper). <code>SHA</code> enables axis A. The IOC sends SH when the motor record is enabled.</td>
+</tr>
+<tr>
+<td>MO</td>
+<td>Motor Off</td>
+<td>Open the servo loop and disable the amplifier. <code>MOA</code> disables axis A. Sent on motor record disable or when auto-off is triggered after idle timeout.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="io-commands">I/O Commands<a class="headerlink" href="#io-commands" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Full Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SB</td>
+<td>Set Bit</td>
+<td>Set a digital output bit high. <code>SB 1</code> sets output bit 1. Bit numbers are 1-based.</td>
+</tr>
+<tr>
+<td>CB</td>
+<td>Clear Bit</td>
+<td>Clear a digital output bit low. <code>CB 1</code> clears output bit 1.</td>
+</tr>
+<tr>
+<td>OB</td>
+<td>Output Bit</td>
+<td>Set a bit to a value. <code>OB 1,1</code> sets bit 1 high; <code>OB 1,0</code> clears it. The IOC uses OB for writing digital outputs.</td>
+</tr>
+<tr>
+<td>AO</td>
+<td>Analog Output</td>
+<td>Set analog output voltage. <code>AO 0,3.5</code> sets analog output 0 to 3.5V. Range depends on hardware (typically ±10V or 0–5V).</td>
+</tr>
+<tr>
+<td>@AN</td>
+<td>Analog Input Query</td>
+<td>Read analog input voltage. <code>MG @AN[0]</code> reads analog input 0. The IOC reads these from the data record when available.</td>
+</tr>
+<tr>
+<td>@IN</td>
+<td>Read Digital Input</td>
+<td>Read a digital input bit. <code>MG @IN[1]</code> reads input bit 1. Returns 0 or 1. Read from the data record at the polling rate.</td>
+</tr>
+<tr>
+<td>@OUT</td>
+<td>Read Digital Output</td>
+<td>Read back a digital output bit. <code>MG @OUT[1]</code> reads output bit 1.</td>
+</tr>
+<tr>
+<td>OC</td>
+<td>Output Compare</td>
+<td>Configure output compare — generates a pulse on a digital output when the encoder crosses specified positions. <code>OC A,1000,100</code> sets axis A to pulse every 100 counts starting at 1000.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="absolute-encoders">Absolute Encoders<a class="headerlink" href="#absolute-encoders" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Full Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SI</td>
+<td>Configure SSI</td>
+<td>Configure SSI (Synchronous Serial Interface) absolute encoder. Specifies data bits, clock rate, and format. <code>SIA=p,q,r</code> where p=total bits, q=single-turn bits, r=gray/binary.</td>
+</tr>
+<tr>
+<td>SS</td>
+<td>Configure BiSS</td>
+<td>Configure BiSS-C absolute encoder. Similar parameters to SI but for the BiSS protocol.</td>
+</tr>
+<tr>
+<td>SY</td>
+<td>BiSS Active Level</td>
+<td>Set the active clock level for BiSS communication. <code>SYA=1</code> sets active high.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="communication-system">Communication / System<a class="headerlink" href="#communication-system" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Full Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DR</td>
+<td>Data Record Update Rate</td>
+<td>Set the data record transmission interval. <code>DR 8000,2</code> sets 8ms updates on handle 2. The IOC's update period maps directly to this command. Minimum 2ms.</td>
+</tr>
+<tr>
+<td>MG</td>
+<td>Message</td>
+<td>General-purpose query/output. The IOC uses <code>MG</code> extensively to read values that are not in the data record (e.g., <code>MG _MTA</code> reads the motor type setting).</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>Identify</td>
+<td>Return controller model and firmware version string. The IOC reads this at connect to populate the controller model PV.</td>
+</tr>
+<tr>
+<td>BN</td>
+<td>Burn</td>
+<td>Save current parameter settings (KP, KI, ER, etc.) to EEPROM. The IOC sends BN when the burn-parameters PV is processed.</td>
+</tr>
+<tr>
+<td>BP</td>
+<td>Burn Program</td>
+<td>Save the current DMC program to EEPROM. Sent by GalilStartController when burn option is enabled.</td>
+</tr>
+<tr>
+<td>RS</td>
+<td>Reset</td>
+<td>Reset the controller. Clears program memory and restarts. The IOC does not normally issue RS during operation.</td>
+</tr>
+<tr>
+<td>TC</td>
+<td>Tell Error Code</td>
+<td>Return the error code for the most recent command error. The IOC reads TC after a failed command to populate the error message PV.</td>
+</tr>
+<tr>
+<td>CF</td>
+<td>Configure Unsolicited Messages</td>
+<td>Set which handle receives unsolicited MG output from DMC code. The IOC configures this at startup.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="status-query">Status / Query<a class="headerlink" href="#status-query" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Full Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TA</td>
+<td>Tell Amplifier Error Status</td>
+<td>Return amplifier error status bits. Bit-mapped: overcurrent, overvoltage, overtemperature, ELO, etc. The IOC decodes these into individual amplifier status PVs.</td>
+</tr>
+<tr>
+<td>TB</td>
+<td>Tell Status Byte</td>
+<td>Return a summary status byte for the controller. Includes bits for running, error, and command ready.</td>
+</tr>
+<tr>
+<td>TS</td>
+<td>Tell Switches</td>
+<td>Return home, forward-limit, reverse-limit, and latch switch states as a bit field. Read from the data record at the polling rate.</td>
+</tr>
+<tr>
+<td>TV</td>
+<td>Tell Velocity</td>
+<td>Return current actual velocity in counts/sec. Available from the data record.</td>
+</tr>
+<tr>
+<td>TT</td>
+<td>Tell Torque</td>
+<td>Return current torque (DAC) output in volts. Available from the data record.</td>
+</tr>
+<tr>
+<td>TE</td>
+<td>Tell Error</td>
+<td>Return current position error (TP − RP) in counts. Available from the data record.</td>
+</tr>
+<tr>
+<td>SC</td>
+<td>Stop Code</td>
+<td>Return the reason motion stopped: <code>0</code>=running, <code>1</code>=commanded stop, <code>2</code>=fwd limit, <code>3</code>=rev limit, <code>4</code>=abort, <code>6</code>=error limit, <code>7</code>=motor off, <code>8</code>=home complete, etc.</td>
+</tr>
+<tr>
+<td>QR</td>
+<td>I/O Data Record</td>
+<td>Request a data record immediately (synchronous mode). Used by the GalilPoller in TCP synchronous polling mode when async UDP is not available.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="coordinate-system-trajectory">Coordinate System / Trajectory<a class="headerlink" href="#coordinate-system-trajectory" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Full Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CS</td>
+<td>Clear Sequence</td>
+<td>Clear the linear interpolation buffer for a coordinate system. <code>CSS</code> clears system S. Must be issued before loading new segments.</td>
+</tr>
+<tr>
+<td>LI</td>
+<td>Linear Interpolation Distance</td>
+<td>Specify a segment distance for each axis. <code>LIA=1000,B=500</code> moves A 1000 and B 500 counts in the next segment.</td>
+</tr>
+<tr>
+<td>LE</td>
+<td>Linear Interpolation End</td>
+<td>Mark the end of the interpolation sequence. The controller decelerates to a stop after this segment.</td>
+</tr>
+<tr>
+<td>LM</td>
+<td>Linear Interpolation Mode</td>
+<td>Define which axes participate. <code>LMAB</code> assigns axes A and B to the coordinate system for linear interpolation.</td>
+</tr>
+<tr>
+<td>PV</td>
+<td>PVT Data</td>
+<td>Specify a Position-Velocity-Time data point. <code>PVA=1000,500,20</code> means axis A should be at position 1000 with velocity 500 after 20ms. Provides smoother trajectories than LI.</td>
+</tr>
+<tr>
+<td>BT</td>
+<td>Begin PVT Motion</td>
+<td>Begin PVT trajectory execution. Issued after loading PV segments.</td>
+</tr>
+<tr>
+<td>CA</td>
+<td>Coordinate Axes</td>
+<td>Define axes belonging to a coordinate system. <code>CA ,A</code> adds axis A to coordinate system S. Used for vector moves and contouring.</td>
+</tr>
+<tr>
+<td>VS</td>
+<td>Vector Speed</td>
+<td>Set vector speed for coordinated motion, in counts/sec. Applies to the resultant velocity across all axes in the coordinate system.</td>
+</tr>
+<tr>
+<td>VA</td>
+<td>Vector Acceleration</td>
+<td>Set vector acceleration for coordinated moves, in counts/sec².</td>
+</tr>
+<tr>
+<td>VD</td>
+<td>Vector Deceleration</td>
+<td>Set vector deceleration for coordinated moves, in counts/sec².</td>
+</tr>
+</tbody>
+</table>
+<h2 id="array-commands">Array Commands<a class="headerlink" href="#array-commands" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Full Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>QU</td>
+<td>Upload Array</td>
+<td>Upload array data from controller to host. <code>QUA[]</code> uploads the entire array named A. The IOC uses this to read user arrays back from the controller.</td>
+</tr>
+<tr>
+<td>DM</td>
+<td>Dimension Array</td>
+<td>Create a named array on the controller. <code>DM data[1000]</code> creates a 1000-element array named "data". Arrays persist until RS or power cycle (unless burned).</td>
+</tr>
+<tr>
+<td>BV</td>
+<td>Burn Variables and Array</td>
+<td>Save all variables and arrays to EEPROM. Unlike BN (parameters only), BV saves user-created variables and array contents.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="error-clear">Error Clear<a class="headerlink" href="#error-clear" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Full Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AZ</td>
+<td>Clear Latched Amplifier Errors</td>
+<td>Clear latched amplifier fault flags (overcurrent, overvoltage, etc.) so the amplifier can be re-enabled. Does not fix the underlying condition.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "search.highlight", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

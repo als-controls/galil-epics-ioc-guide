@@ -1,0 +1,1349 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="User's guide for Mark Clift's Galil EPICS IOC (motorapp/Galil)">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../ioc-configuration/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Architecture - Galil EPICS IOC User's Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#architecture" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Galil EPICS IOC User&#39;s Guide" class="md-header__button md-logo" aria-label="Galil EPICS IOC User's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Galil EPICS IOC User's Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Architecture
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Galil EPICS IOC User&#39;s Guide" class="md-nav__button md-logo" aria-label="Galil EPICS IOC User's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Galil EPICS IOC User's Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#communication-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Communication Flow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Communication Flow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#write-path-epics-to-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Write Path (EPICS to Hardware)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read-path-hardware-to-epics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read Path (Hardware to EPICS)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#galilcontroller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GalilController
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#galilaxis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GalilAxis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#galilcsaxis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GalilCSAxis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#galilpoller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GalilPoller
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#galilconnector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GalilConnector
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Communication Modes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-flow-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Flow Details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Flow Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#write-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Write Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-constants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Constants
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-generated-dmc-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto-Generated DMC Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pv-naming-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PV Naming Convention
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ioc-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IOC Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../controller-pvs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controller PVs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../motor-axis-pvs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Motor Axis PVs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../coordinate-system-pvs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coordinate System PVs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analog-io-pvs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analog I/O PVs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../digital-io-pvs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Digital I/O PVs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../profile-trajectory-pvs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Profile/Trajectory PVs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../amplifier-status-pvs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amplifier Status PVs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-defined-records/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User-Defined Records & Arrays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-record-polling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Record & Polling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cross-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cross Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../galil-command-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix: Galil Command Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#communication-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Communication Flow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Communication Flow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#write-path-epics-to-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Write Path (EPICS to Hardware)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read-path-hardware-to-epics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read Path (Hardware to EPICS)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#galilcontroller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GalilController
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#galilaxis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GalilAxis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#galilcsaxis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GalilCSAxis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#galilpoller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GalilPoller
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#galilconnector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GalilConnector
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Communication Modes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-flow-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Flow Details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Flow Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#write-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Write Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-constants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Constants
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auto-generated-dmc-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto-Generated DMC Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pv-naming-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PV Naming Convention
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h1>
+<h2 id="communication-flow">Communication Flow<a class="headerlink" href="#communication-flow" title="Permanent link">&para;</a></h2>
+<p>The driver sits between EPICS records and the Galil hardware, translating PV operations into Galil 2-letter ASCII commands and parsing binary data records back into PV values.</p>
+<h3 id="write-path-epics-to-hardware">Write Path (EPICS to Hardware)<a class="headerlink" href="#write-path-epics-to-hardware" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>EPICS Records (PVs)
+    |
+    v
+asyn interface (writeInt32 / writeFloat64 / writeOctet)
+    |
+    v
+GalilController   -- formats 2-letter Galil command (e.g. &quot;SP A=5000&quot;)
+    |
+    v
+TCP connection     -- sends command, receives ASCII response
+    |
+    v
+DMC hardware       -- executes command
+</code></pre></div>
+<h3 id="read-path-hardware-to-epics">Read Path (Hardware to EPICS)<a class="headerlink" href="#read-path-hardware-to-epics" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>DMC hardware
+    |
+    v
+Data Record (binary status blob, pushed via UDP or polled via TCP)
+    |
+    v
+GalilPoller thread -- parses binary fields from data record
+    |
+    v
+asyn ParamList     -- updates parameter values
+    |
+    v
+Callbacks          -- I/O Intr scan triggers record processing
+    |
+    v
+EPICS Records (PVs)
+</code></pre></div>
+<hr />
+<h2 id="key-classes">Key Classes<a class="headerlink" href="#key-classes" title="Permanent link">&para;</a></h2>
+<h3 id="galilcontroller">GalilController<a class="headerlink" href="#galilcontroller" title="Permanent link">&para;</a></h3>
+<p>Main driver class, extends <code>asynMotorController</code>. One instance per physical controller.</p>
+<ul>
+<li>Manages TCP connection to the hardware and all command traffic.</li>
+<li>Translates PV writes into Galil 2-letter ASCII commands using the internal <code>cmd_</code> buffer for command formatting.</li>
+<li>Owns the asyn parameter list that maps PV indices to values.</li>
+<li>Handles code upload/download, profile moves, and analog/digital I/O.</li>
+<li>Creates and manages <code>GalilAxis</code> and <code>GalilCSAxis</code> objects.</li>
+<li>Auto-generates DMC code that runs on the controller for home routines, limit handling, and digital I/O monitoring.</li>
+</ul>
+<h3 id="galilaxis">GalilAxis<a class="headerlink" href="#galilaxis" title="Permanent link">&para;</a></h3>
+<p>Per-axis motor control for real axes A--H. Extends <code>asynMotorAxis</code>.</p>
+<ul>
+<li>Implements <code>move()</code>, <code>home()</code>, <code>stop()</code>, <code>setPosition()</code>, and <code>poll()</code>.</li>
+<li>Manages enable/disable, PID tuning, velocity, and acceleration.</li>
+<li>Handles limit switch configuration and encoder setup (including SSI and BiSS absolute encoders).</li>
+<li>Parses per-axis fields from the data record during polling.</li>
+</ul>
+<h3 id="galilcsaxis">GalilCSAxis<a class="headerlink" href="#galilcsaxis" title="Permanent link">&para;</a></h3>
+<p>Coordinate system axis control for CS axes I--P. Extends <code>asynMotorAxis</code>.</p>
+<ul>
+<li>Maps onto Galil coordinate systems S and T (up to 4 axes per coordinate system).</li>
+<li>Handles forward and reverse kinematic transforms.</li>
+<li>Coordinates multi-axis moves so that axes start and stop together.</li>
+<li>Uses the Galil <code>CA</code>, <code>CD</code>, <code>CR</code> (vector mode) commands for coordinated motion.</li>
+</ul>
+<h3 id="galilpoller">GalilPoller<a class="headerlink" href="#galilpoller" title="Permanent link">&para;</a></h3>
+<p>Dedicated polling thread that keeps PV values synchronized with hardware state.</p>
+<ul>
+<li>In async UDP mode, the controller pushes data records at the configured rate using the Galil <code>DR</code> command. The poller receives and parses these binary packets.</li>
+<li>In synchronous TCP mode, the poller requests data records on a timer.</li>
+<li>Parses binary data record fields into individual axis positions, velocities, status bits, analog values, and digital I/O states.</li>
+<li>Updates the asyn parameter list, which triggers <code>I/O Intr</code> callbacks to process EPICS records.</li>
+</ul>
+<h3 id="galilconnector">GalilConnector<a class="headerlink" href="#galilconnector" title="Permanent link">&para;</a></h3>
+<p>Connection management thread.</p>
+<ul>
+<li>Monitors the TCP connection and handles reconnection on loss of communication.</li>
+<li>Manages initial connection setup and controller identification.</li>
+</ul>
+<hr />
+<h2 id="communication-modes">Communication Modes<a class="headerlink" href="#communication-modes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Transport</th>
+<th>Mechanism</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Async UDP</td>
+<td>Ethernet</td>
+<td>Controller pushes data records at a rate configured by the <code>DR</code> command</td>
+<td>Preferred mode for ethernet-connected controllers. Lowest latency.</td>
+</tr>
+<tr>
+<td>Synchronous TCP</td>
+<td>Ethernet</td>
+<td>Driver polls on a timer, requesting data records over the command TCP connection</td>
+<td>Fallback when UDP is unavailable, or when a negative <code>updatePeriod</code> is specified in <code>GalilCreateController</code>.</td>
+</tr>
+<tr>
+<td>Serial (RS232)</td>
+<td>RS-232</td>
+<td>Synchronous polling only</td>
+<td>Used for serial-connected controllers. No async data record support.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="data-flow-details">Data Flow Details<a class="headerlink" href="#data-flow-details" title="Permanent link">&para;</a></h2>
+<h3 id="write-operations">Write Operations<a class="headerlink" href="#write-operations" title="Permanent link">&para;</a></h3>
+<p>A PV write follows this path:</p>
+<ol>
+<li>An EPICS record processes (e.g., a user writes to a motor record <code>.VAL</code> field or a direct <code>caput</code> to a driver PV).</li>
+<li>The asyn layer calls the appropriate write method on <code>GalilController</code>: <code>writeInt32</code>, <code>writeFloat64</code>, or <code>writeOctet</code>, depending on the parameter type.</li>
+<li><code>GalilController</code> identifies the parameter by its asyn index and formats the corresponding Galil 2-letter command in the <code>cmd_</code> buffer (e.g., <code>"SP A=5000"</code> for setting speed on axis A).</li>
+<li>The command is sent over the TCP connection to the controller.</li>
+<li>The ASCII response is parsed for errors or return values.</li>
+</ol>
+<h3 id="read-operations">Read Operations<a class="headerlink" href="#read-operations" title="Permanent link">&para;</a></h3>
+<p>Hardware state reaches EPICS through the data record:</p>
+<ol>
+<li><code>GalilPoller</code> receives the data record -- either pushed asynchronously via UDP or fetched synchronously via TCP.</li>
+<li>The binary data record is parsed field by field. Each axis contributes a fixed-size block containing position, velocity, torque, status flags, limit states, and other values.</li>
+<li>Parsed values are written into the asyn parameter list via <code>setIntegerParam</code>, <code>setDoubleParam</code>, etc.</li>
+<li><code>callParamCallbacks()</code> fires, and any records configured with <code>SCAN=I/O Intr</code> on the corresponding asyn reasons are processed with the new values.</li>
+</ol>
+<hr />
+<h2 id="key-constants">Key Constants<a class="headerlink" href="#key-constants" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Constant</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MAX_GALIL_AXES</code></td>
+<td>8</td>
+<td>Maximum real axes per controller (A--H)</td>
+</tr>
+<tr>
+<td><code>MAX_GALIL_CSAXES</code></td>
+<td>8</td>
+<td>Maximum coordinate system axes (I--P)</td>
+</tr>
+<tr>
+<td><code>COORDINATE_SYSTEMS</code></td>
+<td>2</td>
+<td>Number of coordinate systems (S, T)</td>
+</tr>
+<tr>
+<td><code>ANALOG_PORTS</code></td>
+<td>8</td>
+<td>Analog input/output channels</td>
+</tr>
+<tr>
+<td><code>BINARYIN_BYTES</code></td>
+<td>3</td>
+<td>Bytes of binary (digital) input data</td>
+</tr>
+<tr>
+<td><code>BINARYOUT_WORDS</code></td>
+<td>3</td>
+<td>Words of binary (digital) output data</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="auto-generated-dmc-code">Auto-Generated DMC Code<a class="headerlink" href="#auto-generated-dmc-code" title="Permanent link">&para;</a></h2>
+<p>The driver automatically generates and downloads DMC code to the controller at IOC startup. This on-controller code handles:</p>
+<ul>
+<li><strong>Home routines</strong> -- sequences the home switch search, index pulse capture, and position correction for each axis.</li>
+<li><strong>Limit handling</strong> -- automatic stop and status reporting when hardware or software limits are hit.</li>
+<li><strong>Digital I/O monitoring</strong> -- on-controller threads that watch digital inputs and execute configured actions without round-trip latency to the IOC.</li>
+</ul>
+<p>The generated code is assembled from templates based on the axis configuration specified in the IOC startup script.</p>
+<hr />
+<h2 id="pv-naming-convention">PV Naming Convention<a class="headerlink" href="#pv-naming-convention" title="Permanent link">&para;</a></h2>
+<p>PVs follow this pattern:</p>
+<div class="highlight"><pre><span></span><code>$(P)$(M)$(R)
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Macro</th>
+<th>Purpose</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$(P)</code></td>
+<td>IOC / controller prefix</td>
+<td><code>DMC01:</code></td>
+</tr>
+<tr>
+<td><code>$(M)</code></td>
+<td>Motor or axis identifier</td>
+<td><code>A</code>, <code>B</code>, ... <code>H</code> for real axes; <code>I</code>, ... <code>P</code> for CS axes</td>
+</tr>
+<tr>
+<td><code>$(R)</code></td>
+<td>Record name component</td>
+<td>Specific to each PV (e.g., <code>Jog</code>, <code>HomProc</code>, <code>ErrCode</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>For controller-level PVs that are not axis-specific, only <code>$(P)</code> and <code>$(R)</code> are used. For I/O PVs, the axis macro may be replaced by a port or channel number.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "search.highlight", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

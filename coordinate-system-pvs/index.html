@@ -1,0 +1,1054 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="User's guide for Mark Clift's Galil EPICS IOC (motorapp/Galil)">
+      
+      
+      
+      
+        <link rel="prev" href="../motor-axis-pvs/">
+      
+      
+        <link rel="next" href="../analog-io-pvs/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Coordinate System PVs - Galil EPICS IOC User's Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#coordinate-system-pvs" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Galil EPICS IOC User&#39;s Guide" class="md-header__button md-logo" aria-label="Galil EPICS IOC User's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Galil EPICS IOC User's Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Coordinate System PVs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Galil EPICS IOC User&#39;s Guide" class="md-nav__button md-logo" aria-label="Galil EPICS IOC User's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Galil EPICS IOC User's Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ioc-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IOC Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../controller-pvs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controller PVs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../motor-axis-pvs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Motor Axis PVs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coordinate System PVs
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coordinate System PVs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#coordinate-system-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coordinate System Records
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cs-motor-extras" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CS Motor Extras
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forward-transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forward Transform
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reverse-transforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reverse Transforms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-kinematic-transforms-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Kinematic Transforms Work
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analog-io-pvs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analog I/O PVs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../digital-io-pvs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Digital I/O PVs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../profile-trajectory-pvs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Profile/Trajectory PVs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../amplifier-status-pvs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amplifier Status PVs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-defined-records/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User-Defined Records & Arrays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-record-polling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Record & Polling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cross-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cross Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../galil-command-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix: Galil Command Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#coordinate-system-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coordinate System Records
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cs-motor-extras" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CS Motor Extras
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forward-transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forward Transform
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reverse-transforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reverse Transforms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-kinematic-transforms-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Kinematic Transforms Work
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="coordinate-system-pvs">Coordinate System PVs<a class="headerlink" href="#coordinate-system-pvs" title="Permanent link">&para;</a></h1>
+<p>The Galil supports 2 coordinate systems (S and T) for coordinated multi-axis motion. CS axes I through P are virtual axes that map to real axes A through H through kinematic transforms.</p>
+<h2 id="coordinate-system-records">Coordinate System Records<a class="headerlink" href="#coordinate-system-records" title="Permanent link">&para;</a></h2>
+<p>Template: <code>galil_coordinate_system.template</code></p>
+<p>PV pattern: <code>$(P)$(R)_</code> where <code>R</code> is the coordinate system name (e.g., <code>S</code> or <code>T</code>). ADDR is 0 for S, 1 for T.</p>
+<table>
+<thead>
+<tr>
+<th>PV Suffix</th>
+<th>Record Type</th>
+<th>Dir</th>
+<th>asyn drvInfo</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_NAME_MON</code></td>
+<td>bi</td>
+<td>R</td>
+<td>-</td>
+<td>Coordinate system name: S or T</td>
+</tr>
+<tr>
+<td><code>_MOTORS_MON</code></td>
+<td>stringin</td>
+<td>R</td>
+<td>COORDINATE_SYSTEM_MOTORS</td>
+<td>List of motors assigned to this coordinate system</td>
+</tr>
+<tr>
+<td><code>_MOVN_STATUS</code></td>
+<td>bi</td>
+<td>R</td>
+<td>COORDINATE_SYSTEM_MOVING</td>
+<td>Moving status: Stopped/Moving</td>
+</tr>
+<tr>
+<td><code>_SEGMENTS_MON</code></td>
+<td>ai</td>
+<td>R</td>
+<td>COORDINATE_SYSTEM_SEGMENTS</td>
+<td>Number of segments processed</td>
+</tr>
+<tr>
+<td><code>_STOP_CMD</code></td>
+<td>bo</td>
+<td>W</td>
+<td>COORDINATE_SYSTEM_MOTORS_STOP</td>
+<td>Stop all motors in coordinate system. Galil ST (Stop)</td>
+</tr>
+<tr>
+<td><code>_GO_CMD</code></td>
+<td>bo</td>
+<td>W</td>
+<td>COORDINATE_SYSTEM_MOTORS_GO</td>
+<td>Begin all motors in coordinate system. Galil BG (Begin)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cs-motor-extras">CS Motor Extras<a class="headerlink" href="#cs-motor-extras" title="Permanent link">&para;</a></h2>
+<p>Template: <code>galil_csmotor_extras.template</code></p>
+<p>PV pattern: <code>$(P)$(M)_</code> where <code>M</code> is the CS motor (e.g., <code>I</code>). ADDR is 8-15.</p>
+<table>
+<thead>
+<tr>
+<th>PV Suffix</th>
+<th>Record Type</th>
+<th>Dir</th>
+<th>asyn drvInfo</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_HOMING_STATUS</code></td>
+<td>bi</td>
+<td>R</td>
+<td>MOTOR_HOMING</td>
+<td>CS axis homing status</td>
+</tr>
+<tr>
+<td><code>_HOMING_MONITOR</code></td>
+<td>calcout</td>
+<td>R</td>
+<td>-</td>
+<td>Combined homing status from HOMR, HOMF, and HOMING_STATUS</td>
+</tr>
+<tr>
+<td><code>_SP_MON</code></td>
+<td>ai</td>
+<td>R</td>
+<td>CSMOTOR_SETPOINT</td>
+<td>CS axis setpoint monitor. The demanded position for this CS axis</td>
+</tr>
+</tbody>
+</table>
+<h2 id="forward-transform">Forward Transform<a class="headerlink" href="#forward-transform" title="Permanent link">&para;</a></h2>
+<p>Template: <code>galil_forward_transform.template</code></p>
+<p>PV pattern: <code>$(P)$(M)_</code></p>
+<table>
+<thead>
+<tr>
+<th>PV Suffix</th>
+<th>Record Type</th>
+<th>Dir</th>
+<th>asyn drvInfo</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_FTRANSFORM_SP</code></td>
+<td>waveform (CHAR[256])</td>
+<td>W</td>
+<td>CSMOTOR_FORWARD_TRANSFORM</td>
+<td>Forward kinematic equation string. Maps real axis positions to CS axis position</td>
+</tr>
+</tbody>
+</table>
+<h2 id="reverse-transforms">Reverse Transforms<a class="headerlink" href="#reverse-transforms" title="Permanent link">&para;</a></h2>
+<p>Template: <code>galil_reverse_transforms.template</code></p>
+<p>PV pattern: <code>$(P)$(M)_</code>. One reverse transform per real axis (A through H).</p>
+<table>
+<thead>
+<tr>
+<th>PV Suffix</th>
+<th>Record Type</th>
+<th>Dir</th>
+<th>asyn drvInfo</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_RTRANSFORMA_SP</code></td>
+<td>waveform (CHAR[256])</td>
+<td>W</td>
+<td>CSMOTOR_REVERSEA_TRANSFORM</td>
+<td>Reverse kinematic for axis A</td>
+</tr>
+<tr>
+<td><code>_RTRANSFORMB_SP</code></td>
+<td>waveform (CHAR[256])</td>
+<td>W</td>
+<td>CSMOTOR_REVERSEB_TRANSFORM</td>
+<td>Reverse kinematic for axis B</td>
+</tr>
+<tr>
+<td><code>_RTRANSFORMC_SP</code></td>
+<td>waveform (CHAR[256])</td>
+<td>W</td>
+<td>CSMOTOR_REVERSEC_TRANSFORM</td>
+<td>Reverse kinematic for axis C</td>
+</tr>
+<tr>
+<td><code>_RTRANSFORMD_SP</code></td>
+<td>waveform (CHAR[256])</td>
+<td>W</td>
+<td>CSMOTOR_REVERSED_TRANSFORM</td>
+<td>Reverse kinematic for axis D</td>
+</tr>
+<tr>
+<td><code>_RTRANSFORME_SP</code></td>
+<td>waveform (CHAR[256])</td>
+<td>W</td>
+<td>CSMOTOR_REVERSEE_TRANSFORM</td>
+<td>Reverse kinematic for axis E</td>
+</tr>
+<tr>
+<td><code>_RTRANSFORMF_SP</code></td>
+<td>waveform (CHAR[256])</td>
+<td>W</td>
+<td>CSMOTOR_REVERSEF_TRANSFORM</td>
+<td>Reverse kinematic for axis F</td>
+</tr>
+<tr>
+<td><code>_RTRANSFORMG_SP</code></td>
+<td>waveform (CHAR[256])</td>
+<td>W</td>
+<td>CSMOTOR_REVERSEG_TRANSFORM</td>
+<td>Reverse kinematic for axis G</td>
+</tr>
+<tr>
+<td><code>_RTRANSFORMH_SP</code></td>
+<td>waveform (CHAR[256])</td>
+<td>W</td>
+<td>CSMOTOR_REVERSEH_TRANSFORM</td>
+<td>Reverse kinematic for axis H</td>
+</tr>
+</tbody>
+</table>
+<h2 id="how-kinematic-transforms-work">How Kinematic Transforms Work<a class="headerlink" href="#how-kinematic-transforms-work" title="Permanent link">&para;</a></h2>
+<p><strong>Forward transforms</strong> compute CS axis positions from real axis positions. For example, a forward transform for CS axis I might be defined as <code>(A+B)/2</code>, meaning the virtual axis position is the average of real axes A and B.</p>
+<p><strong>Reverse transforms</strong> compute demanded real axis positions from CS axis positions. Continuing the example, the reverse transforms would express A and B in terms of I (and possibly other CS axes).</p>
+<p>These are mathematical expressions stored as strings and evaluated by the driver using EPICS sCalcout-style syntax.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "search.highlight", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

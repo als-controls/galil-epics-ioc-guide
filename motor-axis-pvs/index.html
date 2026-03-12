@@ -1,0 +1,2465 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="User's guide for Mark Clift's Galil EPICS IOC (motorapp/Galil)">
+      
+      
+      
+      
+        <link rel="prev" href="../controller-pvs/">
+      
+      
+        <link rel="next" href="../coordinate-system-pvs/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Motor Axis PVs - Galil EPICS IOC User's Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#motor-axis-pvs" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Galil EPICS IOC User&#39;s Guide" class="md-header__button md-logo" aria-label="Galil EPICS IOC User's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Galil EPICS IOC User's Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Motor Axis PVs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Galil EPICS IOC User&#39;s Guide" class="md-nav__button md-logo" aria-label="Galil EPICS IOC User's Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Galil EPICS IOC User's Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ioc-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IOC Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../controller-pvs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controller PVs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Motor Axis PVs
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Motor Axis PVs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#standard-motor-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standard Motor Record
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motor-extras-pvs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motor Extras PVs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Motor Extras PVs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#motor-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motor Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encoder-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Encoder Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssi-absolute-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSI Absolute Encoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#biss-absolute-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BiSS Absolute Encoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#homing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Homing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encoder-stall-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Encoder Stall Detection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-motor-smoothing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step Motor Smoothing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#servo-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Servo Error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#velocity-readback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Velocity Readback
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#motor-power-auto-onoff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motor Power Auto On/Off
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brake-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Brake Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limit-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limit Protection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amplifier-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amplifier Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microstep-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Microstep Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ethercat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EtherCat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amplifier-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amplifier Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#miscellaneous" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Miscellaneous
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../coordinate-system-pvs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coordinate System PVs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analog-io-pvs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analog I/O PVs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../digital-io-pvs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Digital I/O PVs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../profile-trajectory-pvs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Profile/Trajectory PVs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../amplifier-status-pvs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Amplifier Status PVs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-defined-records/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User-Defined Records & Arrays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-record-polling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Record & Polling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cross-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cross Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../galil-command-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix: Galil Command Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#standard-motor-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standard Motor Record
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motor-extras-pvs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motor Extras PVs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Motor Extras PVs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#motor-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motor Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encoder-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Encoder Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssi-absolute-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SSI Absolute Encoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#biss-absolute-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BiSS Absolute Encoder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#homing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Homing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encoder-stall-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Encoder Stall Detection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-motor-smoothing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step Motor Smoothing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#servo-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Servo Error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#velocity-readback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Velocity Readback
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#motor-power-auto-onoff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motor Power Auto On/Off
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brake-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Brake Control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limit-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limit Protection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amplifier-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amplifier Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microstep-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Microstep Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ethercat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EtherCat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amplifier-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amplifier Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#miscellaneous" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Miscellaneous
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="motor-axis-pvs">Motor Axis PVs<a class="headerlink" href="#motor-axis-pvs" title="Permanent link">&para;</a></h1>
+<p>This section documents the PVs associated with each motor axis in the Galil IOC. PV names use the macros <code>$(P)</code> (prefix, e.g. <code>DMC01:</code>), <code>$(M)</code> (motor name, e.g. <code>A</code>), and <code>$(ADDR)</code> (axis number 0--7).</p>
+<h2 id="standard-motor-record">Standard Motor Record<a class="headerlink" href="#standard-motor-record" title="Permanent link">&para;</a></h2>
+<p>The IOC uses the standard EPICS motor record with <code>DTYP="asynMotor"</code>. The template loaded depends on the motor record version:</p>
+<ul>
+<li><strong>galil_motor-v6-10up.template</strong> -- motor record 6.10 and later</li>
+<li><strong>galil_motor-v6-9down.template</strong> -- motor record 6.9 and earlier</li>
+</ul>
+<p>The table below shows how the Galil driver maps motor record fields to Galil commands.</p>
+<table>
+<thead>
+<tr>
+<th>Motor Record Field</th>
+<th>Galil Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.VAL</code> (move)</td>
+<td>PA / PR</td>
+<td>Commanded position. Driver selects PA (Position Absolute) or PR (Position Relative) based on move type.</td>
+</tr>
+<tr>
+<td><code>.JOGF</code> / <code>.JOGR</code></td>
+<td>JG</td>
+<td>Jog velocity. Issues JG with positive or negative velocity.</td>
+</tr>
+<tr>
+<td><code>.HOMF</code> / <code>.HOMR</code></td>
+<td>HM, FI, FE</td>
+<td>Home sequence. Uses generated DMC code combining Home (HM), Find Index (FI), and Find Edge (FE).</td>
+</tr>
+<tr>
+<td><code>.STOP</code></td>
+<td>ST</td>
+<td>Stops axis motion.</td>
+</tr>
+<tr>
+<td><code>.VELO</code></td>
+<td>SP</td>
+<td>Commanded velocity.</td>
+</tr>
+<tr>
+<td><code>.ACCL</code></td>
+<td>AC, DC</td>
+<td>Acceleration and deceleration time. The driver calculates counts/s^2 from VELO and ACCL.</td>
+</tr>
+<tr>
+<td><code>.BDST</code></td>
+<td>PR</td>
+<td>Backlash distance. Performed as a separate relative move.</td>
+</tr>
+<tr>
+<td><code>.SET</code></td>
+<td>DP, DE</td>
+<td>Set position mode. Defines the encoder register (DP) and step count register (DE).</td>
+</tr>
+<tr>
+<td><code>.UEIP</code></td>
+<td>--</td>
+<td>Use Encoder If Present. When 1, position readback comes from the main encoder (TP). When 0, from the step counter (TD).</td>
+</tr>
+<tr>
+<td><code>.MRES</code></td>
+<td>--</td>
+<td>Motor resolution. Converts between EGU and counts.</td>
+</tr>
+<tr>
+<td><code>.ERES</code></td>
+<td>--</td>
+<td>Encoder resolution.</td>
+</tr>
+<tr>
+<td><code>.RBV</code></td>
+<td>TP / TD</td>
+<td>Position readback. Source depends on UEIP and motor type. Read from the data record, not by issuing a direct command.</td>
+</tr>
+<tr>
+<td><code>.MSTA</code></td>
+<td>Data record status bits</td>
+<td>Motor status word. Parsed from the binary data record status word.</td>
+</tr>
+<tr>
+<td><code>.DVAL</code></td>
+<td>--</td>
+<td>Dial value.</td>
+</tr>
+</tbody>
+</table>
+<p>Most status readbacks -- position, velocity, limits, moving state -- come from the <strong>data record</strong> rather than individual Galil commands. The poller reads the binary data record blob and updates the asyn parameter list each cycle.</p>
+<h2 id="motor-extras-pvs">Motor Extras PVs<a class="headerlink" href="#motor-extras-pvs" title="Permanent link">&para;</a></h2>
+<p>These Galil-specific PVs are loaded from <strong>galil_motor_extras.template</strong> and provide configuration and status beyond what the standard motor record offers. The PV pattern is <code>$(P)$(M)_SUFFIX</code>.</p>
+<h3 id="motor-configuration">Motor Configuration<a class="headerlink" href="#motor-configuration" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>PV Suffix</th>
+<th>Record Type</th>
+<th>Dir</th>
+<th>asyn drvInfo</th>
+<th>Galil Cmd</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_MTRTYPE_CMD</code></td>
+<td>mbbo</td>
+<td>W</td>
+<td>MOTOR_TYPE</td>
+<td>MT</td>
+<td>Motor type selection: Servo, Rev Servo, HA Stepper, LA Stepper, Rev HA Stepper, Rev LA Stepper, PWM servo, PWM rev servo, EtherCat Position, EtherCat Torque, EtherCat Rev Torque, Servo 2PB, Rev Servo 2PB</td>
+</tr>
+<tr>
+<td><code>_MTRTYPE_STATUS</code></td>
+<td>mbbi</td>
+<td>R</td>
+<td>MOTOR_TYPE</td>
+<td>MT</td>
+<td>Motor type readback</td>
+</tr>
+<tr>
+<td><code>_BRTYPE_CMD</code></td>
+<td>mbbo</td>
+<td>W</td>
+<td>BRUSH_TYPE</td>
+<td>BR</td>
+<td>Brush type: External Drive (-1), Brushless (0), Brush (1)</td>
+</tr>
+<tr>
+<td><code>_BRTYPE_STATUS</code></td>
+<td>mbbi</td>
+<td>R</td>
+<td>BRUSH_TYPE</td>
+<td>BR</td>
+<td>Brush type readback</td>
+</tr>
+<tr>
+<td><code>_ON_CMD</code></td>
+<td>mbbo</td>
+<td>W</td>
+<td>MOTOR_CLOSED_LOOP</td>
+<td>SH / MO</td>
+<td>Motor on/off. On issues SH (Servo Here) to enable the servo loop; Off issues MO (Motor Off) to disable it.</td>
+</tr>
+<tr>
+<td><code>_ON_STATUS</code></td>
+<td>bi</td>
+<td>R</td>
+<td>MOTOR_STATUS_POWERED</td>
+<td>Data record</td>
+<td>Motor power status from the data record</td>
+</tr>
+<tr>
+<td><code>_AXIS_STATUS</code></td>
+<td>mbbi</td>
+<td>R</td>
+<td>MOTOR_AXIS</td>
+<td>--</td>
+<td>Axis channel (A--H). Informational only.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="encoder-configuration">Encoder Configuration<a class="headerlink" href="#encoder-configuration" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>PV Suffix</th>
+<th>Record Type</th>
+<th>Dir</th>
+<th>asyn drvInfo</th>
+<th>Galil Cmd</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_MENCTYPE_CMD</code></td>
+<td>mbbo</td>
+<td>W</td>
+<td>MOTOR_MAIN_ENCODER</td>
+<td>CE</td>
+<td>Main encoder type: Normal Quadrature, Pulse and Dir, Reverse Quadrature, Rev Pulse and Dir</td>
+</tr>
+<tr>
+<td><code>_MENCTYPE_STATUS</code></td>
+<td>mbbi</td>
+<td>R</td>
+<td>MOTOR_MAIN_ENCODER</td>
+<td>CE</td>
+<td>Main encoder readback</td>
+</tr>
+<tr>
+<td><code>_AENCTYPE_CMD</code></td>
+<td>mbbo</td>
+<td>W</td>
+<td>MOTOR_AUX_ENCODER</td>
+<td>CE</td>
+<td>Aux encoder type. Values 0, 4, 8, 12 select the upper bits of the CE command.</td>
+</tr>
+<tr>
+<td><code>_AENCTYPE_STATUS</code></td>
+<td>mbbi</td>
+<td>R</td>
+<td>MOTOR_AUX_ENCODER</td>
+<td>CE</td>
+<td>Aux encoder readback</td>
+</tr>
+<tr>
+<td><code>_ENC_TOLERANCE_SP</code></td>
+<td>longout</td>
+<td>W</td>
+<td>MOTOR_ENCODER_TOLERANCE</td>
+<td>--</td>
+<td>Encoder tolerance in counts for motion and direction detection</td>
+</tr>
+<tr>
+<td><code>_ENC_TOLERANCE_MON</code></td>
+<td>longin</td>
+<td>R</td>
+<td>MOTOR_ENCODER_TOLERANCE</td>
+<td>--</td>
+<td>Readback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ssi-absolute-encoder">SSI Absolute Encoder<a class="headerlink" href="#ssi-absolute-encoder" title="Permanent link">&para;</a></h3>
+<p>All SSI PVs map to the Galil SI command.</p>
+<table>
+<thead>
+<tr>
+<th>PV Suffix</th>
+<th>Record Type</th>
+<th>Dir</th>
+<th>asyn drvInfo</th>
+<th>Galil Cmd</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_SCONN_STATUS</code></td>
+<td>bi</td>
+<td>R</td>
+<td>MOTOR_SSI_CONNECTED</td>
+<td>--</td>
+<td>SSI connection status. Goes to MAJOR alarm when disconnected.</td>
+</tr>
+<tr>
+<td><code>_SSIINPUT_CMD</code></td>
+<td>mbbo</td>
+<td>W</td>
+<td>MOTOR_SSIINPUT</td>
+<td>SI</td>
+<td>SSI input mode: Off, Replace main, Replace aux</td>
+</tr>
+<tr>
+<td><code>_SSIINPUT_STATUS</code></td>
+<td>mbbi</td>
+<td>R</td>
+<td>MOTOR_SSIINPUT</td>
+<td>SI</td>
+<td>SSI input readback</td>
+</tr>
+<tr>
+<td><code>_SSITOTBITS_SP</code></td>
+<td>ao</td>
+<td>W</td>
+<td>MOTOR_SSITOTBITS</td>
+<td>SI</td>
+<td>SSI total bits (default 25)</td>
+</tr>
+<tr>
+<td><code>_SSITOTBITS_MON</code></td>
+<td>ai</td>
+<td>R</td>
+<td>MOTOR_SSITOTBITS</td>
+<td>SI</td>
+<td>Readback</td>
+</tr>
+<tr>
+<td><code>_SSISINGLETBITS_SP</code></td>
+<td>ao</td>
+<td>W</td>
+<td>MOTOR_SSISINGLETBITS</td>
+<td>SI</td>
+<td>SSI single-turn bits (default 13)</td>
+</tr>
+<tr>
+<td><code>_SSISINGLETBITS_MON</code></td>
+<td>ai</td>
+<td>R</td>
+<td>MOTOR_SSISINGLETBITS</td>
+<td>SI</td>
+<td>Readback</td>
+</tr>
+<tr>
+<td><code>_SSIERRBITS_SP</code></td>
+<td>ao</td>
+<td>W</td>
+<td>MOTOR_SSIERRBITS</td>
+<td>SI</td>
+<td>SSI error bits (default 0)</td>
+</tr>
+<tr>
+<td><code>_SSIERRBITS_MON</code></td>
+<td>ai</td>
+<td>R</td>
+<td>MOTOR_SSIERRBITS</td>
+<td>SI</td>
+<td>Readback</td>
+</tr>
+<tr>
+<td><code>_SSITIME_SP</code></td>
+<td>ao</td>
+<td>W</td>
+<td>MOTOR_SSITIME</td>
+<td>SI</td>
+<td>SSI clock rate timecode (default 13)</td>
+</tr>
+<tr>
+<td><code>_SSITIME_MON</code></td>
+<td>ai</td>
+<td>R</td>
+<td>MOTOR_SSITIME</td>
+<td>SI</td>
+<td>Readback</td>
+</tr>
+<tr>
+<td><code>_SSIDATA_CMD</code></td>
+<td>bo</td>
+<td>W</td>
+<td>MOTOR_SSIDATA</td>
+<td>SI</td>
+<td>SSI data format: Binary or Gray</td>
+</tr>
+<tr>
+<td><code>_SSIDATA_STATUS</code></td>
+<td>bi</td>
+<td>R</td>
+<td>MOTOR_SSIDATA</td>
+<td>SI</td>
+<td>Readback</td>
+</tr>
+<tr>
+<td><code>_SSIINVERT_CMD</code></td>
+<td>bo</td>
+<td>W</td>
+<td>MOTOR_SSIINVERT</td>
+<td>--</td>
+<td>Invert SSI direction: Off / On</td>
+</tr>
+<tr>
+<td><code>_SSIINVERT_STATUS</code></td>
+<td>bi</td>
+<td>R</td>
+<td>MOTOR_SSIINVERT</td>
+<td>--</td>
+<td>Readback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="biss-absolute-encoder">BiSS Absolute Encoder<a class="headerlink" href="#biss-absolute-encoder" title="Permanent link">&para;</a></h3>
+<p>BiSS configuration PVs map to the Galil SS command; the active level PVs use SY.</p>
+<table>
+<thead>
+<tr>
+<th>PV Suffix</th>
+<th>Record Type</th>
+<th>Dir</th>
+<th>asyn drvInfo</th>
+<th>Galil Cmd</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_BISSINPUT_CMD</code></td>
+<td>mbbo</td>
+<td>W</td>
+<td>MOTOR_BISSINPUT</td>
+<td>SS</td>
+<td>BiSS input mode: Off, Replace main, Replace aux</td>
+</tr>
+<tr>
+<td><code>_BISSINPUT_STATUS</code></td>
+<td>mbbi</td>
+<td>R</td>
+<td>MOTOR_BISSINPUT</td>
+<td>SS</td>
+<td>BiSS input readback</td>
+</tr>
+<tr>
+<td><code>_BISSDATA1_SP</code></td>
+<td>longout</td>
+<td>W</td>
+<td>MOTOR_BISSDATA1</td>
+<td>SS</td>
+<td>BiSS data bits 1 (-38 to 38, default 27)</td>
+</tr>
+<tr>
+<td><code>_BISSDATA1_MON</code></td>
+<td>longin</td>
+<td>R</td>
+<td>MOTOR_BISSDATA1</td>
+<td>SS</td>
+<td>Readback</td>
+</tr>
+<tr>
+<td><code>_BISSDATA2_SP</code></td>
+<td>longout</td>
+<td>W</td>
+<td>MOTOR_BISSDATA2</td>
+<td>SS</td>
+<td>BiSS data bits 2 (0 to 38, default 27)</td>
+</tr>
+<tr>
+<td><code>_BISSDATA2_MON</code></td>
+<td>longin</td>
+<td>R</td>
+<td>MOTOR_BISSDATA2</td>
+<td>SS</td>
+<td>Readback</td>
+</tr>
+<tr>
+<td><code>_BISSZP_SP</code></td>
+<td>longout</td>
+<td>W</td>
+<td>MOTOR_BISSZP</td>
+<td>SS</td>
+<td>BiSS zero pad bits (0 to 7)</td>
+</tr>
+<tr>
+<td><code>_BISSZP_MON</code></td>
+<td>longin</td>
+<td>R</td>
+<td>MOTOR_BISSZP</td>
+<td>SS</td>
+<td>Readback</td>
+</tr>
+<tr>
+<td><code>_BISSCD_SP</code></td>
+<td>longout</td>
+<td>W</td>
+<td>MOTOR_BISSCD</td>
+<td>SS</td>
+<td>BiSS clock divider (4 to 26, default 14)</td>
+</tr>
+<tr>
+<td><code>_BISSCD_MON</code></td>
+<td>longin</td>
+<td>R</td>
+<td>MOTOR_BISSCD</td>
+<td>SS</td>
+<td>Readback</td>
+</tr>
+<tr>
+<td><code>_BISSLEVEL_CMD</code></td>
+<td>mbbo</td>
+<td>W</td>
+<td>MOTOR_BISSLEVEL</td>
+<td>SY</td>
+<td>BiSS active level: Low/Low, Low/High, High/Low, High/High</td>
+</tr>
+<tr>
+<td><code>_BISSLEVEL_STATUS</code></td>
+<td>mbbi</td>
+<td>R</td>
+<td>MOTOR_BISSLEVEL</td>
+<td>SY</td>
+<td>Readback</td>
+</tr>
+<tr>
+<td><code>_BISSSTAT_TIMEOUT</code></td>
+<td>bi</td>
+<td>R</td>
+<td>MOTOR_BISSSTAT_TIMEOUT</td>
+<td>--</td>
+<td>BiSS timeout status (MAJOR alarm when active)</td>
+</tr>
+<tr>
+<td><code>_BISSSTAT_CRC</code></td>
+<td>bi</td>
+<td>R</td>
+<td>MOTOR_BISSSTAT_CRC</td>
+<td>--</td>
+<td>BiSS CRC valid/invalid (MAJOR alarm on invalid)</td>
+</tr>
+<tr>
+<td><code>_BISSSTAT_ERROR</code></td>
+<td>bi</td>
+<td>R</td>
+<td>MOTOR_BISSSTAT_ERROR</td>
+<td>--</td>
+<td>BiSS error status (MAJOR alarm when active)</td>
+</tr>
+<tr>
+<td><code>_BISSSTAT_WARN</code></td>
+<td>bi</td>
+<td>R</td>
+<td>MOTOR_BISSSTAT_WARN</td>
+<td>--</td>
+<td>BiSS warning (MAJOR alarm when active)</td>
+</tr>
+<tr>
+<td><code>_BISSSTAT_POLL_CMD</code></td>
+<td>bo</td>
+<td>W</td>
+<td>MOTOR_BISSSTAT_POLL</td>
+<td>--</td>
+<td>Enable or disable BiSS status polling</td>
+</tr>
+<tr>
+<td><code>_BISSSTAT_POLL</code></td>
+<td>bi</td>
+<td>R</td>
+<td>MOTOR_BISSSTAT_POLL</td>
+<td>--</td>
+<td>BiSS status poll readback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="homing">Homing<a class="headerlink" href="#homing" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>PV Suffix</th>
+<th>Record Type</th>
+<th>Dir</th>
+<th>asyn drvInfo</th>
+<th>Galil Cmd</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_HOMING_STATUS</code></td>
+<td>bi</td>
+<td>R</td>
+<td>MOTOR_HOMING</td>
+<td>--</td>
+<td>True while homing is in progress, including any jog-after-home move</td>
+</tr>
+<tr>
+<td><code>_HOMING_MONITOR</code></td>
+<td>calcout</td>
+<td>R</td>
+<td>--</td>
+<td>--</td>
+<td>Combined homing status derived from HOMR, HOMF, and HOMING_STATUS</td>
+</tr>
+<tr>
+<td><code>_HOMR_CMD</code></td>
+<td>bo</td>
+<td>W</td>
+<td>MOTOR_HOMR</td>
+<td>Generated home code</td>
+<td>Trigger independent home reverse</td>
+</tr>
+<tr>
+<td><code>_HOMF_CMD</code></td>
+<td>bo</td>
+<td>W</td>
+<td>MOTOR_HOMF</td>
+<td>Generated home code</td>
+<td>Trigger independent home forward</td>
+</tr>
+<tr>
+<td><code>_ULAH_CMD</code></td>
+<td>bo</td>
+<td>W</td>
+<td>MOTOR_USELIMITASHOME</td>
+<td>--</td>
+<td>Use limit switch as home: No / Yes</td>
+</tr>
+<tr>
+<td><code>_ULAH_STATUS</code></td>
+<td>bi</td>
+<td>R</td>
+<td>MOTOR_USELIMITASHOME</td>
+<td>--</td>
+<td>Readback</td>
+</tr>
+<tr>
+<td><code>_UINDEX_CMD</code></td>
+<td>bo</td>
+<td>W</td>
+<td>MOTOR_USEINDEX</td>
+<td>FI</td>
+<td>Use index pulse during home: No / Yes</td>
+</tr>
+<tr>
+<td><code>_UINDEX_STATUS</code></td>
+<td>bi</td>
+<td>R</td>
+<td>MOTOR_USEINDEX</td>
+<td>FI</td>
+<td>Readback</td>
+</tr>
+<tr>
+<td><code>_USWITCH_CMD</code></td>
+<td>bo</td>
+<td>W</td>
+<td>MOTOR_USESWITCH</td>
+<td>--</td>
+<td>Use home switch: No / Yes</td>
+</tr>
+<tr>
+<td><code>_USWITCH_STATUS</code></td>
+<td>bi</td>
+<td>R</td>
+<td>MOTOR_USESWITCH</td>
+<td>--</td>
+<td>Readback</td>
+</tr>
+<tr>
+<td><code>_JAH_CMD</code></td>
+<td>bo</td>
+<td>W</td>
+<td>MOTOR_JOG_AHOME</td>
+<td>JG</td>
+<td>Jog after home: No / Yes</td>
+</tr>
+<tr>
+<td><code>_JAH_STATUS</code></td>
+<td>bi</td>
+<td>R</td>
+<td>MOTOR_JOG_AHOME</td>
+<td>JG</td>
+<td>Readback</td>
+</tr>
+<tr>
+<td><code>_JAHV_SP</code></td>
+<td>ao</td>
+<td>W</td>
+<td>MOTOR_JOG_AHOME_VALUE</td>
+<td>PA</td>
+<td>Jog-after-home target position in EGU</td>
+</tr>
+<tr>
+<td><code>_JAHV_MON</code></td>
+<td>ai</td>
+<td>R</td>
+<td>MOTOR_JOG_AHOME_VALUE</td>
+<td>PA</td>
+<td>Readback</td>
+</tr>
+<tr>
+<td><code>_HOMEALLOWED_CMD</code></td>
+<td>mbbo</td>
+<td>W</td>
+<td>MOTOR_HOME_ALLOWED</td>
+<td>--</td>
+<td>Permitted home directions: None, Reverse, Forward, Both</td>
+</tr>
+<tr>
+<td><code>_HOMEALLOWED_STATUS</code></td>
+<td>mbbi</td>
+<td>R</td>
+<td>MOTOR_HOME_ALLOWED</td>
+<td>--</td>
+<td>Readback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="encoder-stall-detection">Encoder Stall Detection<a class="headerlink" href="#encoder-stall-detection" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>PV Suffix</th>
+<th>Record Type</th>
+<th>Dir</th>
+<th>asyn drvInfo</th>
+<th>Galil Cmd</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_ESTALL_STATUS</code></td>
+<td>bi</td>
+<td>R</td>
+<td>MOTOR_STATUS_SLIP</td>
+<td>Data record</td>
+<td>Encoder stall detected (MAJOR alarm)</td>
+</tr>
+<tr>
+<td><code>_ESTALLTIME_SP</code></td>
+<td>ao</td>
+<td>W</td>
+<td>MOTOR_ENCODER_STALL_TIME</td>
+<td>--</td>
+<td>Time the encoder must be stopped before a stall is declared, in seconds (default 0.2)</td>
+</tr>
+<tr>
+<td><code>_ESTALLTIME_MON</code></td>
+<td>ai</td>
+<td>R</td>
+<td>MOTOR_ENCODER_STALL_TIME</td>
+<td>--</td>
+<td>Readback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="step-motor-smoothing">Step Motor Smoothing<a class="headerlink" href="#step-motor-smoothing" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>PV Suffix</th>
+<th>Record Type</th>
+<th>Dir</th>
+<th>asyn drvInfo</th>
+<th>Galil Cmd</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_STEPSMOOTH_SP</code></td>
+<td>ao</td>
+<td>W</td>
+<td>MOTOR_STEPSMOOTH</td>
+<td>KS</td>
+<td>Smoothing factor for stepper axes (0.25 to 128, default 1.313)</td>
+</tr>
+<tr>
+<td><code>_STEPSMOOTH_MON</code></td>
+<td>ai</td>
+<td>R</td>
+<td>MOTOR_STEPSMOOTH</td>
+<td>KS</td>
+<td>Readback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="servo-error">Servo Error<a class="headerlink" href="#servo-error" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>PV Suffix</th>
+<th>Record Type</th>
+<th>Dir</th>
+<th>asyn drvInfo</th>
+<th>Galil Cmd</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_ERRLIMIT_SP</code></td>
+<td>ao</td>
+<td>W</td>
+<td>MOTOR_ERRLIM</td>
+<td>ER</td>
+<td>Position error limit in counts (default 16384)</td>
+</tr>
+<tr>
+<td><code>_ERRLIMIT_MON</code></td>
+<td>ai</td>
+<td>R</td>
+<td>MOTOR_ERRLIM</td>
+<td>ER</td>
+<td>Readback</td>
+</tr>
+<tr>
+<td><code>_ERR_MON</code></td>
+<td>ai</td>
+<td>R</td>
+<td>MOTOR_ERR</td>
+<td>Data record (<code>_TEn</code>)</td>
+<td>Current position error in counts, read from the data record</td>
+</tr>
+<tr>
+<td><code>_OFFONERR_CMD</code></td>
+<td>mbbo</td>
+<td>W</td>
+<td>MOTOR_OOE</td>
+<td>OE</td>
+<td>Off-on-error mode: Off, Position error, Limits, Both</td>
+</tr>
+<tr>
+<td><code>_OFFONERR_STATUS</code></td>
+<td>mbbi</td>
+<td>R</td>
+<td>MOTOR_OOE</td>
+<td>OE</td>
+<td>Readback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="velocity-readback">Velocity Readback<a class="headerlink" href="#velocity-readback" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>PV Suffix</th>
+<th>Record Type</th>
+<th>Dir</th>
+<th>asyn drvInfo</th>
+<th>Galil Cmd</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_VELOCITYRAW_MON</code></td>
+<td>ai</td>
+<td>R</td>
+<td>MOTOR_VELOCITY_RAW</td>
+<td>Data record (<code>_TVn</code>)</td>
+<td>Velocity in counts/s from the data record</td>
+</tr>
+<tr>
+<td><code>_VELOCITYEGU_MON</code></td>
+<td>ai</td>
+<td>R</td>
+<td>MOTOR_VELOCITY_EGU</td>
+<td>Data record</td>
+<td>Velocity in EGU/s, converted from raw using MRES</td>
+</tr>
+</tbody>
+</table>
+<h3 id="motor-power-auto-onoff">Motor Power Auto On/Off<a class="headerlink" href="#motor-power-auto-onoff" title="Permanent link">&para;</a></h3>
+<p>When enabled, the driver automatically issues SH before a move and MO after the move completes, with configurable delays.</p>
+<table>
+<thead>
+<tr>
+<th>PV Suffix</th>
+<th>Record Type</th>
+<th>Dir</th>
+<th>asyn drvInfo</th>
+<th>Galil Cmd</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_AUTOONOFF_CMD</code></td>
+<td>bo</td>
+<td>W</td>
+<td>MOTOR_AUTO_ONOFF</td>
+<td>SH / MO</td>
+<td>Enable auto on/off</td>
+</tr>
+<tr>
+<td><code>_AUTOONOFF_STATUS</code></td>
+<td>bi</td>
+<td>R</td>
+<td>MOTOR_AUTO_ONOFF</td>
+<td>--</td>
+<td>Readback</td>
+</tr>
+<tr>
+<td><code>_ONDELAY_SP</code></td>
+<td>ao</td>
+<td>W</td>
+<td>MOTOR_AUTO_ONDELAY</td>
+<td>--</td>
+<td>Delay after SH before starting the move (0.001 to 3 s, default 0.2)</td>
+</tr>
+<tr>
+<td><code>_ONDELAY_MON</code></td>
+<td>ai</td>
+<td>R</td>
+<td>MOTOR_AUTO_ONDELAY</td>
+<td>--</td>
+<td>Readback</td>
+</tr>
+<tr>
+<td><code>_OFFDELAY_SP</code></td>
+<td>ao</td>
+<td>W</td>
+<td>MOTOR_AUTO_OFFDELAY</td>
+<td>--</td>
+<td>Delay after move completes before issuing MO (0.001 to 3 s, default 0.2)</td>
+</tr>
+<tr>
+<td><code>_OFFDELAY_MON</code></td>
+<td>ai</td>
+<td>R</td>
+<td>MOTOR_AUTO_OFFDELAY</td>
+<td>--</td>
+<td>Readback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="brake-control">Brake Control<a class="headerlink" href="#brake-control" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>PV Suffix</th>
+<th>Record Type</th>
+<th>Dir</th>
+<th>asyn drvInfo</th>
+<th>Galil Cmd</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_BRAKE_STATUS</code></td>
+<td>bi</td>
+<td>R</td>
+<td>MOTOR_BRAKE</td>
+<td>SB / CB</td>
+<td>Brake on/off status. SB (Set Bit) engages; CB (Clear Bit) releases.</td>
+</tr>
+<tr>
+<td><code>_AUTOBRAKE_CMD</code></td>
+<td>bo</td>
+<td>W</td>
+<td>MOTOR_AUTO_BRAKE</td>
+<td>SB / CB</td>
+<td>Enable automatic brake engagement between moves</td>
+</tr>
+<tr>
+<td><code>_AUTOBRAKE_STATUS</code></td>
+<td>bi</td>
+<td>R</td>
+<td>MOTOR_AUTO_BRAKE</td>
+<td>--</td>
+<td>Readback</td>
+</tr>
+<tr>
+<td><code>_BRAKEPORT_SP</code></td>
+<td>ao</td>
+<td>W</td>
+<td>MOTOR_BRAKEPORT</td>
+<td>--</td>
+<td>Digital output port for the brake (-1 = disabled, 0 to 16)</td>
+</tr>
+<tr>
+<td><code>_BRAKEPORT_MON</code></td>
+<td>ai</td>
+<td>R</td>
+<td>MOTOR_BRAKEPORT</td>
+<td>--</td>
+<td>Readback</td>
+</tr>
+<tr>
+<td><code>_BRAKEONDELAY_SP</code></td>
+<td>ao</td>
+<td>W</td>
+<td>MOTOR_AUTO_BRAKEONDELAY</td>
+<td>--</td>
+<td>Delay after move before engaging brake (0.001 to 3 s, default 0.2)</td>
+</tr>
+<tr>
+<td><code>_BRAKEONDELAY_MON</code></td>
+<td>ai</td>
+<td>R</td>
+<td>MOTOR_AUTO_BRAKEONDELAY</td>
+<td>--</td>
+<td>Readback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="limit-protection">Limit Protection<a class="headerlink" href="#limit-protection" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>PV Suffix</th>
+<th>Record Type</th>
+<th>Dir</th>
+<th>asyn drvInfo</th>
+<th>Galil Cmd</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_WLP_CMD</code></td>
+<td>bo</td>
+<td>W</td>
+<td>MOTOR_WLP</td>
+<td>--</td>
+<td>Wrong limit protection: Off / On (default On). Stops the motor if the wrong limit switch activates during travel.</td>
+</tr>
+<tr>
+<td><code>_WLP_STATUS</code></td>
+<td>bi</td>
+<td>R</td>
+<td>MOTOR_WLP</td>
+<td>--</td>
+<td>Readback</td>
+</tr>
+<tr>
+<td><code>_WLPSTOP_STATUS</code></td>
+<td>bi</td>
+<td>R</td>
+<td>MOTOR_WLP_STOP</td>
+<td>--</td>
+<td>WLP triggered a stop (MAJOR alarm)</td>
+</tr>
+<tr>
+<td><code>_EGUAFTLIMIT_SP</code></td>
+<td>ao</td>
+<td>W</td>
+<td>MOTOR_EGUAFTER_LIMIT</td>
+<td>--</td>
+<td>EGU distance to move off a limit (default 0.001)</td>
+</tr>
+<tr>
+<td><code>_EGUAFTLIMIT_MON</code></td>
+<td>ai</td>
+<td>R</td>
+<td>MOTOR_EGUAFTER_LIMIT</td>
+<td>--</td>
+<td>Readback</td>
+</tr>
+<tr>
+<td><code>_LIMITDISABLE_CMD</code></td>
+<td>mbbo</td>
+<td>W</td>
+<td>MOTOR_LIMIT_DISABLE</td>
+<td>LD</td>
+<td>Disable limits: Off, Fwd Disabled, Rev Disabled, Both Disabled</td>
+</tr>
+<tr>
+<td><code>_LIMITDISABLE_STATUS</code></td>
+<td>mbbi</td>
+<td>R</td>
+<td>MOTOR_LIMIT_DISABLE</td>
+<td>LD</td>
+<td>Readback</td>
+</tr>
+<tr>
+<td><code>_LIMITCONSISTENT_STATUS</code></td>
+<td>mbbi</td>
+<td>R</td>
+<td>MOTOR_LIMIT_CONSISTENT</td>
+<td>--</td>
+<td>Limit consistency check: Unknown, Consistent, Not consistent (MAJOR alarm when inconsistent)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="amplifier-configuration">Amplifier Configuration<a class="headerlink" href="#amplifier-configuration" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>PV Suffix</th>
+<th>Record Type</th>
+<th>Dir</th>
+<th>asyn drvInfo</th>
+<th>Galil Cmd</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_AMPMODEL_STATUS</code></td>
+<td>longin</td>
+<td>R</td>
+<td>MOTOR_AMP_MODEL</td>
+<td>--</td>
+<td>Internal amplifier model number</td>
+</tr>
+<tr>
+<td><code>_AMPGAIN_CMD</code></td>
+<td>mbbo</td>
+<td>W</td>
+<td>MOTOR_AMP_GAIN</td>
+<td>AG</td>
+<td>Amplifier gain. Enumeration values depend on the amplifier model.</td>
+</tr>
+<tr>
+<td><code>_AMPGAIN_STATUS</code></td>
+<td>mbbi</td>
+<td>R</td>
+<td>MOTOR_AMP_GAIN</td>
+<td>AG</td>
+<td>Readback</td>
+</tr>
+<tr>
+<td><code>_AMPCLGAIN_CMD</code></td>
+<td>mbbo</td>
+<td>W</td>
+<td>MOTOR_AMP_CURRENTLOOP_GAIN</td>
+<td>AU</td>
+<td>Current loop gain. Enumeration values depend on the amplifier model.</td>
+</tr>
+<tr>
+<td><code>_AMPCLGAIN_STATUS</code></td>
+<td>mbbi</td>
+<td>R</td>
+<td>MOTOR_AMP_CURRENTLOOP_GAIN</td>
+<td>AU</td>
+<td>Readback</td>
+</tr>
+<tr>
+<td><code>_AMPLC_SP</code></td>
+<td>ao</td>
+<td>W</td>
+<td>MOTOR_AMP_LOWCURRENT</td>
+<td>LC</td>
+<td>Low current stepper mode setting (-32767 to 32767)</td>
+</tr>
+<tr>
+<td><code>_AMPLC_MON</code></td>
+<td>ai</td>
+<td>R</td>
+<td>MOTOR_AMP_LOWCURRENT</td>
+<td>LC</td>
+<td>Readback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="microstep-configuration">Microstep Configuration<a class="headerlink" href="#microstep-configuration" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>PV Suffix</th>
+<th>Record Type</th>
+<th>Dir</th>
+<th>asyn drvInfo</th>
+<th>Galil Cmd</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_MICROSTEP_CMD</code></td>
+<td>mbbo</td>
+<td>W</td>
+<td>MOTOR_MICROSTEP</td>
+<td>YA</td>
+<td>Microsteps per step: 1, 2, 4, 16, 64, 256. Available values depend on the amplifier model.</td>
+</tr>
+<tr>
+<td><code>_MICROSTEP_STATUS</code></td>
+<td>mbbi</td>
+<td>R</td>
+<td>MOTOR_MICROSTEP</td>
+<td>YA</td>
+<td>Readback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ethercat">EtherCat<a class="headerlink" href="#ethercat" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>PV Suffix</th>
+<th>Record Type</th>
+<th>Dir</th>
+<th>asyn drvInfo</th>
+<th>Galil Cmd</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_ECATADDR_SP</code></td>
+<td>ao</td>
+<td>W</td>
+<td>MOTOR_ECAT_ADDR</td>
+<td>--</td>
+<td>EtherCat slave address (-255 to 255)</td>
+</tr>
+<tr>
+<td><code>_ECATADDR_MON</code></td>
+<td>ai</td>
+<td>R</td>
+<td>MOTOR_ECAT_ADDR</td>
+<td>--</td>
+<td>Readback</td>
+</tr>
+<tr>
+<td><code>_ECATFLT_STATUS</code></td>
+<td>bi</td>
+<td>R</td>
+<td>MOTOR_ECAT_FAULT</td>
+<td>--</td>
+<td>EtherCat fault (MAJOR alarm)</td>
+</tr>
+<tr>
+<td><code>_ECATFLTRST_CMD</code></td>
+<td>bo</td>
+<td>W</td>
+<td>MOTOR_ECAT_FAULTRESET</td>
+<td>--</td>
+<td>Reset EtherCat fault</td>
+</tr>
+</tbody>
+</table>
+<h3 id="amplifier-status">Amplifier Status<a class="headerlink" href="#amplifier-status" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>PV Suffix</th>
+<th>Record Type</th>
+<th>Dir</th>
+<th>asyn drvInfo</th>
+<th>Galil Cmd</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_HALLERROR_STATUS</code></td>
+<td>bi</td>
+<td>R</td>
+<td>MOTOR_HALLERROR_STATUS</td>
+<td>Data record, TA</td>
+<td>Hall sensor error (MAJOR alarm)</td>
+</tr>
+<tr>
+<td><code>_ATTORQUELIMIT_STATUS</code></td>
+<td>bi</td>
+<td>R</td>
+<td>MOTOR_ATTORQUELIMIT_STATUS</td>
+<td>Data record</td>
+<td>At torque limit (MAJOR alarm)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="miscellaneous">Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>PV Suffix</th>
+<th>Record Type</th>
+<th>Dir</th>
+<th>asyn drvInfo</th>
+<th>Galil Cmd</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_MCONN_STATUS</code></td>
+<td>bi</td>
+<td>R</td>
+<td>MOTOR_MCONN</td>
+<td>--</td>
+<td>Motor connected status. Goes to MINOR alarm when disconnected.</td>
+</tr>
+<tr>
+<td><code>_USERDATA_MON</code></td>
+<td>ai</td>
+<td>R</td>
+<td>MOTOR_USER_DATA</td>
+<td>ZA</td>
+<td>User-defined data from the data record</td>
+</tr>
+<tr>
+<td><code>_USERDATADEADB_SP</code></td>
+<td>ao</td>
+<td>W</td>
+<td>MOTOR_USER_DATA_DEADB</td>
+<td>--</td>
+<td>Deadband for user data updates (default 1)</td>
+</tr>
+<tr>
+<td><code>_STOPDELAY_SP</code></td>
+<td>ao</td>
+<td>W</td>
+<td>MOTOR_STOP_DELAY</td>
+<td>--</td>
+<td>Delay before issuing a stop command, in seconds (default 0)</td>
+</tr>
+<tr>
+<td><code>_STOPDELAY_MON</code></td>
+<td>ai</td>
+<td>R</td>
+<td>MOTOR_STOP_DELAY</td>
+<td>--</td>
+<td>Readback</td>
+</tr>
+<tr>
+<td><code>_STATUS_POLL_DELAY_CMD</code></td>
+<td>ao</td>
+<td>W</td>
+<td>MOTOR_STATUS_POLL_DELAY</td>
+<td>--</td>
+<td>Status poll interval for slow-changing items such as axis and encoder status (0.1 to 10 s, default 1)</td>
+</tr>
+<tr>
+<td><code>_STATUS_POLL_DELAY_MON</code></td>
+<td>ai</td>
+<td>R</td>
+<td>MOTOR_STATUS_POLL_DELAY</td>
+<td>--</td>
+<td>Readback</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.top", "search.highlight", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
