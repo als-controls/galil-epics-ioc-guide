@@ -43,7 +43,7 @@ Reading analog input 1 as a custom record:
 DRVCMD=CMD, GALILSTR="MG @AN[1]"
 ```
 
-This queries analog input 1 via the MG (Message) command.
+This queries analog input 1 via the [MG](galil-command-reference.md#mg) (Message) command.
 
 Reading and writing a controller variable:
 
@@ -57,7 +57,7 @@ This reads and writes the variable `myvar` on the controller.
 
 Template: `galil_user_array.template`
 
-User arrays allow uploading arrays from the controller for monitoring. The driver uses the Galil `QU` (Upload Array) command.
+User arrays allow uploading arrays from the controller for monitoring. The driver uses the Galil [`QU`](galil-command-reference.md#qu) (Upload Array) command.
 
 PV pattern: `$(P)UARRAY$(ADDR)_` where `ADDR` is the array index.
 

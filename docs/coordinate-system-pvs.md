@@ -14,8 +14,8 @@ PV pattern: `$(P)$(R)_` where `R` is the coordinate system name (e.g., `S` or `T
 | `_MOTORS_MON` | stringin | COORDINATE_SYSTEM_MOTORS | List of motors assigned to this coordinate system |
 | `_MOVN_STATUS` | bi | COORDINATE_SYSTEM_MOVING | Moving status: Stopped/Moving |
 | `_SEGMENTS_MON` | ai | COORDINATE_SYSTEM_SEGMENTS | Number of segments processed |
-| `_STOP_CMD` | bo | COORDINATE_SYSTEM_MOTORS_STOP | Stop all motors in coordinate system. Galil ST (Stop) |
-| `_GO_CMD` | bo | COORDINATE_SYSTEM_MOTORS_GO | Begin all motors in coordinate system. Galil BG (Begin) |
+| `_STOP_CMD` | bo | COORDINATE_SYSTEM_MOTORS_STOP | Stop all motors in coordinate system. Galil [ST](galil-command-reference.md#st) (Stop) |
+| `_GO_CMD` | bo | COORDINATE_SYSTEM_MOTORS_GO | Begin all motors in coordinate system. Galil [BG](galil-command-reference.md#bg) (Begin) |
 
 ## CS Motor Extras
 

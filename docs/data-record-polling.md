@@ -4,7 +4,7 @@ This section explains how the Galil IOC acquires status data from the controller
 
 ## The Galil Data Record
 
-The Galil controller can produce a binary data record containing real-time status of all axes, I/O, and system state. This is configured with the `DR` (Data Record Update Rate) command. The data record contains:
+The Galil controller can produce a binary data record containing real-time status of all axes, I/O, and system state. This is configured with the [`DR`](galil-command-reference.md#dr) (Data Record Update Rate) command. The data record contains:
 
 - **Per-axis**: reference position, encoder position, position error, auxiliary position, velocity, torque, analog input, status bits (moving, limits, home, errors, etc.)
 - **System**: digital I/O states, analog inputs/outputs, coordinate system status, amplifier status
@@ -24,27 +24,27 @@ The GalilPoller is a dedicated thread that:
 
 ### Async UDP (positive updatePeriod)
 
-The `DR` command configures the controller to push data records at the specified rate via UDP. This provides lower latency and is the preferred mode for ethernet connections. The driver opens a separate UDP handle for receiving these records.
+The [`DR`](galil-command-reference.md#dr) command configures the controller to push data records at the specified rate via UDP. This provides lower latency and is the preferred mode for ethernet connections. The driver opens a separate UDP handle for receiving these records.
 
 ### Synchronous TCP (negative updatePeriod)
 
-The driver polls using the `QR` (I/O Data Record) command at the specified rate. This mode is used as a fallback when UDP is unavailable.
+The driver polls using the [`QR`](galil-command-reference.md#qr) (I/O Data Record) command at the specified rate. This mode is used as a fallback when UDP is unavailable.
 
 ## What Comes From the Data Record
 
 Most read-only status PVs get their data from the data record rather than individual Galil commands. This includes:
 
-- Motor position (TP/TD equivalent)
-- Motor velocity (TV equivalent)
-- Position error (TE equivalent)
-- Torque output (TT equivalent)
+- Motor position ([TP](galil-command-reference.md#tp)/[TD](galil-command-reference.md#td) equivalent)
+- Motor velocity ([TV](galil-command-reference.md#tv) equivalent)
+- Position error ([TE](galil-command-reference.md#te) equivalent)
+- Torque output ([TT](galil-command-reference.md#tt) equivalent)
 - Limit switch status (_LF, _LR operands)
 - Home switch status
 - Motor moving/stopped status
 - Axis stop code
 - Digital I/O states
 - Analog input values
-- Amplifier status (TA bits)
+- Amplifier status ([TA](galil-command-reference.md#ta) bits)
 
 ## What Uses Direct Commands
 

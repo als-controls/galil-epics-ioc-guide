@@ -1,6 +1,6 @@
 # Digital I/O PVs
 
-The DMC-41x3 has optoisolated digital I/O. Controllers with 1-4 axes provide 8 inputs (bank 0) and 8 outputs. Controllers with 5-8 axes provide an additional 8 inputs (bank 1) and 8 outputs. The IOC uses the Galil `@IN` (Read digital input) command for reads and `SB`/`CB` (Set Bit/Clear Bit) for writes. Values come from the data record.
+The DMC-41x3 has optoisolated digital I/O. Controllers with 1-4 axes provide 8 inputs (bank 0) and 8 outputs. Controllers with 5-8 axes provide an additional 8 inputs (bank 1) and 8 outputs. The IOC uses the Galil [`@IN`](galil-command-reference.md#in) (Read digital input) command for reads and [`SB`](galil-command-reference.md#sb)/[`CB`](galil-command-reference.md#cb) (Set Bit/Clear Bit) for writes. Values come from the data record.
 
 ## Digital Inputs
 
@@ -10,7 +10,7 @@ PV pattern: `$(P)$(R)_STATUS`. Uses `asynUInt32Digital` with bit masks.
 
 | PV Suffix | Record Type | asyn drvInfo | Galil Cmd | Description |
 |-----------|-------------|--------------|-----------|-------------|
-| `_STATUS` | bi | BINARY_IN | @IN, from data record | Digital input bit state |
+| `_STATUS` | bi | BINARY_IN | [@IN](galil-command-reference.md#in), from data record | Digital input bit state |
 
 Template macros:
 
@@ -30,7 +30,7 @@ PV pattern: `$(P)$(R)_`.
 | PV Suffix | Record Type | asyn drvInfo | Galil Cmd | Description |
 |-----------|-------------|--------------|-----------|-------------|
 | `_STATUS` | bi | BINARY_OUTRBV | Data record | Digital output bit readback |
-| `_CMD` | bo | BINARY_OUT | SB/CB (Set Bit/Clear Bit) | Set digital output bit |
+| `_CMD` | bo | BINARY_OUT | [SB](galil-command-reference.md#sb)/[CB](galil-command-reference.md#cb) (Set Bit/Clear Bit) | Set digital output bit |
 
 Template macros:
 

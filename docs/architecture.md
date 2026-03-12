@@ -74,13 +74,13 @@ Coordinate system axis control for CS axes I--P. Extends `asynMotorAxis`.
 - Maps onto Galil coordinate systems S and T (up to 4 axes per coordinate system).
 - Handles forward and reverse kinematic transforms.
 - Coordinates multi-axis moves so that axes start and stop together.
-- Uses the Galil `CA`, `CD`, `CR` (vector mode) commands for coordinated motion.
+- Uses the Galil [`CA`](galil-command-reference.md#ca), `CD`, `CR` (vector mode) commands for coordinated motion.
 
 ### GalilPoller
 
 Dedicated polling thread that keeps PV values synchronized with hardware state.
 
-- In async UDP mode, the controller pushes data records at the configured rate using the Galil `DR` command. The poller receives and parses these binary packets.
+- In async UDP mode, the controller pushes data records at the configured rate using the Galil [`DR`](galil-command-reference.md#dr) command. The poller receives and parses these binary packets.
 - In synchronous TCP mode, the poller requests data records on a timer.
 - Parses binary data record fields into individual axis positions, velocities, status bits, analog values, and digital I/O states.
 - Updates the asyn parameter list, which triggers `I/O Intr` callbacks to process EPICS records.
@@ -98,7 +98,7 @@ Connection management thread.
 
 | Mode | Transport | Mechanism | Use Case |
 |---|---|---|---|
-| Async UDP | Ethernet | Controller pushes data records at a rate configured by the `DR` command | Preferred mode for ethernet-connected controllers. Lowest latency. |
+| Async UDP | Ethernet | Controller pushes data records at a rate configured by the [`DR`](galil-command-reference.md#dr) command | Preferred mode for ethernet-connected controllers. Lowest latency. |
 | Synchronous TCP | Ethernet | Driver polls on a timer, requesting data records over the command TCP connection | Fallback when UDP is unavailable, or when a negative `updatePeriod` is specified in `GalilCreateController`. |
 | Serial (RS232) | RS-232 | Synchronous polling only | Used for serial-connected controllers. No async data record support. |
 

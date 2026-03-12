@@ -1,6 +1,6 @@
 # Profile/Trajectory PVs
 
-The IOC supports trajectory scanning and profile moves using the asynMotor profile move interface. Both Linear interpolation and PVT (Position-Velocity-Time) modes are supported. The driver uses Galil `LI`/`LE` (Linear Interpolation) or `PV`/`BT` (PVT Data/Begin PVT) commands depending on the selected mode.
+The IOC supports trajectory scanning and profile moves using the asynMotor profile move interface. Both Linear interpolation and PVT (Position-Velocity-Time) modes are supported. The driver uses Galil [`LI`](galil-command-reference.md#li)/[`LE`](galil-command-reference.md#le) (Linear Interpolation) or [`PV`](galil-command-reference.md#pv)/[`BT`](galil-command-reference.md#bt) (PVT Data/Begin PVT) commands depending on the selected mode.
 
 ## Profile Controller
 

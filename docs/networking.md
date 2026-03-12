@@ -52,7 +52,7 @@ Newer Galil controllers ship with DHCP enabled, and a master reset also re-enabl
 
 1. Connect to the controller using GDK.
 2. Issue `DH0` to disable DHCP.
-3. Issue `BN` to burn the setting to EEPROM (only if the connection is still active after step 2).
+3. Issue [`BN`](galil-command-reference.md#bn) to burn the setting to EEPROM (only if the connection is still active after step 2).
 
 ### Assign a Static IP Address
 
@@ -68,15 +68,15 @@ The IP address is burned to controller EEPROM automatically.
 If connection dropouts occur, especially on open or busy networks, configure the controller to block broadcast and ARP traffic:
 
 1. Connect to the controller using GDK and open a terminal window.
-2. Issue `TH` and record the controller's MAC address.
+2. Issue [`TH`](galil-command-reference.md#th) and record the controller's MAC address.
 3. Issue `IB1` to block all broadcast traffic.
-4. Issue `BN` to burn the setting.
+4. Issue [`BN`](galil-command-reference.md#bn) to burn the setting.
 5. On the IOC host, add a static ARP entry: `arp -s <ip_address> <mac_address>`
 
 !!! warning
     After blocking broadcasts, only hosts with the static ARP entry can connect to the controller. Add the static ARP entry to the IOC host's startup script so it persists across reboots.
 
-To re-enable broadcasts: connect from a host that has the static ARP entry, issue `IB0`, then `BN`. Alternatively, use the master reset jumper.
+To re-enable broadcasts: connect from a host that has the static ARP entry, issue `IB0`, then [`BN`](galil-command-reference.md#bn). Alternatively, use the master reset jumper.
 
 ### Block Low Ports
 
@@ -84,9 +84,9 @@ If connection dropouts persist, blocking most ports below 1000 may help:
 
 1. Connect to the controller using GDK.
 2. Issue `IK1` to block most ports below 1000.
-3. Issue `BN` to burn the setting.
+3. Issue [`BN`](galil-command-reference.md#bn) to burn the setting.
 
-To re-enable: issue `IK0`, then `BN`.
+To re-enable: issue `IK0`, then [`BN`](galil-command-reference.md#bn).
 
 ---
 
