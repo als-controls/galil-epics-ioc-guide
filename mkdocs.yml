@@ -13,6 +13,7 @@ theme:
     - navigation.top
     - search.highlight
     - content.tabs.link
+    - toc.integrate
 
 extra_css:
   - stylesheets/extra.css
