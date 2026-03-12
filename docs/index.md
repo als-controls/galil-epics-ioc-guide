@@ -10,8 +10,9 @@ This guide covers the **V4.x driver line**.
 
 ## Where to Start
 
-- **Setting up an IOC?** Start with [IOC Configuration](ioc-configuration.md) for startup commands and database loading, then [Controller PVs](controller-pvs.md) for controller-level settings.
-- **Configuring motors?** Go straight to [Motor Axis PVs](motor-axis-pvs.md) — it covers the standard motor record mapping plus all Galil-specific extras (motor type, encoder setup, PID, homing, limits).
+- **Setting up an IOC?** Start with [IOC Configuration](ioc-configuration.md) for build requirements, startup commands, substitution file examples, and database loading.
+- **Networking issues?** See [Networking](networking.md) for network topology recommendations, controller IP configuration, and troubleshooting connection dropouts.
+- **Configuring motors?** Go straight to [Motor Axis PVs](motor-axis-pvs.md) -- it covers the standard motor record mapping plus all Galil-specific extras (motor type, encoder setup, PID, homing, limits).
 - **Want the big picture first?** Read [Architecture](architecture.md) for the communication flow, class structure, and how data records work.
 - **Looking up a specific PV or Galil command?** The [Cross Reference](cross-reference.md) maps PVs to commands and commands to PVs. The [Galil Command Reference](galil-command-reference.md) appendix has detailed descriptions of every 2-letter code.
 - **Debugging polling or update rates?** See [Data Record & Polling](data-record-polling.md) for async UDP vs synchronous TCP and what comes from data records versus direct commands.
@@ -23,7 +24,8 @@ This guide covers the **V4.x driver line**.
 | Section | Description |
 |---|---|
 | [Architecture](architecture.md) | Communication flow, key C++ classes, polling model, and data record handling. |
-| [IOC Configuration](ioc-configuration.md) | Startup script commands, `GalilCreateController` arguments, axis configuration, and `autosave` integration. |
+| [IOC Configuration](ioc-configuration.md) | Build requirements, startup commands, substitution file examples, autosave integration, and database loading. |
+| [Networking](networking.md) | Network topology recommendations, controller IP configuration, broadcast blocking, and troubleshooting. |
 | [Controller PVs](controller-pvs.md) | Controller-level PVs: connection status, error messages, code upload/download, and global settings. |
 | [Motor Axis PVs](motor-axis-pvs.md) | Per-axis PVs for axes A–H: motor record fields, velocity, acceleration, PID tuning, limit configuration, homing, and encoder setup. |
 | [Coordinate System PVs](coordinate-system-pvs.md) | Coordinate system PVs for systems S and T, and CS axes I–P: forward/reverse kinematics, coordinated motion, and kinematic variables. |

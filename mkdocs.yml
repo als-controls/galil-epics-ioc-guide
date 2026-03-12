@@ -33,6 +33,7 @@ nav:
   - Home: index.md
   - Architecture: architecture.md
   - IOC Configuration: ioc-configuration.md
+  - Networking: networking.md
   - Controller PVs: controller-pvs.md
   - Motor Axis PVs: motor-axis-pvs.md
   - Coordinate System PVs: coordinate-system-pvs.md
